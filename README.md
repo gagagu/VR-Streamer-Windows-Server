@@ -8,6 +8,12 @@ The VR-Streamer server serves you the possibillity to stream the image output of
 to your iphone. At the same time tracking data can be tranfered from iphone via UDP network connection to a 
 head tracking application (like Opentack). Read for more informations on the official site.
 
+## Compilation & Build
+- the project is made with Visual Studio 2012
+- DirectShow .net Library is needed http://directshownet.sourceforge.net/
+- SharpDX ist needed https://github.com/sharpdx/SharpDX
+- Emgu CV 3.0.0 alpha is needed http://www.emgu.com
+
 ## Installation
 - **setup**: Use the setup.exe for installation
 
