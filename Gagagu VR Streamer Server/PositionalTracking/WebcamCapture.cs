@@ -142,6 +142,7 @@ namespace Gagagu_VR_Streamer_Server.PositionalTracking
                     Double XX = corners[9].X / (grayFrame.Width / 100);
                     Double YY = corners[9].Y / (grayFrame.Width / 100);
                     //Double ZZ = (corners[15].X - corners[12].X) / (grayFrame.Width / 100);
+                   // Double ZZ = corners[15].X  - corners[12].X ;
                    Double ZZ = (corners[15].X / (grayFrame.Width / 100)) - (corners[12].X / (grayFrame.Width / 100));
                     //Double ZZ = (corners[10].X / (grayFrame.Width / 100)) - (corners[9].X / (grayFrame.Width / 100));
 

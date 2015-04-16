@@ -24,3 +24,20 @@ D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu
 D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.csproj.GenerateResource.Cache
 D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.exe
 D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.pdb
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Gagagu VR Streamer Server.exe.config
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.exe
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.pdb
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Gagagu VR Streamer Server.exe
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Gagagu VR Streamer Server.pdb
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.CV.dll
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.CV.UI.dll
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.Util.dll
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\ZedGraph.dll
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.CV.xml
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.CV.UI.xml
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.Util.xml
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.frmAbout.resources
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.Mainwindow.resources
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.Properties.Resources.resources
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.wndAskForProfileName.resources
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.csproj.GenerateResource.Cache
