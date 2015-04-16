@@ -33,13 +33,16 @@ namespace Gagagu_VR_Streamer_Server.PositionalTracking
         private Capture _capture = null;
         private volatile byte[] TrackingData = new byte[48];
         private Mainwindow Parent;
+        private volatile Boolean blStop = false;
+        private Task udpTask;
+
 
         public WebcamCapture(Mainwindow parent)
         {
             this.Parent = parent;
         }
 
-        public Boolean blStop { get; set; }
+     
 
         public void StartCapture()
         {
@@ -47,35 +50,22 @@ namespace Gagagu_VR_Streamer_Server.PositionalTracking
             {
                 blStop = false;
 
-                using (UDPReceiver = new UdpClient(Parent.Profil.UDPReceiveDataPort))
+                if (Parent.Profil.WebcamIndex >= 0)
                 {
-                    using (UDPSender = new UdpClient(Parent.Profil.UDPSendIPAddress, Parent.Profil.UDPSendDataPort))
-                    {
-                        if (Parent.Profil.WebcamIndex >= 0)
-                        {
-                            if (_capture != null) _capture.Dispose();
-                            _capture = new Capture(Parent.Profil.WebcamIndex);
-                            double c = _capture.GetCaptureProperty(CapProp.FrameWidth);
-                            _capture.SetCaptureProperty(CapProp.FrameWidth, 640.0);
-                            _capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight, 480);
-                            //_capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.Fps, 10);
-                            _capture.ImageGrabbed += ProcessFrame;
-                            _capture.Start();
-                            
-                        }
+                    if (_capture != null) _capture.Dispose();
+                    _capture = new Capture(Parent.Profil.WebcamIndex);
+                    double c = _capture.GetCaptureProperty(CapProp.FrameWidth);
+                    //_capture.SetCaptureProperty(CapProp.FrameWidth, 640.0);
+                    //_capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.FrameHeight, 480);
+                    //_capture.SetCaptureProperty(Emgu.CV.CvEnum.CapProp.Fps, 10);
+                    _capture.ImageGrabbed += ProcessFrame;
+                    _capture.Start();
 
-                        var remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
-                        while (blStop == false)
-                        {
-                            byte[] receivedResults = UDPReceiver.Receive(ref remoteEndPoint);
-                            Buffer.BlockCopy(receivedResults, 24, TrackingData, 24, 24);
-                            UDPSender.Send(TrackingData, 48);
-                        }
-
-                        if ((_capture != null) && (Parent.Profil.WebcamIndex >= 0))
-                            _capture.Pause();
-                    }
                 }
+
+                udpTask = new Task(StartUDPServer);
+                udpTask.Start();
+
             }
             catch (Exception ex)
             {
@@ -84,8 +74,28 @@ namespace Gagagu_VR_Streamer_Server.PositionalTracking
             }
         }
 
+        private void StartUDPServer()
+        {
+            using (UDPReceiver = new UdpClient(Parent.Profil.UDPReceiveDataPort))
+            {
+                using (UDPSender = new UdpClient(Parent.Profil.UDPSendIPAddress, Parent.Profil.UDPSendDataPort))
+                {
+
+                    var remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
+                    while (blStop == false)
+                    {
+                        byte[] receivedResults = UDPReceiver.Receive(ref remoteEndPoint);
+                        Buffer.BlockCopy(receivedResults, 24, TrackingData, 24, 24);
+                        UDPSender.Send(TrackingData, 48);
+                    }
+                }
+            }
+        }
+
         public void StopCapture()
         {
+            blStop = true;
+
             if ((_capture != null) && (Parent.Profil.WebcamIndex >= 0))
                 _capture.Pause();
 

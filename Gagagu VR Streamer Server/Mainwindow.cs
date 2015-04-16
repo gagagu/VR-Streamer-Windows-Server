@@ -876,7 +876,7 @@ namespace Gagagu_VR_Streamer_Server
                             blStop = true;
                             if ((this.cbHeadTrackingActivate.Checked)&&(wcCapture!=null))
                             {
-                                wcCapture.blStop = true;
+                                wcCapture.StopCapture();
                             }
                         }
                     }
@@ -897,7 +897,7 @@ namespace Gagagu_VR_Streamer_Server
                 blStop = true;
                 if ((this.cbHeadTrackingActivate.Checked) && (wcCapture != null))
                 {
-                    wcCapture.blStop = true;
+                    wcCapture.StopCapture();
                 }
             }
             finally
@@ -972,7 +972,6 @@ namespace Gagagu_VR_Streamer_Server
                 blStop = true;
                 if ((this.cbHeadTrackingActivate.Checked) && (wcCapture != null))
                 {
-                    wcCapture.blStop = true;
                     wcCapture.StopCapture();
                 }
 

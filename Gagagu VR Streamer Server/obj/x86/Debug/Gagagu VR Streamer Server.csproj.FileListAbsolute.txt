@@ -24,4 +24,3 @@ D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu
 D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.csproj.GenerateResource.Cache
 D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.exe
 D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.pdb
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.csprojResolveAssemblyReference.cache
