@@ -8,7 +8,7 @@ to your iphone. At the same time tracking data can be tranfered from iphone via 
 head tracking application (like Opentack). Read for more informations on the official site.
 
 ## Installation
-- **setup**: Use the setupo.exe for installation
+- **setup**: Use the setup.exe for installation
 
 See the [Installation][Installation] wiki page for more information.
 
