@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProfileData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ProfileData>
+    <Name>outlook</Name>
+    <DataPort>6666</DataPort>
+    <ProcessName>outlook</ProcessName>
+    <Simulate3D>true</Simulate3D>
+    <ShowCursor>false</ShowCursor>
+    <CursorCorrection>false</CursorCorrection>
+    <CustomCursorName />
+    <ShowCrosshair>false</ShowCrosshair>
+    <BorderCorrection>
+      <top>10</top>
+      <bottom>3</bottom>
+      <left>0</left>
+      <right>0</right>
+    </BorderCorrection>
+  </ProfileData>
+  <ProfileData>
+    <Name>bla</Name>
+    <DataPort>6666</DataPort>
+    <ProcessName>fsx</ProcessName>
+    <Simulate3D>false</Simulate3D>
+    <ShowCursor>true</ShowCursor>
+    <CursorCorrection>true</CursorCorrection>
+    <CustomCursorName>arrow_2.ico</CustomCursorName>
+    <ShowCrosshair>false</ShowCrosshair>
+    <BorderCorrection>
+      <top>10</top>
+      <bottom>3</bottom>
+      <left>0</left>
+      <right>0</right>
+    </BorderCorrection>
+  </ProfileData>
+  <ProfileData>
+    <Name>schnick</Name>
+    <DataPort>6666</DataPort>
+    <ProcessName>outlook</ProcessName>
+    <Simulate3D>true</Simulate3D>
+    <ShowCursor>false</ShowCursor>
+    <CursorCorrection>false</CursorCorrection>
+    <CustomCursorName />
+    <ShowCrosshair>false</ShowCrosshair>
+    <BorderCorrection>
+      <top>10</top>
+      <bottom>3</bottom>
+      <left>0</left>
+      <right>0</right>
+    </BorderCorrection>
+  </ProfileData>
+  <ProfileData>
+    <Name>test</Name>
+    <DataPort>6666</DataPort>
+    <ProcessName>fsx</ProcessName>
+    <Simulate3D>false</Simulate3D>
+    <ShowCursor>true</ShowCursor>
+    <CursorCorrection>false</CursorCorrection>
+    <CustomCursorName />
+    <ShowCrosshair>false</ShowCrosshair>
+    <BorderCorrection>
+      <top>10</top>
+      <bottom>3</bottom>
+      <left>0</left>
+      <right>0</right>
+    </BorderCorrection>
+  </ProfileData>
+</ArrayOfProfileData>

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gagagu VR Streamer Server", "Gagagu VR Streamer Server\Gagagu VR Streamer Server.csproj", "{F8181BFA-A186-4975-9282-B0855AAD9D76}"
+EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup5", "Setup5\Setup5.isproj", "{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F8181BFA-A186-4975-9282-B0855AAD9D76} = {F8181BFA-A186-4975-9282-B0855AAD9D76}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
+		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{F8181BFA-A186-4975-9282-B0855AAD9D76}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}.Debug|Any CPU.ActiveCfg = SingleImage
+		{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}.DVD-5|Any CPU.Build.0 = DVD-5
+		{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}.Release|Any CPU.ActiveCfg = SingleImage
+		{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}.Release|Any CPU.Build.0 = SingleImage
+		{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{5D6C5C07-75F8-422C-83A2-DD7CF00075CB}.SingleImage|Any CPU.Build.0 = SingleImage
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
