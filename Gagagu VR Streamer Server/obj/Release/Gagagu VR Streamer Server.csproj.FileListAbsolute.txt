@@ -14,11 +14,19 @@ C:\Users\gagagu\Documents\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Str
 C:\Users\gagagu\Documents\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.Properties.Resources.resources
 C:\Users\gagagu\Documents\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.wndAskForProfileName.resources
 C:\Users\gagagu\Documents\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\Gagagu VR Streamer Server\obj\Release\Gagagu VR Streamer Server.csproj.GenerateResource.Cache
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.1\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe.config
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.1\Gagagu VR Streamer Server\obj\Release\Gagagu VR Streamer Server.exe
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.1\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.1\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.frmAbout.resources
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.1\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.Mainwindow.resources
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.1\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.Properties.Resources.resources
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.1\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.wndAskForProfileName.resources
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.1\Gagagu VR Streamer Server\obj\Release\Gagagu VR Streamer Server.csproj.GenerateResource.Cache
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe.config
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\Release\Gagagu VR Streamer Server.exe
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.frmAbout.resources
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.Mainwindow.resources
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.Properties.Resources.resources
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\Release\Gagagu_VR_Streamer_Server.wndAskForProfileName.resources
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\obj\Release\Gagagu VR Streamer Server.csproj.GenerateResource.Cache
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\SharpDX.D3DCompiler.dll
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\SharpDX.Direct3D11.dll
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\SharpDX.dll
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\SharpDX.DXGI.dll
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\SharpDX.xml
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\SharpDX.D3DCompiler.xml
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\SharpDX.Direct3D11.xml
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.2\Gagagu VR Streamer Server\bin\Release\SharpDX.DXGI.xml

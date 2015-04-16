@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainwindow));
             this.btStartServer = new System.Windows.Forms.Button();
             this.btStopServer = new System.Windows.Forms.Button();
@@ -36,6 +37,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbProcessList = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nCustomWindowHeight = new System.Windows.Forms.NumericUpDown();
+            this.nCustomWindowWidth = new System.Windows.Forms.NumericUpDown();
+            this.nCustomWindowY = new System.Windows.Forms.NumericUpDown();
+            this.nCustomWindowX = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cbCustomWindow = new System.Windows.Forms.CheckBox();
+            this.btReloadWindowPositionAndSize = new System.Windows.Forms.Button();
             this.tbScrollRight = new System.Windows.Forms.TextBox();
             this.tbScrollLeft = new System.Windows.Forms.TextBox();
             this.tbScrollBottom = new System.Windows.Forms.TextBox();
@@ -50,6 +61,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbStatus = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbScrollImageQuality = new System.Windows.Forms.TextBox();
+            this.hScrollImageQuality = new System.Windows.Forms.HScrollBar();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cbDirectX = new System.Windows.Forms.CheckBox();
             this.cbCrosshair = new System.Windows.Forms.CheckBox();
             this.cbSimulate3D = new System.Windows.Forms.CheckBox();
             this.cbShowCursor = new System.Windows.Forms.CheckBox();
@@ -80,12 +95,39 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cbCursorColors = new System.Windows.Forms.ComboBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpMain = new System.Windows.Forms.TabPage();
+            this.tbAppearance = new System.Windows.Forms.TabPage();
+            this.tbHeadTracking = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.tbUDPReceiveDataPort = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cbHeadTrackingActivate = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cbCameraSelection = new System.Windows.Forms.ComboBox();
+            this.tbUDPSenderIpAddress = new System.Windows.Forms.TextBox();
+            this.tbUDPSendDataPort = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.captureBox = new Emgu.CV.UI.ImageBox();
+            this.cbWebcamPreview = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowWidth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowX)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tpMain.SuspendLayout();
+            this.tbAppearance.SuspendLayout();
+            this.tbHeadTracking.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.captureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // btStartServer
@@ -115,7 +157,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 17);
+            this.label1.Location = new System.Drawing.Point(10, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 13);
             this.label1.TabIndex = 2;
@@ -123,7 +165,7 @@
             // 
             // tbServerPort
             // 
-            this.tbServerPort.Location = new System.Drawing.Point(86, 14);
+            this.tbServerPort.Location = new System.Drawing.Point(86, 19);
             this.tbServerPort.Name = "tbServerPort";
             this.tbServerPort.Size = new System.Drawing.Size(60, 20);
             this.tbServerPort.TabIndex = 3;
@@ -132,7 +174,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 40);
+            this.label2.Location = new System.Drawing.Point(33, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 4;
@@ -142,7 +184,7 @@
             // 
             this.cbProcessList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProcessList.FormattingEnabled = true;
-            this.cbProcessList.Location = new System.Drawing.Point(255, 37);
+            this.cbProcessList.Location = new System.Drawing.Point(254, 48);
             this.cbProcessList.Name = "cbProcessList";
             this.cbProcessList.Size = new System.Drawing.Size(166, 21);
             this.cbProcessList.Sorted = true;
@@ -150,6 +192,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.nCustomWindowHeight);
+            this.groupBox1.Controls.Add(this.nCustomWindowWidth);
+            this.groupBox1.Controls.Add(this.nCustomWindowY);
+            this.groupBox1.Controls.Add(this.nCustomWindowX);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.cbCustomWindow);
+            this.groupBox1.Controls.Add(this.btReloadWindowPositionAndSize);
             this.groupBox1.Controls.Add(this.tbScrollRight);
             this.groupBox1.Controls.Add(this.tbScrollLeft);
             this.groupBox1.Controls.Add(this.tbScrollBottom);
@@ -162,16 +214,119 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 444);
+            this.groupBox1.Location = new System.Drawing.Point(7, 199);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(475, 147);
+            this.groupBox1.Size = new System.Drawing.Size(475, 227);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Border Correction";
+            this.groupBox1.Text = "Capture Window Tools";
+            // 
+            // nCustomWindowHeight
+            // 
+            this.nCustomWindowHeight.Enabled = false;
+            this.nCustomWindowHeight.Location = new System.Drawing.Point(280, 162);
+            this.nCustomWindowHeight.Name = "nCustomWindowHeight";
+            this.nCustomWindowHeight.Size = new System.Drawing.Size(76, 20);
+            this.nCustomWindowHeight.TabIndex = 61;
+            this.nCustomWindowHeight.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.nCustomWindowHeight.ValueChanged += new System.EventHandler(this.nCustomWindowHeight_ValueChanged);
+            // 
+            // nCustomWindowWidth
+            // 
+            this.nCustomWindowWidth.Enabled = false;
+            this.nCustomWindowWidth.Location = new System.Drawing.Point(280, 136);
+            this.nCustomWindowWidth.Name = "nCustomWindowWidth";
+            this.nCustomWindowWidth.Size = new System.Drawing.Size(76, 20);
+            this.nCustomWindowWidth.TabIndex = 60;
+            this.nCustomWindowWidth.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.nCustomWindowWidth.ValueChanged += new System.EventHandler(this.nCustomWindowWidth_ValueChanged);
+            // 
+            // nCustomWindowY
+            // 
+            this.nCustomWindowY.Enabled = false;
+            this.nCustomWindowY.Location = new System.Drawing.Point(154, 162);
+            this.nCustomWindowY.Name = "nCustomWindowY";
+            this.nCustomWindowY.Size = new System.Drawing.Size(76, 20);
+            this.nCustomWindowY.TabIndex = 59;
+            this.nCustomWindowY.ValueChanged += new System.EventHandler(this.nCustomWindowY_ValueChanged);
+            // 
+            // nCustomWindowX
+            // 
+            this.nCustomWindowX.Enabled = false;
+            this.nCustomWindowX.Location = new System.Drawing.Point(154, 136);
+            this.nCustomWindowX.Name = "nCustomWindowX";
+            this.nCustomWindowX.Size = new System.Drawing.Size(76, 20);
+            this.nCustomWindowX.TabIndex = 48;
+            this.nCustomWindowX.ValueChanged += new System.EventHandler(this.nCustomWindowX_ValueChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(233, 164);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(41, 13);
+            this.label18.TabIndex = 58;
+            this.label18.Text = "Height:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(236, 138);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(38, 13);
+            this.label19.TabIndex = 56;
+            this.label19.Text = "Width:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(137, 164);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(17, 13);
+            this.label17.TabIndex = 54;
+            this.label17.Text = "Y:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(137, 138);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(17, 13);
+            this.label16.TabIndex = 52;
+            this.label16.Text = "X:";
+            // 
+            // cbCustomWindow
+            // 
+            this.cbCustomWindow.AutoSize = true;
+            this.cbCustomWindow.Location = new System.Drawing.Point(22, 137);
+            this.cbCustomWindow.Name = "cbCustomWindow";
+            this.cbCustomWindow.Size = new System.Drawing.Size(103, 17);
+            this.cbCustomWindow.TabIndex = 51;
+            this.cbCustomWindow.Text = "Custom Window";
+            this.cbCustomWindow.UseVisualStyleBackColor = true;
+            this.cbCustomWindow.CheckedChanged += new System.EventHandler(this.cbCustomWindow_CheckedChanged);
+            // 
+            // btReloadWindowPositionAndSize
+            // 
+            this.btReloadWindowPositionAndSize.Location = new System.Drawing.Point(68, 187);
+            this.btReloadWindowPositionAndSize.Name = "btReloadWindowPositionAndSize";
+            this.btReloadWindowPositionAndSize.Size = new System.Drawing.Size(382, 23);
+            this.btReloadWindowPositionAndSize.TabIndex = 50;
+            this.btReloadWindowPositionAndSize.Text = "Refresh Process Window Position and Size";
+            this.btReloadWindowPositionAndSize.UseVisualStyleBackColor = true;
+            this.btReloadWindowPositionAndSize.Click += new System.EventHandler(this.btReloadWindowPositionAndSize_Click);
             // 
             // tbScrollRight
             // 
-            this.tbScrollRight.Location = new System.Drawing.Point(395, 106);
+            this.tbScrollRight.Location = new System.Drawing.Point(395, 100);
             this.tbScrollRight.Name = "tbScrollRight";
             this.tbScrollRight.ReadOnly = true;
             this.tbScrollRight.Size = new System.Drawing.Size(55, 20);
@@ -181,7 +336,7 @@
             // 
             // tbScrollLeft
             // 
-            this.tbScrollLeft.Location = new System.Drawing.Point(395, 80);
+            this.tbScrollLeft.Location = new System.Drawing.Point(395, 74);
             this.tbScrollLeft.Name = "tbScrollLeft";
             this.tbScrollLeft.ReadOnly = true;
             this.tbScrollLeft.Size = new System.Drawing.Size(55, 20);
@@ -191,7 +346,7 @@
             // 
             // tbScrollBottom
             // 
-            this.tbScrollBottom.Location = new System.Drawing.Point(395, 54);
+            this.tbScrollBottom.Location = new System.Drawing.Point(395, 48);
             this.tbScrollBottom.Name = "tbScrollBottom";
             this.tbScrollBottom.ReadOnly = true;
             this.tbScrollBottom.Size = new System.Drawing.Size(55, 20);
@@ -201,7 +356,7 @@
             // 
             // tbScrollTop
             // 
-            this.tbScrollTop.Location = new System.Drawing.Point(395, 28);
+            this.tbScrollTop.Location = new System.Drawing.Point(395, 22);
             this.tbScrollTop.Name = "tbScrollTop";
             this.tbScrollTop.ReadOnly = true;
             this.tbScrollTop.Size = new System.Drawing.Size(55, 20);
@@ -211,7 +366,7 @@
             // 
             // hScrollRight
             // 
-            this.hScrollRight.Location = new System.Drawing.Point(69, 106);
+            this.hScrollRight.Location = new System.Drawing.Point(69, 100);
             this.hScrollRight.Maximum = 1000;
             this.hScrollRight.Name = "hScrollRight";
             this.hScrollRight.Size = new System.Drawing.Size(323, 20);
@@ -220,7 +375,7 @@
             // 
             // hScrollLeft
             // 
-            this.hScrollLeft.Location = new System.Drawing.Point(69, 80);
+            this.hScrollLeft.Location = new System.Drawing.Point(69, 74);
             this.hScrollLeft.Maximum = 1000;
             this.hScrollLeft.Name = "hScrollLeft";
             this.hScrollLeft.Size = new System.Drawing.Size(323, 20);
@@ -229,7 +384,7 @@
             // 
             // hScrollBottom
             // 
-            this.hScrollBottom.Location = new System.Drawing.Point(69, 54);
+            this.hScrollBottom.Location = new System.Drawing.Point(69, 48);
             this.hScrollBottom.Maximum = 1000;
             this.hScrollBottom.Name = "hScrollBottom";
             this.hScrollBottom.Size = new System.Drawing.Size(323, 20);
@@ -238,7 +393,7 @@
             // 
             // hScrollTop
             // 
-            this.hScrollTop.Location = new System.Drawing.Point(69, 28);
+            this.hScrollTop.Location = new System.Drawing.Point(69, 22);
             this.hScrollTop.Maximum = 1000;
             this.hScrollTop.Name = "hScrollTop";
             this.hScrollTop.Size = new System.Drawing.Size(323, 20);
@@ -248,7 +403,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 109);
+            this.label6.Location = new System.Drawing.Point(33, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 31;
@@ -257,7 +412,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 83);
+            this.label5.Location = new System.Drawing.Point(39, 77);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 13);
             this.label5.TabIndex = 30;
@@ -266,7 +421,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 56);
+            this.label4.Location = new System.Drawing.Point(21, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 29;
@@ -275,7 +430,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 31);
+            this.label3.Location = new System.Drawing.Point(38, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(25, 13);
             this.label3.TabIndex = 28;
@@ -284,7 +439,7 @@
             // tbStatus
             // 
             this.tbStatus.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tbStatus.Location = new System.Drawing.Point(12, 681);
+            this.tbStatus.Location = new System.Drawing.Point(6, 399);
             this.tbStatus.Name = "tbStatus";
             this.tbStatus.ReadOnly = true;
             this.tbStatus.Size = new System.Drawing.Size(392, 20);
@@ -293,29 +448,75 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbScrollImageQuality);
+            this.groupBox2.Controls.Add(this.hScrollImageQuality);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.cbDirectX);
             this.groupBox2.Controls.Add(this.cbCrosshair);
             this.groupBox2.Controls.Add(this.cbSimulate3D);
-            this.groupBox2.Location = new System.Drawing.Point(12, 182);
+            this.groupBox2.Location = new System.Drawing.Point(6, 155);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(475, 48);
+            this.groupBox2.Size = new System.Drawing.Size(475, 136);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Extras";
             // 
+            // tbScrollImageQuality
+            // 
+            this.tbScrollImageQuality.Location = new System.Drawing.Point(385, 105);
+            this.tbScrollImageQuality.Name = "tbScrollImageQuality";
+            this.tbScrollImageQuality.ReadOnly = true;
+            this.tbScrollImageQuality.Size = new System.Drawing.Size(55, 20);
+            this.tbScrollImageQuality.TabIndex = 49;
+            this.tbScrollImageQuality.Text = "50";
+            this.tbScrollImageQuality.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // hScrollImageQuality
+            // 
+            this.hScrollImageQuality.Location = new System.Drawing.Point(103, 105);
+            this.hScrollImageQuality.Maximum = 109;
+            this.hScrollImageQuality.Minimum = 1;
+            this.hScrollImageQuality.Name = "hScrollImageQuality";
+            this.hScrollImageQuality.Size = new System.Drawing.Size(278, 20);
+            this.hScrollImageQuality.TabIndex = 48;
+            this.hScrollImageQuality.Value = 50;
+            this.hScrollImageQuality.ValueChanged += new System.EventHandler(this.hScrollImageQuality_ValueChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(22, 108);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(74, 13);
+            this.label12.TabIndex = 47;
+            this.label12.Text = "Image Quality:";
+            // 
+            // cbDirectX
+            // 
+            this.cbDirectX.AutoSize = true;
+            this.cbDirectX.Location = new System.Drawing.Point(22, 19);
+            this.cbDirectX.Name = "cbDirectX";
+            this.cbDirectX.Size = new System.Drawing.Size(83, 17);
+            this.cbDirectX.TabIndex = 2;
+            this.cbDirectX.Text = "Use DirectX";
+            this.cbDirectX.UseVisualStyleBackColor = true;
+            this.cbDirectX.CheckedChanged += new System.EventHandler(this.cbDirectX_CheckedChanged);
+            // 
             // cbCrosshair
             // 
             this.cbCrosshair.AutoSize = true;
-            this.cbCrosshair.Location = new System.Drawing.Point(114, 19);
+            this.cbCrosshair.Location = new System.Drawing.Point(22, 69);
             this.cbCrosshair.Name = "cbCrosshair";
             this.cbCrosshair.Size = new System.Drawing.Size(99, 17);
             this.cbCrosshair.TabIndex = 1;
             this.cbCrosshair.Text = "Show Crosshair";
             this.cbCrosshair.UseVisualStyleBackColor = true;
+            this.cbCrosshair.CheckedChanged += new System.EventHandler(this.cbCrosshair_CheckedChanged);
             // 
             // cbSimulate3D
             // 
             this.cbSimulate3D.AutoSize = true;
-            this.cbSimulate3D.Location = new System.Drawing.Point(22, 19);
+            this.cbSimulate3D.Location = new System.Drawing.Point(22, 42);
             this.cbSimulate3D.Name = "cbSimulate3D";
             this.cbSimulate3D.Size = new System.Drawing.Size(83, 17);
             this.cbSimulate3D.TabIndex = 0;
@@ -340,7 +541,7 @@
             this.groupBox3.Controls.Add(this.btDeleteProfile);
             this.groupBox3.Controls.Add(this.btNewProfile);
             this.groupBox3.Controls.Add(this.btSaveProfile);
-            this.groupBox3.Location = new System.Drawing.Point(12, 597);
+            this.groupBox3.Location = new System.Drawing.Point(6, 297);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(475, 77);
             this.groupBox3.TabIndex = 32;
@@ -390,14 +591,14 @@
             // 
             // tbProcess
             // 
-            this.tbProcess.Location = new System.Drawing.Point(86, 37);
+            this.tbProcess.Location = new System.Drawing.Point(85, 48);
             this.tbProcess.Name = "tbProcess";
             this.tbProcess.Size = new System.Drawing.Size(137, 20);
             this.tbProcess.TabIndex = 33;
             // 
             // btTakeProcess
             // 
-            this.btTakeProcess.Location = new System.Drawing.Point(227, 36);
+            this.btTakeProcess.Location = new System.Drawing.Point(226, 47);
             this.btTakeProcess.Name = "btTakeProcess";
             this.btTakeProcess.Size = new System.Drawing.Size(24, 23);
             this.btTakeProcess.TabIndex = 34;
@@ -407,7 +608,7 @@
             // 
             // btReloadProcessList
             // 
-            this.btReloadProcessList.Location = new System.Drawing.Point(424, 36);
+            this.btReloadProcessList.Location = new System.Drawing.Point(423, 47);
             this.btReloadProcessList.Name = "btReloadProcessList";
             this.btReloadProcessList.Size = new System.Drawing.Size(44, 23);
             this.btReloadProcessList.TabIndex = 35;
@@ -424,16 +625,16 @@
             this.groupBox4.Controls.Add(this.cbProcessList);
             this.groupBox4.Controls.Add(this.tbProcess);
             this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Location = new System.Drawing.Point(12, 108);
+            this.groupBox4.Location = new System.Drawing.Point(6, 65);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(475, 68);
+            this.groupBox4.Size = new System.Drawing.Size(475, 84);
             this.groupBox4.TabIndex = 36;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Settings";
             // 
             // btAbout
             // 
-            this.btAbout.Location = new System.Drawing.Point(412, 680);
+            this.btAbout.Location = new System.Drawing.Point(406, 398);
             this.btAbout.Name = "btAbout";
             this.btAbout.Size = new System.Drawing.Size(75, 23);
             this.btAbout.TabIndex = 37;
@@ -453,9 +654,9 @@
             // 
             this.cbIPAdresses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbIPAdresses.FormattingEnabled = true;
-            this.cbIPAdresses.Location = new System.Drawing.Point(130, 16);
+            this.cbIPAdresses.Location = new System.Drawing.Point(103, 16);
             this.cbIPAdresses.Name = "cbIPAdresses";
-            this.cbIPAdresses.Size = new System.Drawing.Size(121, 21);
+            this.cbIPAdresses.Size = new System.Drawing.Size(365, 21);
             this.cbIPAdresses.Sorted = true;
             this.cbIPAdresses.TabIndex = 39;
             // 
@@ -464,7 +665,7 @@
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Controls.Add(this.cbIPAdresses);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(12, 54);
+            this.groupBox5.Location = new System.Drawing.Point(6, 11);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(475, 48);
             this.groupBox5.TabIndex = 40;
@@ -474,7 +675,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 19);
+            this.label7.Location = new System.Drawing.Point(10, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 13);
             this.label7.TabIndex = 40;
@@ -507,9 +708,9 @@
             this.groupBox6.Controls.Add(this.cbCursorColors);
             this.groupBox6.Controls.Add(this.cbCursorCorrection);
             this.groupBox6.Controls.Add(this.cbShowCursor);
-            this.groupBox6.Location = new System.Drawing.Point(12, 236);
+            this.groupBox6.Location = new System.Drawing.Point(7, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(475, 202);
+            this.groupBox6.Size = new System.Drawing.Size(475, 187);
             this.groupBox6.TabIndex = 41;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Cursor";
@@ -613,6 +814,7 @@
             // cbCursorColors
             // 
             this.cbCursorColors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCursorColors.Enabled = false;
             this.cbCursorColors.FormattingEnabled = true;
             this.cbCursorColors.Location = new System.Drawing.Point(114, 40);
             this.cbCursorColors.Name = "cbCursorColors";
@@ -621,21 +823,195 @@
             this.cbCursorColors.TabIndex = 6;
             this.cbCursorColors.SelectedIndexChanged += new System.EventHandler(this.cbCursors_SelectedIndexChanged);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tpMain);
+            this.tabControl1.Controls.Add(this.tbAppearance);
+            this.tabControl1.Controls.Add(this.tbHeadTracking);
+            this.tabControl1.Location = new System.Drawing.Point(12, 54);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(495, 458);
+            this.tabControl1.TabIndex = 42;
+            // 
+            // tpMain
+            // 
+            this.tpMain.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tpMain.Controls.Add(this.groupBox5);
+            this.tpMain.Controls.Add(this.groupBox2);
+            this.tpMain.Controls.Add(this.groupBox4);
+            this.tpMain.Controls.Add(this.btAbout);
+            this.tpMain.Controls.Add(this.tbStatus);
+            this.tpMain.Controls.Add(this.groupBox3);
+            this.tpMain.Location = new System.Drawing.Point(4, 22);
+            this.tpMain.Name = "tpMain";
+            this.tpMain.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMain.Size = new System.Drawing.Size(487, 432);
+            this.tpMain.TabIndex = 0;
+            this.tpMain.Text = "Main";
+            // 
+            // tbAppearance
+            // 
+            this.tbAppearance.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tbAppearance.Controls.Add(this.groupBox1);
+            this.tbAppearance.Controls.Add(this.groupBox6);
+            this.tbAppearance.Location = new System.Drawing.Point(4, 22);
+            this.tbAppearance.Name = "tbAppearance";
+            this.tbAppearance.Padding = new System.Windows.Forms.Padding(3);
+            this.tbAppearance.Size = new System.Drawing.Size(487, 432);
+            this.tbAppearance.TabIndex = 1;
+            this.tbAppearance.Text = "Appearance";
+            // 
+            // tbHeadTracking
+            // 
+            this.tbHeadTracking.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tbHeadTracking.Controls.Add(this.groupBox7);
+            this.tbHeadTracking.Controls.Add(this.groupBox8);
+            this.tbHeadTracking.Location = new System.Drawing.Point(4, 22);
+            this.tbHeadTracking.Name = "tbHeadTracking";
+            this.tbHeadTracking.Size = new System.Drawing.Size(487, 432);
+            this.tbHeadTracking.TabIndex = 2;
+            this.tbHeadTracking.Text = "Head Tracking";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.tbUDPReceiveDataPort);
+            this.groupBox7.Controls.Add(this.label15);
+            this.groupBox7.Controls.Add(this.cbHeadTrackingActivate);
+            this.groupBox7.Controls.Add(this.label13);
+            this.groupBox7.Controls.Add(this.cbCameraSelection);
+            this.groupBox7.Controls.Add(this.tbUDPSenderIpAddress);
+            this.groupBox7.Controls.Add(this.tbUDPSendDataPort);
+            this.groupBox7.Controls.Add(this.label14);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(6, 3);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(475, 127);
+            this.groupBox7.TabIndex = 43;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Main";
+            // 
+            // tbUDPReceiveDataPort
+            // 
+            this.tbUDPReceiveDataPort.Location = new System.Drawing.Point(129, 42);
+            this.tbUDPReceiveDataPort.Name = "tbUDPReceiveDataPort";
+            this.tbUDPReceiveDataPort.Size = new System.Drawing.Size(102, 20);
+            this.tbUDPReceiveDataPort.TabIndex = 8;
+            this.tbUDPReceiveDataPort.Text = "5252";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(17, 97);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 13);
+            this.label15.TabIndex = 15;
+            this.label15.Text = "Device:";
+            // 
+            // cbHeadTrackingActivate
+            // 
+            this.cbHeadTrackingActivate.AutoSize = true;
+            this.cbHeadTrackingActivate.Checked = true;
+            this.cbHeadTrackingActivate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbHeadTrackingActivate.Location = new System.Drawing.Point(19, 19);
+            this.cbHeadTrackingActivate.Name = "cbHeadTrackingActivate";
+            this.cbHeadTrackingActivate.Size = new System.Drawing.Size(65, 17);
+            this.cbHeadTrackingActivate.TabIndex = 2;
+            this.cbHeadTrackingActivate.Text = "Activate";
+            this.cbHeadTrackingActivate.UseVisualStyleBackColor = true;
+            this.cbHeadTrackingActivate.CheckedChanged += new System.EventHandler(this.cbHeadTrackingActivate_CheckedChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(16, 45);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 13);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "UDP Receive Port:";
+            // 
+            // cbCameraSelection
+            // 
+            this.cbCameraSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCameraSelection.FormattingEnabled = true;
+            this.cbCameraSelection.Location = new System.Drawing.Point(67, 94);
+            this.cbCameraSelection.Name = "cbCameraSelection";
+            this.cbCameraSelection.Size = new System.Drawing.Size(337, 21);
+            this.cbCameraSelection.Sorted = true;
+            this.cbCameraSelection.TabIndex = 14;
+            this.cbCameraSelection.SelectedIndexChanged += new System.EventHandler(this.cbCameraSelection_SelectedIndexChanged);
+            // 
+            // tbUDPSenderIpAddress
+            // 
+            this.tbUDPSenderIpAddress.Location = new System.Drawing.Point(129, 68);
+            this.tbUDPSenderIpAddress.Name = "tbUDPSenderIpAddress";
+            this.tbUDPSenderIpAddress.Size = new System.Drawing.Size(167, 20);
+            this.tbUDPSenderIpAddress.TabIndex = 7;
+            this.tbUDPSenderIpAddress.Text = "192.168.100.14";
+            // 
+            // tbUDPSendDataPort
+            // 
+            this.tbUDPSendDataPort.Location = new System.Drawing.Point(302, 68);
+            this.tbUDPSendDataPort.Name = "tbUDPSendDataPort";
+            this.tbUDPSendDataPort.Size = new System.Drawing.Size(102, 20);
+            this.tbUDPSendDataPort.TabIndex = 9;
+            this.tbUDPSendDataPort.Text = "4242";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 71);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 13);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "UDP Send IP/Port:";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.captureBox);
+            this.groupBox8.Controls.Add(this.cbWebcamPreview);
+            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(6, 136);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(475, 293);
+            this.groupBox8.TabIndex = 44;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Info";
+            // 
+            // captureBox
+            // 
+            this.captureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.captureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.captureBox.Location = new System.Drawing.Point(19, 42);
+            this.captureBox.Name = "captureBox";
+            this.captureBox.Size = new System.Drawing.Size(450, 235);
+            this.captureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.captureBox.TabIndex = 28;
+            this.captureBox.TabStop = false;
+            // 
+            // cbWebcamPreview
+            // 
+            this.cbWebcamPreview.AutoSize = true;
+            this.cbWebcamPreview.Checked = true;
+            this.cbWebcamPreview.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbWebcamPreview.Location = new System.Drawing.Point(19, 19);
+            this.cbWebcamPreview.Name = "cbWebcamPreview";
+            this.cbWebcamPreview.Size = new System.Drawing.Size(64, 17);
+            this.cbWebcamPreview.TabIndex = 29;
+            this.cbWebcamPreview.Text = "Preview";
+            this.cbWebcamPreview.UseVisualStyleBackColor = true;
+            this.cbWebcamPreview.CheckedChanged += new System.EventHandler(this.cbWebcamPreview_CheckedChanged);
+            // 
             // Mainwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(499, 712);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
+            this.ClientSize = new System.Drawing.Size(513, 525);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lbIPAddress);
-            this.Controls.Add(this.btAbout);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.tbStatus);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btStopServer);
             this.Controls.Add(this.btStartServer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -643,10 +1019,14 @@
             this.MaximizeBox = false;
             this.Name = "Mainwindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gagagu VR Streamer Server - v1.1.0";
+            this.Text = "Gagagu VR Streamer Server - v2.0.0";
             this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowX)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -656,6 +1036,16 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tpMain.ResumeLayout(false);
+            this.tpMain.PerformLayout();
+            this.tbAppearance.ResumeLayout(false);
+            this.tbHeadTracking.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.captureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -714,6 +1104,36 @@
         private System.Windows.Forms.HScrollBar hScrollCursorSize;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox cbDirectX;
+        private System.Windows.Forms.HScrollBar hScrollImageQuality;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox tbScrollImageQuality;
+        private System.Windows.Forms.Button btReloadWindowPositionAndSize;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tpMain;
+        private System.Windows.Forms.TabPage tbAppearance;
+        private System.Windows.Forms.TabPage tbHeadTracking;
+        private System.Windows.Forms.TextBox tbUDPSendDataPort;
+        private System.Windows.Forms.TextBox tbUDPReceiveDataPort;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tbUDPSenderIpAddress;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox cbHeadTrackingActivate;
+        private Emgu.CV.UI.ImageBox captureBox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cbCameraSelection;
+        private System.Windows.Forms.CheckBox cbWebcamPreview;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.CheckBox cbCustomWindow;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.NumericUpDown nCustomWindowHeight;
+        private System.Windows.Forms.NumericUpDown nCustomWindowWidth;
+        private System.Windows.Forms.NumericUpDown nCustomWindowY;
+        private System.Windows.Forms.NumericUpDown nCustomWindowX;
     }
 }
 
