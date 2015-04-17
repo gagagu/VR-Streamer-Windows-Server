@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,102 @@ namespace Gagagu_VR_Streamer_Server
     /// Some drawing tools for drawing cursor or crosshair
     /// </summary>
     class GDIGraphicTools
-    {
+    {                           
+        /// <summary>
+        /// 3d simulation copies the captured screenshot twice on destination bitmap.
+        /// It creates a Side-by-Side image
+        /// </summary>
+        /// <param name="wRect"></param>
+        /// <param name="bmp"></param>
+        /// <returns></returns>
+        public static Bitmap Simulate3D(Rectangle wRect, Bitmap bmp)
+        {
+            if (bmp == null)
+                return new Bitmap(wRect.Width, wRect.Height, PixelFormat.Format32bppArgb);
+
+            Bitmap bmpSBS = new Bitmap(wRect.Width, wRect.Height, PixelFormat.Format32bppArgb);
+            Graphics g = System.Drawing.Graphics.FromImage(bmpSBS);
+            g.Clear(System.Drawing.Color.Black);
+            g.DrawImage(bmp, new System.Drawing.Rectangle(0, 0, bmp.Width / 2, bmp.Height));
+            g.DrawImage(bmp, new System.Drawing.Rectangle(wRect.Width / 2, 0, bmp.Width / 2, bmp.Height));
+            g.Dispose();
+
+            return bmpSBS;
+        }
+
+
+        /// <summary>
+        /// Controls to draw cursor or crosshair
+        /// </summary>
+        /// <param name="bmp">bitmap too draw</param>
+        /// <param name="wRect">Caption rect to calculate cursor</param>
+        /// <param name="Profil">setting prolfie</param>
+        /// <param name="CursorPosition">cursor position</param>
+        /// <param name="myBrush">draw brush</param>
+        /// <returns>bitmap with drawings</returns>
+        public static Bitmap DrawExtras(Bitmap bmp, Rectangle wRect, ProfileData Profil, Point CursorPosition, SolidBrush myBrush)
+        {
+            try
+            {
+                if (bmp == null)
+                    return new Bitmap(wRect.Width, wRect.Height, PixelFormat.Format32bppArgb);
+
+                Graphics g = System.Drawing.Graphics.FromImage(bmp);
+
+                if (Profil.ShowCrosshair)
+                {
+                    GDIGraphicTools.DrawCrosshair(g, wRect.Width, wRect.Height);
+                }
+
+                if (Profil.ShowCursor)
+                {
+                    GDIGraphicTools.DrawCursor(g,
+                                                wRect.X,
+                                                wRect.Y,
+                                                wRect.Width,
+                                                wRect.Height,
+                                                CursorPosition,
+                                                Profil.CursorCorrection,
+                                                Profil.CursorCorrectionAdjWidth,
+                                                Profil.CursorCorrectionAdjHeight,
+                                                myBrush,
+                                                Profil.CursorSize);
+                    
+                } // cursor
+
+                g.Dispose();
+
+            }
+            catch { }
+
+            return bmp;
+        }
+
+        /// <summary>
+        /// Get encoder for scecified image format
+        /// </summary>
+        /// <param name="format">image format</param>
+        /// <returns></returns>
+        public static ImageCodecInfo GetEncoder(ImageFormat format)
+        {
+            try
+            {
+                ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
+
+                foreach (ImageCodecInfo codec in codecs)
+                {
+                    if (codec.FormatID == format.Guid)
+                    {
+                        return codec;
+                    }
+                }
+                return null;
+            }
+            catch {
+                return null;
+            }
+        }
+
         /// <summary>
         /// Draws a crosshair to the give graphics on bothe sides with the given size
         /// </summary>
@@ -109,24 +205,26 @@ namespace Gagagu_VR_Streamer_Server
 
                         }
 
-                    }
-                    // add width adjustment
-                    if (hScrollAdjWidthValue != 0)
-                    {
-                        iconX += hScrollAdjWidthValue;
+                        // add width adjustment
+                        if (hScrollAdjWidthValue != 0)
+                        {
+                            iconX += hScrollAdjWidthValue;
 
-                        if (iconX < 0)
-                            iconX = 0;
+                            if (iconX < 0)
+                                iconX = 0;
+
+                        }
+                        // add height adjustments
+                        if (hScrollAdjHeightValue != 0)
+                        {
+                            iconY += hScrollAdjHeightValue;
+                            if (iconY < 0)
+                                iconY = 0;
+
+                        }
 
                     }
-                    // add height adjustments
-                    if (hScrollAdjHeightValue != 0)
-                    {
-                        iconY += hScrollAdjHeightValue;
-                        if (iconY < 0)
-                            iconY = 0;
 
-                    }
                     // draw dots
                     gcu.FillEllipse(myBrush, iconX, iconY, size, size);
                     gcu.FillEllipse(myBrush, iconX + (width / 2), iconY, size, size);
@@ -138,39 +236,7 @@ namespace Gagagu_VR_Streamer_Server
         } // cursor
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public static void SetCaptureRect(ref Rectangle CaptureRect, User32.Rect GameWindowRect, ProfileData Profil)
-        {
-            try
-            {
-                if (Profil.CustomWindow)
-                {
-                    CaptureRect.Width = Profil.CustomWindowSize.width;
-                    CaptureRect.Height = Profil.CustomWindowSize.height;
-                    CaptureRect.X = Profil.CustomWindowSize.x;
-                    CaptureRect.Y = Profil.CustomWindowSize.y;
-                }
-                else
-                {
-                    CaptureRect.Width = GameWindowRect.right - (GameWindowRect.left + Profil.BorderCorrection.left) - Profil.BorderCorrection.right;
-                    CaptureRect.Height = GameWindowRect.bottom - (GameWindowRect.top + Profil.BorderCorrection.top) - Profil.BorderCorrection.bottom;
-                    CaptureRect.X = GameWindowRect.left + Profil.BorderCorrection.left;
-                    CaptureRect.Y = GameWindowRect.top + Profil.BorderCorrection.top;
-                }
+ 
 
-                if (CaptureRect.Width <= 0)
-                    CaptureRect.Width = 1;
-
-                if (CaptureRect.Height <= 0)
-                    CaptureRect.Height = 1;
-
-            }
-            catch
-            {
-                CaptureRect = new Rectangle(0, 0, 0, 0);
-            }
-        }
     }
 }

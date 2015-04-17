@@ -7,20 +7,20 @@
     <UDPSendDataPort>4242</UDPSendDataPort>
     <UDPSendIPAddress>192.168.100.14</UDPSendIPAddress>
     <WebcamPreview>true</WebcamPreview>
-    <WebcamIndex>0</WebcamIndex>
+    <WebcamIndex>-1</WebcamIndex>
     <ProcessName>notepad</ProcessName>
     <Simulate3D>false</Simulate3D>
-    <ShowCursor>false</ShowCursor>
+    <ShowCursor>true</ShowCursor>
     <CursorCorrection>false</CursorCorrection>
     <ShowCrosshair>false</ShowCrosshair>
-    <CorsorColorName>Color [White]</CorsorColorName>
-    <CursorSize>1</CursorSize>
-    <CursorCorrectionAdjWidth>-1000</CursorCorrectionAdjWidth>
-    <CursorCorrectionAdjHeight>-1000</CursorCorrectionAdjHeight>
-    <UseDirectX>true</UseDirectX>
-    <ImageQuality>1</ImageQuality>
+    <CorsorColorName>Color [Red]</CorsorColorName>
+    <CursorSize>5</CursorSize>
+    <CursorCorrectionAdjWidth>0</CursorCorrectionAdjWidth>
+    <CursorCorrectionAdjHeight>0</CursorCorrectionAdjHeight>
+    <UseDirectX>false</UseDirectX>
+    <ImageQuality>43</ImageQuality>
     <CustomWindow>false</CustomWindow>
-    <ActivateHeadTracking>true</ActivateHeadTracking>
+    <ActivateHeadTracking>false</ActivateHeadTracking>
     <BorderCorrection>
       <top>0</top>
       <bottom>0</bottom>

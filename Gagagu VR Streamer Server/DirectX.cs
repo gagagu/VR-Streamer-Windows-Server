@@ -16,6 +16,9 @@ using System.Drawing;
 
 namespace Gagagu_VR_Streamer_Server
 {
+    /// <summary>
+    /// Class for Directx capture
+    /// </summary>
     public class DirectX
     {
         const int numAdapter = 0;
@@ -26,8 +29,6 @@ namespace Gagagu_VR_Streamer_Server
         Device device = null;
         Output output = null;
         Output1 output1 = null;
-
-
 
         Texture2DDescription textureDesc;
         Texture2D screenTexture;
@@ -44,9 +45,11 @@ namespace Gagagu_VR_Streamer_Server
         int width = 0;
         int height = 0;
 
+        /// <summary>
+        /// Init some variables one times to spend execution time.
+        /// </summary>
         public DirectX()
         {
-
 
             try
             {
@@ -55,7 +58,7 @@ namespace Gagagu_VR_Streamer_Server
                 device = new Device(adapter);
                 output = adapter.GetOutput(numOutput);
                 output1 = output.QueryInterface<Output1>();
-
+                // get screen wize
                 width = ((SharpDX.Rectangle)output.Description.DesktopBounds).Width;
                 height = ((SharpDX.Rectangle)output.Description.DesktopBounds).Height;
 
@@ -75,8 +78,6 @@ namespace Gagagu_VR_Streamer_Server
 
                 screenTexture = new Texture2D(device, textureDesc);
                 duplicatedOutput = output1.DuplicateOutput(device);
-
-
            
             }
             catch (Exception ex)
@@ -85,6 +86,9 @@ namespace Gagagu_VR_Streamer_Server
             }
         }
 
+        /// <summary>
+        /// Dispose all
+        /// </summary>
         public void close()
         {
             duplicatedOutput.Dispose();
@@ -94,15 +98,18 @@ namespace Gagagu_VR_Streamer_Server
             device.Dispose();
             adapter.Dispose();
             factory.Dispose();
-
-
         }
 
+        /// <summary>
+        /// Creates a screenshot over directx and returns the specified rect as bitmap
+        /// </summary>
+        /// <param name="CaptureRect">rect to capture from screen</param>
+        /// <returns></returns>
         [STAThread]
         public System.Drawing.Bitmap capture(System.Drawing.Rectangle CaptureRect)
         {
             
-
+            // Checkings
             if (factory == null)
                 return null;
 
@@ -121,7 +128,7 @@ namespace Gagagu_VR_Streamer_Server
             try
             {
 
-
+                // Set a min and max rect to prevent errors
                 if (CaptureRect.Height <=50) {
                      CaptureRect.Height = 50;
                 }
@@ -158,20 +165,24 @@ namespace Gagagu_VR_Streamer_Server
                     }
                 }
 
+                // init
                 bool captureDone = false;
                 bitmap = new System.Drawing.Bitmap(CaptureRect.Width, CaptureRect.Height, PixelFormat.Format32bppArgb);
                 boundsRect = new System.Drawing.Rectangle(0, 0, CaptureRect.Width, CaptureRect.Height);
+                // offset in x direction (rect.x)
                 int offsetX = (CaptureRect.X * 4);
 
+                // the capture needs some time
                 for (int i = 0; !captureDone; i++)
                 {
                     try
                     {
-                        
+                        //capture
                         duplicatedOutput.AcquireNextFrame(1000, out duplicateFrameInformation, out screenResource);
-                     
+                        // only for wait
                         if (i > 0)
                         {
+
                             using (var screenTexture2D = screenResource.QueryInterface<Texture2D>())
                                 device.ImmediateContext.CopyResource(screenTexture2D, screenTexture);
 
@@ -180,14 +191,18 @@ namespace Gagagu_VR_Streamer_Server
                             sourcePtr = mapSource.DataPointer;
                             destPtr = mapDest.Scan0;
 
+                            // set x position offset to rect.x
                             int rowPitch = mapSource.RowPitch - offsetX;
+                            // set pointer to y position
                             sourcePtr = IntPtr.Add(sourcePtr, mapSource.RowPitch * CaptureRect.Y);
                             
                             for (int y = 0; y < CaptureRect.Height; y++)
                             {
+                                // set pointer to x position
                                 sourcePtr = IntPtr.Add(sourcePtr, offsetX);
+                                // copy pixel to bmp
                                 Utilities.CopyMemory(destPtr, sourcePtr, (CaptureRect.Width * 4));
-
+                                // incement pointert to next line
                                 sourcePtr = IntPtr.Add(sourcePtr, rowPitch);
                                 destPtr = IntPtr.Add(destPtr, mapDest.Stride);
                             }
@@ -216,8 +231,7 @@ namespace Gagagu_VR_Streamer_Server
             }
             catch 
             {
-                //throw e;
-                return null;
+                  return null;
             }
 
             return bitmap;

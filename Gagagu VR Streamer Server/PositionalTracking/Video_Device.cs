@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/// <summary>
+/// Video device structure
+/// </summary>
 struct Video_Device
 {
     public string Device_Name;

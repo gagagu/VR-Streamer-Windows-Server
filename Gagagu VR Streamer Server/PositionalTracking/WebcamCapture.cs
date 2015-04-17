@@ -26,6 +26,9 @@ using Emgu.CV.Util;
 
 namespace Gagagu_VR_Streamer_Server.PositionalTracking
 {
+    /// <summary>
+    /// Class for webcam positional tracking
+    /// </summary>
     public class WebcamCapture
     {
         private UdpClient UDPReceiver;

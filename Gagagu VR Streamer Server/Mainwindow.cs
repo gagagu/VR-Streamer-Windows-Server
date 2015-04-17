@@ -36,7 +36,7 @@ namespace Gagagu_VR_Streamer_Server
     {
 
         [XmlElement("ProfileData")]
-        public List<ProfileData> Profiles = new List<ProfileData>();
+        public List<ProfileData> Profiles = new List<ProfileData>();        // List of all profiles
         private BindingSource bs;
         private MemoryStream ms = new MemoryStream();
         private ImageFormat iFormat = ImageFormat.Jpeg;
@@ -51,9 +51,8 @@ namespace Gagagu_VR_Streamer_Server
         private EncoderParameters myEncoderParameters = new EncoderParameters(1);
         private System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
         private ImageCodecInfo jgpEncoder;
-        private User32.Rect GameWindowRect;
-        private Rectangle CaptureRect = new Rectangle(0, 0, 0, 0);
-        //private Task CaptureTask = null;
+        
+        private CaptureRect cptRect =  new CaptureRect();
         private Video_Device[] WebCams; //List containing all the camera available
         private WebcamCapture  wcCapture= null;
 
@@ -62,23 +61,27 @@ namespace Gagagu_VR_Streamer_Server
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Window load main
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Mainwindow_Load(object sender, EventArgs e)
         {
             try {
-               IEnumerable<IPAddress> liste = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(o => o.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
-               foreach (IPAddress ip in liste)
-               {
-                   cbIPAdresses.Items.Add(ip.ToString());
-               }
-               if (cbIPAdresses.Items.Count > 0)
-                   cbIPAdresses.SelectedIndex = 0;
-
+                // Show all local ip adresses in a drop down box
+                ShowIPAddresses();
+                // list all possible colors in a dropdown
                 SetCursorColors();
+                // shows the name of all connected cameras in a drop down
                 InitCameras();
+                // list all running processes in a drop down
                 SetProcessList();
+                // load all profiles and put them into a class
                 LoadProfileData();
+                // display all profile names into a drop down
                 RefreshProfileData();
-
+                // init about dialog
                 frmAbout about = new frmAbout();
                 about.ShowDialog();
             }
@@ -89,6 +92,23 @@ namespace Gagagu_VR_Streamer_Server
         }
 
         #region "Init"
+
+        private void ShowIPAddresses() {
+            try{
+                // get all local ip addresses and fill it into a dropdown box 
+                IEnumerable<IPAddress> liste = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(o => o.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
+                foreach (IPAddress ip in liste)
+                {
+                    cbIPAdresses.Items.Add(ip.ToString());
+                }
+                if (cbIPAdresses.Items.Count > 0)
+                    cbIPAdresses.SelectedIndex = 0;
+                        }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ShowIPAddresses::Error on showing ip adresses. \r\n" + ex.Message);
+            }
+        }
 
         private void InitCameras()
         {
@@ -157,8 +177,6 @@ namespace Gagagu_VR_Streamer_Server
              return new List<string>();
            }
         }
-
-       
 
         private void SetCursorColors()
         {
@@ -535,6 +553,7 @@ namespace Gagagu_VR_Streamer_Server
         }
         #endregion
 
+        #region "Server"
         private void btStartServer_Click(object sender, EventArgs e)
         {
             try{
@@ -623,159 +642,6 @@ namespace Gagagu_VR_Streamer_Server
             }
         }
 
-        private delegate void DisplayImageDelegate(Mat Image);
-        public void DisplayImage(Mat Image)
-        {
-            if (captureBox.InvokeRequired)
-            {
-                try
-                {
-                    DisplayImageDelegate DI = new DisplayImageDelegate(DisplayImage);
-                    this.BeginInvoke(DI, new object[] { Image});
-                }
-                catch
-                {
-                }
-            }
-            else
-            {
-                captureBox.Image = Image;
-            }
-        }
-
-        public void SetWindowRectFromProcess(string procName)
-        {
-            Process proc;
-            try
-            {
-                if (String.IsNullOrEmpty(procName))
-                {
-                    CaptureRect = new Rectangle(0, 0, 0, 0);
-                    return;
-                }
-
-                proc = Process.GetProcessesByName(procName)[0];
-                if (proc == null)
-                {
-                    CaptureRect = new Rectangle(0, 0, 0, 0);
-                    return;
-                }
-
-                GameWindowRect = new User32.Rect();
-                IntPtr error = User32.GetWindowRect(proc.MainWindowHandle, ref GameWindowRect);
-
-                while (error == (IntPtr)0)
-                {
-                    error = User32.GetWindowRect(proc.MainWindowHandle, ref GameWindowRect);
-                }
-
-
-                GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
-
-            }
-            catch
-            {
-                CaptureRect = new Rectangle(0, 0, 0, 0);
-            }
-        }
-
-
-
-        public Bitmap CaptureSpecificWindow(Rectangle wRect)
-        {
-            //Process proc;
-            iFormat = ImageFormat.Jpeg;
-            Bitmap bmp = null;
-            try
-            {
-
-             if((wRect.Width==0) ||(wRect.Height==0))
-                 return null;
-
-             bmp = new Bitmap(wRect.Width, wRect.Height, PixelFormat.Format32bppArgb);
-
-          
-
-                return bmp;
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        public Bitmap DrawExtras(Bitmap bmp, Rectangle wRect)
-        {
-            try
-            {
-
-                if (cbSimulate3D.Checked == true)
-                {
-                    Bitmap x = new Bitmap(wRect.Width, wRect.Height, PixelFormat.Format32bppArgb);
-                    Graphics.FromImage(x).CopyFromScreen(wRect.X, wRect.Y, 0, 0, new Size(wRect.Width, wRect.Height), CopyPixelOperation.SourceCopy);
-
-
-                    Graphics g = System.Drawing.Graphics.FromImage(bmp);
-                    g.Clear(System.Drawing.Color.Black);
-                    g.DrawImage(x, new System.Drawing.Rectangle(0, 0, x.Width / 2, x.Height));
-                    g.DrawImage(x, new System.Drawing.Rectangle(wRect.Width / 2, 0, x.Width / 2, x.Height));
-
-                    if (Profil.ShowCrosshair)
-                    {
-                        GDIGraphicTools.DrawCrosshair(g, wRect.Width, wRect.Height);
-                    }
-
-                    if ((cbShowCursor.Enabled) && (cbShowCursor.Checked))
-                    {
-                        GDIGraphicTools.DrawCursor(g,
-                                                    wRect.X,
-                                                    wRect.Y,
-                                                    wRect.Width,
-                                                    wRect.Height,
-                                                    Cursor.Position,
-                                                    cbCursorCorrection.Checked,
-                                                    hScrollAdjWidth.Value,
-                                                    hScrollAdjHeight.Value,
-                                                    myBrush,
-                                                    this.hScrollCursorSize.Value);
-                    } // cursor
-
-                    g.Dispose();
-                    x.Dispose();
-                }
-                else
-                {
-                    if ((Profil.ShowCrosshair) || (Profil.ShowCursor))
-                    {
-                        Graphics g = System.Drawing.Graphics.FromImage(bmp);
-                        if (Profil.ShowCrosshair)
-                        {
-                            GDIGraphicTools.DrawCrosshair(g, wRect.Width, wRect.Height);
-                        }
-
-                        if (Profil.ShowCursor)
-                        {
-                            GDIGraphicTools.DrawCursor(g,
-                                                    wRect.X,
-                                                    wRect.Y,
-                                                    wRect.Width,
-                                                    wRect.Height,
-                                                    Cursor.Position,
-                                                    cbCursorCorrection.Checked,
-                                                    hScrollAdjWidth.Value,
-                                                    hScrollAdjHeight.Value,
-                                                    myBrush,
-                                                    this.hScrollCursorSize.Value);
-                        } // cursor
-
-                        g.Dispose();
-                    }
-                }
-            }
-            catch { }
-
-            return bmp;
-        }
      
         public void acceptCallback(IAsyncResult ar)
         {
@@ -808,14 +674,12 @@ namespace Gagagu_VR_Streamer_Server
                     {
                         wcCapture = new WebcamCapture(this);
                         wcCapture.StartCapture();
-                        //this.CaptureThread = new Thread(new ThreadStart(wcCapture.StartCapture));
-                        //this.CaptureThread.Start();
                     }
 
                     NetworkStream ns = new NetworkStream(handler, true);
-                    jgpEncoder = GetEncoder(ImageFormat.Jpeg);
+                    jgpEncoder = GDIGraphicTools.GetEncoder(ImageFormat.Jpeg);
 
-                    SetWindowRectFromProcess(this.tbProcess.Text);
+                    cptRect.GetGameWindowRect(this.tbProcess.Text, Profil);
 
                     if(cbDirectX.Checked)
                         dx = new DirectX();
@@ -828,21 +692,26 @@ namespace Gagagu_VR_Streamer_Server
 
                             if (cbDirectX.Checked)
                             {
-                                bm = dx.capture(CaptureRect);
+                                bm = dx.capture(cptRect.getRect());
                              }
                             else
                             {
-                                bm = CaptureSpecificWindow(CaptureRect);
+                                bm = CaptureSpecificWindow(cptRect.getRect());
                             }
 
                             if(bm==null)
-                                bm = new Bitmap(CaptureRect.Width, CaptureRect.Height, PixelFormat.Format32bppArgb);
+                                bm = new Bitmap(cptRect.getRect().Width, cptRect.getRect().Height, PixelFormat.Format32bppArgb);
 
-                            bm = DrawExtras(bm, CaptureRect);
+                            // 3d simulation copies the captured screenshot twice on destination bitmap.
+                            // It creates a Side-by-Side image
+                            if (cbSimulate3D.Checked == true)
+                                bm = GDIGraphicTools.Simulate3D(cptRect.getRect(), bm);
+
+                            if ((Profil.ShowCrosshair)||(Profil.ShowCursor))
+                                bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush);
 
                             if (bm != null)
                             {
-                                
                                 myEncoderParameters.Param[0] = new EncoderParameter(myEncoder, this.hScrollImageQuality.Value);
                                 bm.Save(ms, jgpEncoder, myEncoderParameters);
                             }
@@ -939,20 +808,7 @@ namespace Gagagu_VR_Streamer_Server
         } // acceptCallback
 
 
-        private ImageCodecInfo GetEncoder(ImageFormat format)
-        {
 
-            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageDecoders();
-
-            foreach (ImageCodecInfo codec in codecs)
-            {
-                if (codec.FormatID == format.Guid)
-                {
-                    return codec;
-                }
-            }
-            return null;
-        }
 
         private void btStopServer_Click(object sender, EventArgs e)
         {
@@ -996,6 +852,59 @@ namespace Gagagu_VR_Streamer_Server
             }
         }
 
+        #endregion
+
+        #region "invoke"
+        private delegate void DisplayImageDelegate(Mat Image);
+        public void DisplayImage(Mat Image)
+        {
+            if (captureBox.InvokeRequired)
+            {
+                try
+                {
+                    DisplayImageDelegate DI = new DisplayImageDelegate(DisplayImage);
+                    this.BeginInvoke(DI, new object[] { Image });
+                }
+                catch
+                {
+                }
+            }
+            else
+            {
+                captureBox.Image = Image;
+            }
+        }
+        #endregion
+
+        #region "GDI Capture"
+        /// <summary>
+        /// Capture screen over gdi
+        /// If i will put this method into a class then it will be much slower
+        /// </summary>
+        /// <param name="wRect">rect to capture</param>
+        /// <returns></returns>
+        public Bitmap CaptureSpecificWindow(Rectangle wRect)
+        {
+            try
+            {
+                //checks
+                if ((wRect.Width == 0) || (wRect.Height == 0))
+                    return null;
+
+                // make screenshot
+                Bitmap bmp = new Bitmap(wRect.Width, wRect.Height, PixelFormat.Format32bppArgb);
+                Graphics.FromImage(bmp).CopyFromScreen(wRect.X, wRect.Y, 0, 0, new Size(wRect.Width, wRect.Height), CopyPixelOperation.SourceCopy);
+
+                return bmp;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        #endregion
+
+        #region "interface handling"
         private void DisableInterface()
         {
             try{
@@ -1037,6 +946,7 @@ namespace Gagagu_VR_Streamer_Server
                 MessageBox.Show("EnableInterface::" + ex.Message);
             }
         }
+        #endregion
 
         #region "Control Events"
 
@@ -1176,7 +1086,7 @@ namespace Gagagu_VR_Streamer_Server
 
         private void btReloadWindowPositionAndSize_Click(object sender, EventArgs e)
         {
-            SetWindowRectFromProcess(this.tbProcess.Text);
+            cptRect.GetGameWindowRect(this.tbProcess.Text, Profil);
         }
 
         private void cbCustomWindow_CheckedChanged(object sender, EventArgs e)
@@ -1199,7 +1109,7 @@ namespace Gagagu_VR_Streamer_Server
                     this.nCustomWindowHeight.Enabled = false;
                 }
                 this.Profil = FillProfileWithData(null);
-               GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
+                cptRect.SetCaptureRect(Profil);
             }
             catch (Exception ex)
             {
@@ -1238,7 +1148,7 @@ namespace Gagagu_VR_Streamer_Server
             try
             {
                 this.Profil = FillProfileWithData(null);
-                GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
+                cptRect.SetCaptureRect(Profil);
             }
             catch (Exception ex)
             {
@@ -1251,7 +1161,7 @@ namespace Gagagu_VR_Streamer_Server
             try
             {
                 this.Profil = FillProfileWithData(null);
-                GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
+                cptRect.SetCaptureRect(Profil);
             }
             catch (Exception ex)
             {
@@ -1264,7 +1174,7 @@ namespace Gagagu_VR_Streamer_Server
             try
             {
                 this.Profil = FillProfileWithData(null);
-                GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
+                cptRect.SetCaptureRect(Profil);
             }
             catch (Exception ex)
             {
@@ -1277,7 +1187,7 @@ namespace Gagagu_VR_Streamer_Server
             try
             {
                 this.Profil = FillProfileWithData(null);
-                GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
+                cptRect.SetCaptureRect(Profil);
             }
             catch (Exception ex)
             {
@@ -1373,7 +1283,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 tbScrollTop.Text = hScrollTop.Value.ToString();
                 this.Profil = FillProfileWithData(null);
-                GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
+                cptRect.SetCaptureRect(Profil);
             }
             catch (Exception ex)
             {
@@ -1387,7 +1297,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 tbScrollBottom.Text = hScrollBottom.Value.ToString();
                 this.Profil = FillProfileWithData(null);
-                GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
+                cptRect.SetCaptureRect(Profil);
 
             }
             catch (Exception ex)
@@ -1402,7 +1312,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 tbScrollLeft.Text = hScrollLeft.Value.ToString();
                 this.Profil = FillProfileWithData(null);
-                GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
+                cptRect.SetCaptureRect(Profil);
 
             }
             catch (Exception ex)
@@ -1417,7 +1327,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 tbScrollRight.Text = hScrollRight.Value.ToString();
                 this.Profil = FillProfileWithData(null);
-                GDIGraphicTools.SetCaptureRect(ref CaptureRect, GameWindowRect, Profil);
+                cptRect.SetCaptureRect(Profil);
 
             }
             catch (Exception ex)
