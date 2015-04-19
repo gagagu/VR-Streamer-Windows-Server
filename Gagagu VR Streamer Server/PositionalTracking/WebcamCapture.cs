@@ -140,25 +140,39 @@ namespace Gagagu_VR_Streamer_Server.PositionalTracking
                 //Console.WriteLine("ende");
                 if (TrackingData != null)
                 {
-
+                    
                     // Angabe in Prozent umrechnen
-                    Double XX = corners[9].X / (grayFrame.Width / 100);
-                    Double YY = corners[9].Y / (grayFrame.Width / 100);
+                    Double XX = corners[9].X / ((Double)grayFrame.Width / 100.00);
+                    Double YY = corners[9].Y / ((Double)grayFrame.Height / 100.00);
+                    float max = 0;
+                    float min = 99999;
+                    for (int f = 0; f < corners.Size; f++)
+                    {
+                        if (corners[f].X > max)
+                            max = corners[f].X;
+
+                        if (corners[f].X < min)
+                            min = corners[f].X;
+                    }
+                    Double ZZ = max - min;
+
                     //Double ZZ = (corners[15].X - corners[12].X) / (grayFrame.Width / 100);
                    // Double ZZ = corners[15].X  - corners[12].X ;
-                   Double ZZ = (corners[15].X / (grayFrame.Width / 100)) - (corners[12].X / (grayFrame.Width / 100));
+                   //Double ZZ = (corners[15].X / (grayFrame.Width / 100)) - (corners[12].X / (grayFrame.Width / 100));
                     //Double ZZ = (corners[10].X / (grayFrame.Width / 100)) - (corners[9].X / (grayFrame.Width / 100));
 
                     byte[] X = BitConverter.GetBytes(XX);
                     byte[] Y = BitConverter.GetBytes(YY);
-                    byte[] Z = BitConverter.GetBytes(ZZ*10);
+                    byte[] Z = BitConverter.GetBytes(ZZ);
 
                     Buffer.BlockCopy(X, 0, TrackingData, 0, 8);
                     Buffer.BlockCopy(Y, 0, TrackingData, 8, 8);
                     Buffer.BlockCopy(Z, 0, TrackingData, 16, 8);
 
-                   // Console.WriteLine(XX.ToString() + " | " + YY.ToString() + " | " + ZZ.ToString());
 
+
+                   //Console.WriteLine(XX.ToString() + " | " + YY.ToString() + " | " + ZZ.ToString());
+                   // Console.WriteLine(max.ToString() + " | " + min.ToString() + " | " + (max-min).ToString());
                 }
             }
 

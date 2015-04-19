@@ -5,27 +5,27 @@
     <DataPort>6666</DataPort>
     <UDPReceiveDataPort>5252</UDPReceiveDataPort>
     <UDPSendDataPort>4242</UDPSendDataPort>
-    <UDPSendIPAddress>192.168.100.14</UDPSendIPAddress>
+    <UDPSendIPAddress>192.168.178.20</UDPSendIPAddress>
     <WebcamPreview>true</WebcamPreview>
-    <WebcamIndex>-1</WebcamIndex>
-    <ProcessName>notepad</ProcessName>
+    <WebcamIndex>0</WebcamIndex>
+    <ProcessName>fsx</ProcessName>
     <Simulate3D>false</Simulate3D>
     <ShowCursor>true</ShowCursor>
-    <CursorCorrection>false</CursorCorrection>
+    <CursorCorrection>true</CursorCorrection>
     <ShowCrosshair>false</ShowCrosshair>
     <CorsorColorName>Color [Red]</CorsorColorName>
     <CursorSize>5</CursorSize>
     <CursorCorrectionAdjWidth>0</CursorCorrectionAdjWidth>
     <CursorCorrectionAdjHeight>0</CursorCorrectionAdjHeight>
-    <UseDirectX>false</UseDirectX>
+    <UseDirectX>true</UseDirectX>
     <ImageQuality>43</ImageQuality>
     <CustomWindow>false</CustomWindow>
-    <ActivateHeadTracking>false</ActivateHeadTracking>
+    <ActivateHeadTracking>true</ActivateHeadTracking>
     <BorderCorrection>
-      <top>0</top>
-      <bottom>0</bottom>
-      <left>0</left>
-      <right>0</right>
+      <top>27</top>
+      <bottom>5</bottom>
+      <left>5</left>
+      <right>5</right>
     </BorderCorrection>
     <CustomWindowSize>
       <x>0</x>
