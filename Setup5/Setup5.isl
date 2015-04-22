@@ -340,9 +340,76 @@
 		<col def="S0">ISDotNetInstallerArgsCommit</col>
 		<col def="S0">ISDotNetInstallerArgsUninstall</col>
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
+		<row><td>DirectShowLib_2005.dll</td><td>{32ED3273-FD35-4768-BD65-453B97EE2DB6}</td><td>INSTALLDIR</td><td>2</td><td/><td>directshowlib_2005.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Emgu.CV.UI.dll</td><td>{332D5D4D-560B-4AE3-82DC-7430AA0918F6}</td><td>INSTALLDIR</td><td>2</td><td/><td>emgu.cv.ui.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Emgu.CV.dll</td><td>{5DC7B794-6E88-4005-8674-C38728F536C1}</td><td>INSTALLDIR</td><td>2</td><td/><td>emgu.cv.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Emgu.Util.dll</td><td>{864525C1-2950-49F1-8630-C3EE919E3CEC}</td><td>INSTALLDIR</td><td>2</td><td/><td>emgu.util.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe</td><td>{D3AE1DA1-59CE-4B44-BC60-F3B0C5C08FF0}</td><td>INSTALLDIR</td><td>2</td><td/><td>gagagu_vr_streamer_server.pr</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td>{43D6C338-38F5-4A6C-AC6E-0EB0D0869508}</td><td>INSTALLDIR</td><td>2</td><td/><td>gagagu_vr_streamer_server.pr</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{64A24178-B3E0-49A3-953E-D61E1036B34E}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{C21E1D9C-0AA0-4546-A91F-C7C16EE3AE26}</td><td>X64</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{B149FBF8-D807-42F5-94B8-31B951811C4C}</td><td>X86</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>OpenCL.dll</td><td>{F0A245FA-6603-4F78-903C-B19233E96712}</td><td>X86</td><td>2</td><td/><td>opencl.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SharpDX.D3DCompiler.dll</td><td>{FF4F757C-05C0-45AE-BFBB-F2CA9286AFED}</td><td>INSTALLDIR</td><td>2</td><td/><td>sharpdx.d3dcompiler.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SharpDX.DXGI.dll</td><td>{17A6668E-5F68-46F0-A116-72E6B778484C}</td><td>INSTALLDIR</td><td>2</td><td/><td>sharpdx.dxgi.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SharpDX.Direct3D11.dll</td><td>{02ABBD2E-0B77-42F3-8A65-5B2646EE19B3}</td><td>INSTALLDIR</td><td>2</td><td/><td>sharpdx.direct3d11.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>SharpDX.dll</td><td>{8F0A6A55-57DF-42D8-AB1F-E7F17473DD71}</td><td>INSTALLDIR</td><td>2</td><td/><td>sharpdx.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ZedGraph.dll</td><td>{89EAEAEF-9F0A-4F77-8813-C3D70CACD477}</td><td>INSTALLDIR</td><td>2</td><td/><td>zedgraph.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>cvextern.dll</td><td>{20416A13-881F-4F72-A8FB-4B63A9675D9C}</td><td>X86</td><td>2</td><td/><td>cvextern.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>cvextern.dll1</td><td>{F4BF8DEB-795F-47E8-888E-8065122D876C}</td><td>X64</td><td>2</td><td/><td>cvextern.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>cvextern_test.exe</td><td>{4BE26B0F-4928-414C-9952-A13866B6C9BF}</td><td>X64</td><td>2</td><td/><td>cvextern_test.exe</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_bgsegm300.dll</td><td>{138EA1A2-9BB3-4BCA-AA61-93571BA8E2EE}</td><td>X86</td><td>2</td><td/><td>opencv_bgsegm300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_bgsegm300.dll1</td><td>{2096349E-06A0-4844-BC7D-403210FB9E48}</td><td>X64</td><td>2</td><td/><td>opencv_bgsegm300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_calib3d300.dll</td><td>{1189284F-C468-49BE-B80E-392B1DA19A8A}</td><td>X86</td><td>2</td><td/><td>opencv_calib3d300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_calib3d300.dll1</td><td>{7E5CAE25-2EF8-4513-832A-4751441DC8FF}</td><td>X64</td><td>2</td><td/><td>opencv_calib3d300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_core300.dll</td><td>{50EF69A7-ECA3-4D4F-A3AF-6EAAEF62CA4D}</td><td>X86</td><td>2</td><td/><td>opencv_core300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_core300.dll1</td><td>{30D0DE6A-EBBE-409A-8CCB-16BCEEBEEC69}</td><td>X64</td><td>2</td><td/><td>opencv_core300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_face300.dll</td><td>{88303EA9-8105-4540-AD3A-AC866677DC6D}</td><td>X86</td><td>2</td><td/><td>opencv_face300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_face300.dll1</td><td>{CCDEC8D4-5939-44D0-9860-5E7F0DFCBE76}</td><td>X64</td><td>2</td><td/><td>opencv_face300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_features2d300.dll</td><td>{B45F0627-8F69-4EE9-9E0D-A25F327C9293}</td><td>X86</td><td>2</td><td/><td>opencv_features2d300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_features2d300.dll1</td><td>{AC4B33A4-1CD8-4CEA-BB27-0BF242694E65}</td><td>X64</td><td>2</td><td/><td>opencv_features2d300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ffmpeg300.dll</td><td>{1AB88041-56B6-4FD2-A5A5-03E70BEB6B3D}</td><td>X86</td><td>2</td><td/><td>opencv_ffmpeg300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ffmpeg300_64.dll</td><td>{85CC9561-71DB-425A-B44A-E4BDE7A563FF}</td><td>X64</td><td>2</td><td/><td>opencv_ffmpeg300_64.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_flann300.dll</td><td>{99640C7D-87CF-490E-BB28-2DD2A08CA817}</td><td>X86</td><td>2</td><td/><td>opencv_flann300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_flann300.dll1</td><td>{A453F4C9-6B84-4FC3-9359-841F1998D8E6}</td><td>X64</td><td>2</td><td/><td>opencv_flann300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_highgui300.dll</td><td>{5A73378E-403E-417B-A829-6B88DC599515}</td><td>X86</td><td>2</td><td/><td>opencv_highgui300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_highgui300.dll1</td><td>{145B64DE-B79D-4C75-95A8-79F110679BBE}</td><td>X64</td><td>2</td><td/><td>opencv_highgui300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_imgcodecs300.dll</td><td>{B7FDFFB4-397D-4B89-AFA2-623463C97BC0}</td><td>X86</td><td>2</td><td/><td>opencv_imgcodecs300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_imgcodecs300.dll1</td><td>{DE0D0179-AA35-41F5-9015-6C5ED0871754}</td><td>X64</td><td>2</td><td/><td>opencv_imgcodecs300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_imgproc300.dll</td><td>{E585012A-CB5F-42B2-8D95-72AF93CF756F}</td><td>X86</td><td>2</td><td/><td>opencv_imgproc300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_imgproc300.dll1</td><td>{F80DBC40-E451-4B4B-832A-9529B9D397B4}</td><td>X64</td><td>2</td><td/><td>opencv_imgproc300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ml300.dll</td><td>{BE00F542-B95E-4150-8447-8F912F13F7AA}</td><td>X86</td><td>2</td><td/><td>opencv_ml300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ml300.dll1</td><td>{3A6E26E8-576D-4E1F-963A-22E21644F16F}</td><td>X64</td><td>2</td><td/><td>opencv_ml300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_objdetect300.dll</td><td>{D866B006-8BBC-4BEB-9D93-2FA3E62FCB4F}</td><td>X86</td><td>2</td><td/><td>opencv_objdetect300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_objdetect300.dll1</td><td>{3A93A0B4-B189-4B77-B4D9-12007D3961D2}</td><td>X64</td><td>2</td><td/><td>opencv_objdetect300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_optflow300.dll</td><td>{BB8B7588-625A-4EFE-8929-E743280E1440}</td><td>X86</td><td>2</td><td/><td>opencv_optflow300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_optflow300.dll1</td><td>{1510E4AE-8B8C-4CDA-8412-F2AAB8D1BC59}</td><td>X64</td><td>2</td><td/><td>opencv_optflow300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_photo300.dll</td><td>{A7947E90-15A3-4A43-9337-A0DB321F047C}</td><td>X86</td><td>2</td><td/><td>opencv_photo300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_photo300.dll1</td><td>{77323979-268B-4FE9-AE15-CA133FD82541}</td><td>X64</td><td>2</td><td/><td>opencv_photo300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_reg300.dll</td><td>{EEB49177-01A2-4230-B34D-20B46A60B97D}</td><td>X86</td><td>2</td><td/><td>opencv_reg300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_reg300.dll1</td><td>{8065E8EA-050D-424D-903F-7FEC95B14EC6}</td><td>X64</td><td>2</td><td/><td>opencv_reg300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_rgbd300.dll</td><td>{AF834721-B190-4656-90B7-4E9451DCE38B}</td><td>X86</td><td>2</td><td/><td>opencv_rgbd300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_rgbd300.dll1</td><td>{C586AB9F-BDC6-4ED2-ABF7-9B76FF8151B0}</td><td>X64</td><td>2</td><td/><td>opencv_rgbd300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_shape300.dll</td><td>{816FFAF9-17D9-42F3-BF0D-0C7859F04756}</td><td>X86</td><td>2</td><td/><td>opencv_shape300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_shape300.dll1</td><td>{14325131-3F91-4A6F-B243-424C660381B0}</td><td>X64</td><td>2</td><td/><td>opencv_shape300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_stitching300.dll</td><td>{17FA8AF6-1CDB-4374-849D-A8EC29760D4B}</td><td>X86</td><td>2</td><td/><td>opencv_stitching300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_stitching300.dll1</td><td>{EBE853D1-380C-42D0-BB41-0517F0F202E5}</td><td>X64</td><td>2</td><td/><td>opencv_stitching300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_superres300.dll</td><td>{0317EEE0-712F-4AD7-ABF7-A4116E0F7DE3}</td><td>X86</td><td>2</td><td/><td>opencv_superres300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_superres300.dll1</td><td>{226ACDD6-A984-4C01-BA82-E095B991E19F}</td><td>X64</td><td>2</td><td/><td>opencv_superres300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_text300.dll</td><td>{1FC40550-5AEA-4A44-AD40-2F3FB6496DF7}</td><td>X86</td><td>2</td><td/><td>opencv_text300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_text300.dll1</td><td>{09DCFACB-4963-4A81-A4BB-7985D21D4B2B}</td><td>X64</td><td>2</td><td/><td>opencv_text300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_video300.dll</td><td>{E00F3B89-DCE3-4382-AC1F-8BD9D6832150}</td><td>X86</td><td>2</td><td/><td>opencv_video300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_video300.dll1</td><td>{2466E5D1-0C12-4089-B213-FAC4D368AD40}</td><td>X64</td><td>2</td><td/><td>opencv_video300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_videoio300.dll</td><td>{66003B05-A077-4055-950E-2F4510162A68}</td><td>X86</td><td>2</td><td/><td>opencv_videoio300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_videoio300.dll1</td><td>{AFA2B89A-CE8A-4D4E-9CEE-19D040D5480F}</td><td>X64</td><td>2</td><td/><td>opencv_videoio300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_videostab300.dll</td><td>{C11B176D-AC45-4EF1-A059-A7E97CA9FEA6}</td><td>X86</td><td>2</td><td/><td>opencv_videostab300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_videostab300.dll1</td><td>{403052B1-DB57-420E-8A1D-621BAE0FDE64}</td><td>X64</td><td>2</td><td/><td>opencv_videostab300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_xfeatures2d300.dll</td><td>{35797DCB-9B3C-4A8F-A8AA-31B25DB439CC}</td><td>X86</td><td>2</td><td/><td>opencv_xfeatures2d300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_xfeatures2d300.dll1</td><td>{32E9FA9D-0FD7-48AA-A4D5-460E84935CB8}</td><td>X64</td><td>2</td><td/><td>opencv_xfeatures2d300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ximgproc300.dll</td><td>{004E73D6-C357-4AC3-8C72-F0774F5C55E2}</td><td>X86</td><td>2</td><td/><td>opencv_ximgproc300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_ximgproc300.dll1</td><td>{6BE4F0C8-17B2-4FBB-BCFA-3AA4AFD80F6B}</td><td>X64</td><td>2</td><td/><td>opencv_ximgproc300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_xobjdetect300.dll</td><td>{EE7D89C5-0DB7-4175-B25F-E7802238A2D1}</td><td>X86</td><td>2</td><td/><td>opencv_xobjdetect300.dll</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>opencv_xobjdetect300.dll1</td><td>{3117B698-89B2-4045-B590-6C7354494F66}</td><td>X64</td><td>2</td><td/><td>opencv_xobjdetect300.dll1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1051,7 +1118,8 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
-		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT</td></row>
+		<row><td>X64</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>X86</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 	</table>
 
 	<table name="CustomAction">
@@ -1171,6 +1239,8 @@
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
+		<row><td>X64</td><td>INSTALLDIR</td><td>x64</td><td/><td>0</td><td/></row>
+		<row><td>X86</td><td>INSTALLDIR</td><td>x86</td><td/><td>0</td><td/></row>
 		<row><td>gagagu</td><td>ProgramMenuFolder</td><td>Gagagu</td><td/><td>1</td><td/></row>
 		<row><td>gagagu_1_gagagu_vr_streamer_server</td><td>gagagu</td><td>GAGAGU~1|Gagagu VR Streamer Server</td><td/><td>1</td><td/></row>
 	</table>
@@ -1864,9 +1934,76 @@
 	<table name="FeatureComponents">
 		<col key="yes" def="s38">Feature_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>AlwaysInstall</td><td>DirectShowLib_2005.dll</td></row>
+		<row><td>AlwaysInstall</td><td>Emgu.CV.UI.dll</td></row>
+		<row><td>AlwaysInstall</td><td>Emgu.CV.dll</td></row>
+		<row><td>AlwaysInstall</td><td>Emgu.Util.dll</td></row>
 		<row><td>AlwaysInstall</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe</td></row>
 		<row><td>AlwaysInstall</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>AlwaysInstall</td><td>OpenCL.dll</td></row>
+		<row><td>AlwaysInstall</td><td>SharpDX.D3DCompiler.dll</td></row>
+		<row><td>AlwaysInstall</td><td>SharpDX.DXGI.dll</td></row>
+		<row><td>AlwaysInstall</td><td>SharpDX.Direct3D11.dll</td></row>
+		<row><td>AlwaysInstall</td><td>SharpDX.dll</td></row>
+		<row><td>AlwaysInstall</td><td>ZedGraph.dll</td></row>
+		<row><td>AlwaysInstall</td><td>cvextern.dll</td></row>
+		<row><td>AlwaysInstall</td><td>cvextern.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>cvextern_test.exe</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_bgsegm300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_bgsegm300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_calib3d300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_calib3d300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_core300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_core300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_face300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_face300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_features2d300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_features2d300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_ffmpeg300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_ffmpeg300_64.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_flann300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_flann300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_highgui300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_highgui300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_imgcodecs300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_imgcodecs300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_imgproc300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_imgproc300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_ml300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_ml300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_objdetect300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_objdetect300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_optflow300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_optflow300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_photo300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_photo300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_reg300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_reg300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_rgbd300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_rgbd300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_shape300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_shape300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_stitching300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_stitching300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_superres300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_superres300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_text300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_text300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_video300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_video300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_videoio300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_videoio300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_videostab300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_videostab300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_xfeatures2d300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_xfeatures2d300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_ximgproc300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_ximgproc300.dll1</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_xobjdetect300.dll</td></row>
+		<row><td>AlwaysInstall</td><td>opencv_xobjdetect300.dll1</td></row>
 	</table>
 
 	<table name="File">
@@ -1881,7 +2018,75 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
+		<row><td>cvextern.dll</td><td>cvextern.dll</td><td>cvextern.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\cvextern.dll</td><td>1</td><td/></row>
+		<row><td>cvextern.dll1</td><td>cvextern.dll1</td><td>cvextern.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\cvextern.dll</td><td>1</td><td/></row>
+		<row><td>cvextern_test.exe</td><td>cvextern_test.exe</td><td>CVEXTE~1.EXE|cvextern_test.exe</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\cvextern_test.exe</td><td>1</td><td/></row>
+		<row><td>directshowlib_2005.dll</td><td>DirectShowLib_2005.dll</td><td>DIRECT~1.DLL|DirectShowLib-2005.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\DirectShowLib-2005.dll</td><td>1</td><td/></row>
+		<row><td>emgu.cv.dll</td><td>Emgu.CV.dll</td><td>EMGUCV~1.DLL|Emgu.CV.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\Emgu.CV.dll</td><td>1</td><td/></row>
+		<row><td>emgu.cv.ui.dll</td><td>Emgu.CV.UI.dll</td><td>EMGUCV~1.DLL|Emgu.CV.UI.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\Emgu.CV.UI.dll</td><td>1</td><td/></row>
+		<row><td>emgu.cv.ui.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>EMGUCV~1.XML|Emgu.CV.UI.xml</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\Emgu.CV.UI.xml</td><td>1</td><td/></row>
+		<row><td>emgu.cv.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>EMGUCV~1.XML|Emgu.CV.xml</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\Emgu.CV.xml</td><td>1</td><td/></row>
+		<row><td>emgu.util.dll</td><td>Emgu.Util.dll</td><td>EMGUUT~1.DLL|Emgu.Util.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\Emgu.Util.dll</td><td>1</td><td/></row>
+		<row><td>emgu.util.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>EMGUUT~1.XML|Emgu.Util.xml</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\Emgu.Util.xml</td><td>1</td><td/></row>
 		<row><td>gagagu_vr_streamer_server.pr</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td>Gagagu VR Streamer Server.Primäre Ausgabe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Gagagu VR Streamer Server&gt;|Built</td><td>3</td><td/></row>
+		<row><td>opencl.dll</td><td>OpenCL.dll</td><td>OpenCL.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\OpenCL.dll</td><td>1</td><td/></row>
+		<row><td>opencv_bgsegm300.dll</td><td>opencv_bgsegm300.dll</td><td>OPENCV~1.DLL|opencv_bgsegm300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_bgsegm300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_bgsegm300.dll1</td><td>opencv_bgsegm300.dll1</td><td>OPENCV~1.DLL|opencv_bgsegm300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_bgsegm300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_calib3d300.dll</td><td>opencv_calib3d300.dll</td><td>OPENCV~1.DLL|opencv_calib3d300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_calib3d300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_calib3d300.dll1</td><td>opencv_calib3d300.dll1</td><td>OPENCV~1.DLL|opencv_calib3d300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_calib3d300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_core300.dll</td><td>opencv_core300.dll</td><td>OPENCV~1.DLL|opencv_core300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_core300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_core300.dll1</td><td>opencv_core300.dll1</td><td>OPENCV~1.DLL|opencv_core300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_core300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_face300.dll</td><td>opencv_face300.dll</td><td>OPENCV~1.DLL|opencv_face300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_face300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_face300.dll1</td><td>opencv_face300.dll1</td><td>OPENCV~1.DLL|opencv_face300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_face300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_features2d300.dll</td><td>opencv_features2d300.dll</td><td>OPENCV~1.DLL|opencv_features2d300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_features2d300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_features2d300.dll1</td><td>opencv_features2d300.dll1</td><td>OPENCV~1.DLL|opencv_features2d300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_features2d300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_ffmpeg300.dll</td><td>opencv_ffmpeg300.dll</td><td>OPENCV~1.DLL|opencv_ffmpeg300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_ffmpeg300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_ffmpeg300_64.dll</td><td>opencv_ffmpeg300_64.dll</td><td>OPENCV~1.DLL|opencv_ffmpeg300_64.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_ffmpeg300_64.dll</td><td>1</td><td/></row>
+		<row><td>opencv_flann300.dll</td><td>opencv_flann300.dll</td><td>OPENCV~1.DLL|opencv_flann300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_flann300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_flann300.dll1</td><td>opencv_flann300.dll1</td><td>OPENCV~1.DLL|opencv_flann300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_flann300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_highgui300.dll</td><td>opencv_highgui300.dll</td><td>OPENCV~1.DLL|opencv_highgui300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_highgui300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_highgui300.dll1</td><td>opencv_highgui300.dll1</td><td>OPENCV~1.DLL|opencv_highgui300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_highgui300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_imgcodecs300.dll</td><td>opencv_imgcodecs300.dll</td><td>OPENCV~1.DLL|opencv_imgcodecs300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_imgcodecs300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_imgcodecs300.dll1</td><td>opencv_imgcodecs300.dll1</td><td>OPENCV~1.DLL|opencv_imgcodecs300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_imgcodecs300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_imgproc300.dll</td><td>opencv_imgproc300.dll</td><td>OPENCV~1.DLL|opencv_imgproc300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_imgproc300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_imgproc300.dll1</td><td>opencv_imgproc300.dll1</td><td>OPENCV~1.DLL|opencv_imgproc300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_imgproc300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_ml300.dll</td><td>opencv_ml300.dll</td><td>OPENCV~1.DLL|opencv_ml300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_ml300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_ml300.dll1</td><td>opencv_ml300.dll1</td><td>OPENCV~1.DLL|opencv_ml300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_ml300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_objdetect300.dll</td><td>opencv_objdetect300.dll</td><td>OPENCV~1.DLL|opencv_objdetect300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_objdetect300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_objdetect300.dll1</td><td>opencv_objdetect300.dll1</td><td>OPENCV~1.DLL|opencv_objdetect300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_objdetect300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_optflow300.dll</td><td>opencv_optflow300.dll</td><td>OPENCV~1.DLL|opencv_optflow300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_optflow300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_optflow300.dll1</td><td>opencv_optflow300.dll1</td><td>OPENCV~1.DLL|opencv_optflow300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_optflow300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_photo300.dll</td><td>opencv_photo300.dll</td><td>OPENCV~1.DLL|opencv_photo300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_photo300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_photo300.dll1</td><td>opencv_photo300.dll1</td><td>OPENCV~1.DLL|opencv_photo300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_photo300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_reg300.dll</td><td>opencv_reg300.dll</td><td>OPENCV~1.DLL|opencv_reg300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_reg300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_reg300.dll1</td><td>opencv_reg300.dll1</td><td>OPENCV~1.DLL|opencv_reg300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_reg300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_rgbd300.dll</td><td>opencv_rgbd300.dll</td><td>OPENCV~1.DLL|opencv_rgbd300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_rgbd300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_rgbd300.dll1</td><td>opencv_rgbd300.dll1</td><td>OPENCV~1.DLL|opencv_rgbd300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_rgbd300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_shape300.dll</td><td>opencv_shape300.dll</td><td>OPENCV~1.DLL|opencv_shape300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_shape300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_shape300.dll1</td><td>opencv_shape300.dll1</td><td>OPENCV~1.DLL|opencv_shape300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_shape300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_stitching300.dll</td><td>opencv_stitching300.dll</td><td>OPENCV~1.DLL|opencv_stitching300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_stitching300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_stitching300.dll1</td><td>opencv_stitching300.dll1</td><td>OPENCV~1.DLL|opencv_stitching300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_stitching300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_superres300.dll</td><td>opencv_superres300.dll</td><td>OPENCV~1.DLL|opencv_superres300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_superres300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_superres300.dll1</td><td>opencv_superres300.dll1</td><td>OPENCV~1.DLL|opencv_superres300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_superres300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_text300.dll</td><td>opencv_text300.dll</td><td>OPENCV~1.DLL|opencv_text300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_text300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_text300.dll1</td><td>opencv_text300.dll1</td><td>OPENCV~1.DLL|opencv_text300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_text300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_video300.dll</td><td>opencv_video300.dll</td><td>OPENCV~1.DLL|opencv_video300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_video300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_video300.dll1</td><td>opencv_video300.dll1</td><td>OPENCV~1.DLL|opencv_video300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_video300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_videoio300.dll</td><td>opencv_videoio300.dll</td><td>OPENCV~1.DLL|opencv_videoio300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_videoio300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_videoio300.dll1</td><td>opencv_videoio300.dll1</td><td>OPENCV~1.DLL|opencv_videoio300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_videoio300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_videostab300.dll</td><td>opencv_videostab300.dll</td><td>OPENCV~1.DLL|opencv_videostab300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_videostab300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_videostab300.dll1</td><td>opencv_videostab300.dll1</td><td>OPENCV~1.DLL|opencv_videostab300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_videostab300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_xfeatures2d300.dll</td><td>opencv_xfeatures2d300.dll</td><td>OPENCV~1.DLL|opencv_xfeatures2d300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_xfeatures2d300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_xfeatures2d300.dll1</td><td>opencv_xfeatures2d300.dll1</td><td>OPENCV~1.DLL|opencv_xfeatures2d300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_xfeatures2d300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_ximgproc300.dll</td><td>opencv_ximgproc300.dll</td><td>OPENCV~1.DLL|opencv_ximgproc300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_ximgproc300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_ximgproc300.dll1</td><td>opencv_ximgproc300.dll1</td><td>OPENCV~1.DLL|opencv_ximgproc300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_ximgproc300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_xobjdetect300.dll</td><td>opencv_xobjdetect300.dll</td><td>OPENCV~1.DLL|opencv_xobjdetect300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x86\opencv_xobjdetect300.dll</td><td>1</td><td/></row>
+		<row><td>opencv_xobjdetect300.dll1</td><td>opencv_xobjdetect300.dll1</td><td>OPENCV~1.DLL|opencv_xobjdetect300.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\x64\opencv_xobjdetect300.dll</td><td>1</td><td/></row>
+		<row><td>sharpdx.d3dcompiler.dll</td><td>SharpDX.D3DCompiler.dll</td><td>SHARPD~1.DLL|SharpDX.D3DCompiler.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\SharpDX.D3DCompiler.dll</td><td>1</td><td/></row>
+		<row><td>sharpdx.direct3d11.dll</td><td>SharpDX.Direct3D11.dll</td><td>SHARPD~1.DLL|SharpDX.Direct3D11.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\SharpDX.Direct3D11.dll</td><td>1</td><td/></row>
+		<row><td>sharpdx.dll</td><td>SharpDX.dll</td><td>SharpDX.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\SharpDX.dll</td><td>1</td><td/></row>
+		<row><td>sharpdx.dxgi.dll</td><td>SharpDX.DXGI.dll</td><td>SHARPD~1.DLL|SharpDX.DXGI.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\SharpDX.DXGI.dll</td><td>1</td><td/></row>
+		<row><td>zedgraph.dll</td><td>ZedGraph.dll</td><td>ZedGraph.dll</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\needed_files\dlls\ZedGraph.dll</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2025,9 +2230,76 @@
 		<col def="S0">FTPLocation</col>
 		<col def="S0">HTTPLocation</col>
 		<col def="S0">Miscellaneous</col>
+		<row><td>DirectShowLib_2005.dll</td><td/><td/><td>_ECFEB724_EBF3_47A9_B14E_3977601593C8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Emgu.CV.UI.dll</td><td/><td/><td>_23CFD961_7915_4413_83F9_A3CC75DF1BDC_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Emgu.CV.dll</td><td/><td/><td>_20D095C1_62AB_4C77_AB60_EEFE7E4877B0_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Emgu.Util.dll</td><td/><td/><td>_22A7568F_1B84_46B6_A885_42A502C2B727_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe</td><td/><td/><td>_7EECD760_2C15_40A2_9782_E254535180A5_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td/><td/><td>_CD9F33F6_39AD_44B0_9F7A_D5EEA241D193_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_07D99983_CFD6_4A99_A4D7_FA00E6D4A0CA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_B01C4C50_4F43_4FFF_879B_ED07AC6D8A3A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_16E55BB7_0A57_43AC_A46B_EFF97A9CC990_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>OpenCL.dll</td><td/><td/><td>_572B6979_B506_4056_B5BA_9F0C992C7C4E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SharpDX.D3DCompiler.dll</td><td/><td/><td>_50047FCF_C417_493A_9FC3_DA7B3DB20D33_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SharpDX.DXGI.dll</td><td/><td/><td>_F8EC4A47_C00B_4290_9F9B_B76C9E9E7117_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SharpDX.Direct3D11.dll</td><td/><td/><td>_864C4F65_3285_4E03_B2BC_AEE0619DB19E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>SharpDX.dll</td><td/><td/><td>_C4080DBF_1978_49C3_989A_621CC93240A7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ZedGraph.dll</td><td/><td/><td>_FBB7F25B_533A_4AA0_937A_EE37CD04166F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>cvextern.dll</td><td/><td/><td>_47000E7D_213E_437B_AC29_4310AB067C0D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>cvextern.dll1</td><td/><td/><td>_9943BEDE_81B9_4DF9_A9CC_3EAB3701BC30_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>cvextern_test.exe</td><td/><td/><td>_02A014E8_6733_4BCC_8CA0_DCA50D06C26B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_bgsegm300.dll</td><td/><td/><td>_D7F36587_2601_43B4_BFE6_8610592DB8CF_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_bgsegm300.dll1</td><td/><td/><td>_5633C90F_05B4_4A50_A55D_1CFC78783633_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_calib3d300.dll</td><td/><td/><td>_ACC11CBB_3E02_4193_85B3_559A387FA97F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_calib3d300.dll1</td><td/><td/><td>_1C3150BC_3CAF_4CD7_BB7D_B22C42820B66_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_core300.dll</td><td/><td/><td>_6CAEAD42_A618_4C09_B8D7_F2206E6FE644_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_core300.dll1</td><td/><td/><td>_9155C41F_05F3_4C55_ADE2_58D9497D5E93_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_face300.dll</td><td/><td/><td>_5E0B3540_8BA1_4346_9F99_343399A8FB86_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_face300.dll1</td><td/><td/><td>_4A68905B_DD7E_489E_B2CA_E7F1DE043AB1_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_features2d300.dll</td><td/><td/><td>_B8F07BF6_ACDA_4260_B346_44CB8A2DB4E8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_features2d300.dll1</td><td/><td/><td>_47EDA782_F595_431B_8177_FFFD68294AF9_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ffmpeg300.dll</td><td/><td/><td>_7BCF49B9_83DA_42D5_B3A6_193B0C98B3B7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ffmpeg300_64.dll</td><td/><td/><td>_2746BDDE_1F47_45B9_9B1C_D96B84C2696F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_flann300.dll</td><td/><td/><td>_43D27033_0B09_4E9B_A334_A8EF0E26A739_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_flann300.dll1</td><td/><td/><td>_654826A2_293C_4D6C_8345_78F3A6A13380_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_highgui300.dll</td><td/><td/><td>_AA8BE078_5596_4B59_AAC1_E59A4FA94BA0_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_highgui300.dll1</td><td/><td/><td>_0C2C513A_9DA0_4A38_9E04_7D59A4005E5D_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_imgcodecs300.dll</td><td/><td/><td>_5DB21F02_A6CB_4D4B_A7FA_8C9CA25D8CE8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_imgcodecs300.dll1</td><td/><td/><td>_5484306E_40C5_4E59_AE5B_9675B2B61F14_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_imgproc300.dll</td><td/><td/><td>_AF353A6D_8EA7_49D1_843E_C2935B66D9F7_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_imgproc300.dll1</td><td/><td/><td>_B5947340_A780_48A4_8C89_C7B1BA25D354_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ml300.dll</td><td/><td/><td>_C65A4103_6ACF_4E03_A195_67736ED218A3_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ml300.dll1</td><td/><td/><td>_E1ABC4AC_BE75_4696_A4E7_4A4835366FF9_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_objdetect300.dll</td><td/><td/><td>_990D5D4B_3EFC_41FA_B9CD_21A1209F6639_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_objdetect300.dll1</td><td/><td/><td>_1BDF3CA7_9307_449A_8246_9DE56BF9321E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_optflow300.dll</td><td/><td/><td>_EE90D982_799E_4100_8942_6BD7304FA922_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_optflow300.dll1</td><td/><td/><td>_F606B059_5197_4098_A331_062170402E53_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_photo300.dll</td><td/><td/><td>_A74F214F_DD30_421F_9E28_3C5A8F11A7A1_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_photo300.dll1</td><td/><td/><td>_D396A2A9_2492_416A_99CD_F244019E8D49_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_reg300.dll</td><td/><td/><td>_36F40453_5DBB_40FA_B84D_2691BB81BD72_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_reg300.dll1</td><td/><td/><td>_860E8AF2_4719_4A73_A364_DF5F9D1E5E76_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_rgbd300.dll</td><td/><td/><td>_F5140C99_D556_4CD0_896C_390F75FF85CB_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_rgbd300.dll1</td><td/><td/><td>_0589BC86_C2DA_41B1_A463_23EE0ABE75BC_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_shape300.dll</td><td/><td/><td>_DC6CC803_C74F_49B2_A9A2_DC27B1FEBA4A_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_shape300.dll1</td><td/><td/><td>_CF6432B9_44A3_4405_AE48_136712DE43FA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_stitching300.dll</td><td/><td/><td>_EE1A2621_599A_471A_8451_2875858BB725_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_stitching300.dll1</td><td/><td/><td>_4755A6A3_12BF_4F1D_AB0C_102A7C36C3ED_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_superres300.dll</td><td/><td/><td>_10C91767_771B_4B42_9839_0DC2C1262DCC_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_superres300.dll1</td><td/><td/><td>_053B18FC_B2FC_48FF_B034_5E9449C9D402_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_text300.dll</td><td/><td/><td>_00662883_4652_400F_9F74_4F11CD8812A8_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_text300.dll1</td><td/><td/><td>_A36597F8_7F87_4EE1_ABAD_AF8F72827ED0_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_video300.dll</td><td/><td/><td>_E36F70EB_75DA_4E59_8BBC_53A59A5DC32F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_video300.dll1</td><td/><td/><td>_F16B43D3_63C7_42DB_AB22_3C625095090C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_videoio300.dll</td><td/><td/><td>_1FDEE72D_CD73_423D_A525_BA49B193D2EA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_videoio300.dll1</td><td/><td/><td>_4C274879_7A30_4F66_9A4E_767C34EDBAA9_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_videostab300.dll</td><td/><td/><td>_084701D6_C000_45E0_8552_3ED9459C2E0C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_videostab300.dll1</td><td/><td/><td>_F4E1F616_F489_4502_BFD7_DB3D9692B46B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_xfeatures2d300.dll</td><td/><td/><td>_96069CC0_0C13_450E_8B51_FEE5713BE672_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_xfeatures2d300.dll1</td><td/><td/><td>_3C3255D4_E51E_4220_B96F_8A6AEBB47FDF_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ximgproc300.dll</td><td/><td/><td>_1DA19ACA_ED6A_4E81_BDDB_4CB19F766AB9_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_ximgproc300.dll1</td><td/><td/><td>_1E9FFA71_44F2_4A2D_9A07_04ACD92B5B60_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_xobjdetect300.dll</td><td/><td/><td>_FF49723B_04DB_4613_A8BD_4470848F5D5C_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>opencv_xobjdetect300.dll1</td><td/><td/><td>_E87754F2_011D_4FF6_B295_FC5D820AFEF7_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -3464,6 +3736,7 @@
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME2</td><td>1033</td><td>LAUNCH~1.EXE|Launch Gagagu VR Streamer Server.exe</td><td>0</td><td/><td>295913931</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME3</td><td>1033</td><td>LAUNCH~1.EXE|Launch Gagagu VR Streamer Server.vshost.exe</td><td>0</td><td/><td>295913931</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME4</td><td>1033</td><td>VR Streamer Server</td><td>0</td><td/><td>295941359</td></row>
+		<row><td>IDS_SHORTCUT_DISPLAY_NAME5</td><td>1033</td><td>LAUNCH~1.EXE|Launch cvextern_test.exe</td><td>0</td><td/><td>-1306272051</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>-786177685</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>-786177685</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>-786177685</td></row>
@@ -3885,9 +4158,12 @@
 		<row><td>_8A115076379548849207C40AD059850B.exe</td><td/><td>D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe</td><td>0</td></row>
 		<row><td>_920DC48DB52D4CB99F6E1A9588E90D46.exe</td><td/><td>D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe</td><td>0</td></row>
 		<row><td>_9290D83B27494367BE86C8B8B866739C.exe</td><td/><td>D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe</td><td>0</td></row>
+		<row><td>_9C1EA84C0CBE49B68CEE4A8682D954AD.exe</td><td/><td>D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Release\Gagagu VR Streamer Server.exe</td><td>0</td></row>
 		<row><td>_AB4CCF60BBE54FB4951277291EC0EA4F.exe</td><td/><td>D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe</td><td>0</td></row>
+		<row><td>_C4F51D646D724219A7A88DC0898DFD96.exe</td><td/><td>D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Release\Gagagu VR Streamer Server.exe</td><td>0</td></row>
 		<row><td>_DDB8C365615E41A5B23C93E70DB6FAF0.exe</td><td/><td>D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe</td><td>0</td></row>
 		<row><td>_EF120BC974A84277900D582808BD3071.exe</td><td/><td>D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\Gagagu VR Streamer Server\bin\Release\Gagagu VR Streamer Server.exe</td><td>0</td></row>
+		<row><td>cvextern_test.exe_04DE6CA65AA347C783A7E99FF0A763CE.exe</td><td/><td>&lt;ISProductFolder&gt;\redist\Language Independent\OS Independent\GenericExe.ico</td><td>0</td></row>
 	</table>
 
 	<table name="IniFile">
@@ -4395,7 +4671,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{9EA5FC8D-E891-4702-9416-0480650EF36F}</td><td/></row>
 		<row><td>ProductName</td><td>Gagagu VR Streamer Server</td><td/></row>
-		<row><td>ProductVersion</td><td>1.1.0</td><td/></row>
+		<row><td>ProductVersion</td><td>1.2.0</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4474,6 +4750,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>FileKey1</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe</td><td/><td>gagagu</td><td>2</td></row>
 		<row><td>FileKey2</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe</td><td/><td>gagagu_1_gagagu_vr_streamer_server</td><td>2</td></row>
 		<row><td>_Built</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td/><td>gagagu_1_gagagu_vr_streamer_server</td><td>2</td></row>
+		<row><td>cvextern_test.exe</td><td>cvextern_test.exe</td><td/><td>gagagu_1_gagagu_vr_streamer_server</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4561,6 +4838,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="I4">ISAttributes</col>
 		<row><td>_Built</td><td>gagagu_1_gagagu_vr_streamer_server</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 		<row><td>_Built1</td><td>DesktopFolder</td><td>##IDS_SHORTCUT_DISPLAY_NAME4##</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td>AlwaysInstall</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
+		<row><td>cvextern_test.exe</td><td>gagagu_1_gagagu_vr_streamer_server</td><td>##IDS_SHORTCUT_DISPLAY_NAME5##</td><td>cvextern_test.exe</td><td>AlwaysInstall</td><td/><td/><td/><td>cvextern_test.exe_04DE6CA65AA347C783A7E99FF0A763CE.exe</td><td>0</td><td>1</td><td>X64</td><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

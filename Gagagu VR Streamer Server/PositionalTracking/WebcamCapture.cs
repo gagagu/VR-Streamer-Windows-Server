@@ -123,21 +123,12 @@ namespace Gagagu_VR_Streamer_Server.PositionalTracking
             Mat grayFrame = new Mat();
             CvInvoke.CvtColor(frame, grayFrame, ColorConversion.Bgr2Gray);
 
-            //Point p = new Point(0, 0);
-            // Size patternSize = new Size(5, 4);
             Size patternSize = new Size(4, 4);
-            //Matrix<float> corners = new Matrix<float>(20, 2);
             VectorOfPointF corners = new VectorOfPointF(16);
 
             bool find = CvInvoke.FindChessboardCorners(grayFrame, patternSize, corners, CalibCbType.AdaptiveThresh | CalibCbType.FilterQuads);
-            // CvInvoke.DrawChessboardCorners(grayFrame, patternSize, corners, find);
             if (find)
             {
-                //for (int x = 0; x <= 15; x++)
-                //{
-                //Console.WriteLine(corners[15].X.ToString() + " | " + corners[12].X.ToString() + " | " + (corners[15].X - corners[12].X).ToString());
-                //}
-                //Console.WriteLine("ende");
                 if (TrackingData != null)
                 {
                     
@@ -157,8 +148,8 @@ namespace Gagagu_VR_Streamer_Server.PositionalTracking
                     Double ZZ = max - min;
 
                     //Double ZZ = (corners[15].X - corners[12].X) / (grayFrame.Width / 100);
-                   // Double ZZ = corners[15].X  - corners[12].X ;
-                   //Double ZZ = (corners[15].X / (grayFrame.Width / 100)) - (corners[12].X / (grayFrame.Width / 100));
+                    // Double ZZ = corners[15].X  - corners[12].X ;
+                    //Double ZZ = (corners[15].X / (grayFrame.Width / 100)) - (corners[12].X / (grayFrame.Width / 100));
                     //Double ZZ = (corners[10].X / (grayFrame.Width / 100)) - (corners[9].X / (grayFrame.Width / 100));
 
                     byte[] X = BitConverter.GetBytes(XX);
@@ -170,9 +161,8 @@ namespace Gagagu_VR_Streamer_Server.PositionalTracking
                     Buffer.BlockCopy(Z, 0, TrackingData, 16, 8);
 
 
-
                    //Console.WriteLine(XX.ToString() + " | " + YY.ToString() + " | " + ZZ.ToString());
-                   // Console.WriteLine(max.ToString() + " | " + min.ToString() + " | " + (max-min).ToString());
+                   //Console.WriteLine(max.ToString() + " | " + min.ToString() + " | " + (max-min).ToString());
                 }
             }
 
