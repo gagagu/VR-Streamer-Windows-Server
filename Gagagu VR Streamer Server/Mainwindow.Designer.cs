@@ -225,6 +225,11 @@
             // 
             this.nCustomWindowHeight.Enabled = false;
             this.nCustomWindowHeight.Location = new System.Drawing.Point(280, 162);
+            this.nCustomWindowHeight.Maximum = new decimal(new int[] {
+            1200,
+            0,
+            0,
+            0});
             this.nCustomWindowHeight.Name = "nCustomWindowHeight";
             this.nCustomWindowHeight.Size = new System.Drawing.Size(76, 20);
             this.nCustomWindowHeight.TabIndex = 61;
@@ -239,6 +244,11 @@
             // 
             this.nCustomWindowWidth.Enabled = false;
             this.nCustomWindowWidth.Location = new System.Drawing.Point(280, 136);
+            this.nCustomWindowWidth.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
             this.nCustomWindowWidth.Name = "nCustomWindowWidth";
             this.nCustomWindowWidth.Size = new System.Drawing.Size(76, 20);
             this.nCustomWindowWidth.TabIndex = 60;
@@ -253,6 +263,11 @@
             // 
             this.nCustomWindowY.Enabled = false;
             this.nCustomWindowY.Location = new System.Drawing.Point(154, 162);
+            this.nCustomWindowY.Maximum = new decimal(new int[] {
+            1200,
+            0,
+            0,
+            0});
             this.nCustomWindowY.Name = "nCustomWindowY";
             this.nCustomWindowY.Size = new System.Drawing.Size(76, 20);
             this.nCustomWindowY.TabIndex = 59;
@@ -262,6 +277,11 @@
             // 
             this.nCustomWindowX.Enabled = false;
             this.nCustomWindowX.Location = new System.Drawing.Point(154, 136);
+            this.nCustomWindowX.Maximum = new decimal(new int[] {
+            1920,
+            0,
+            0,
+            0});
             this.nCustomWindowX.Name = "nCustomWindowX";
             this.nCustomWindowX.Size = new System.Drawing.Size(76, 20);
             this.nCustomWindowX.TabIndex = 48;
