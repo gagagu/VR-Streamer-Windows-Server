@@ -13,26 +13,42 @@ namespace Gagagu_VR_Streamer_Server
     public class ProfileData
     {
         // saveable properties
+       
+        // main
         public String Name { get; set; }
         public int DataPort { get; set; }
-        public int UDPReceiveDataPort { get; set; }
-        public int UDPSendDataPort { get; set; }
-        public String UDPSendIPAddress { get; set; }
-        public Boolean WebcamPreview { get; set; }
-        public int WebcamIndex { get; set; }
         public String ProcessName { get; set; }
+
+        // graphics
+        public Boolean UseDirectX { get; set; }
+        public int ImageQuality { get; set; }
+        public Boolean CustomWindow { get; set; }
         public Boolean Simulate3D { get; set; }
+        public Boolean ShowCrosshair { get; set; }
+
+        // Cursor
         public Boolean ShowCursor { get; set; }
         public Boolean CursorCorrection { get; set; }
-        public Boolean ShowCrosshair { get; set; }
         public String CorsorColorName { get; set; }
         public int CursorSize { get; set; }
         public int CursorCorrectionAdjWidth { get; set; }
         public int CursorCorrectionAdjHeight { get; set; }
-        public Boolean UseDirectX { get; set; }
-        public int ImageQuality { get; set; }
-        public Boolean CustomWindow { get; set; }
+       
+
+        // Head Tracking
         public Boolean ActivateHeadTracking { get; set; }
+        public Boolean WebcamPreview { get; set; }
+        public int WebcamIndex { get; set; }
+        public String UDPSendIPAddress { get; set; }
+        public int UDPSendDataPort { get; set; }
+        public int UDPReceiveDataPort { get; set; }
+
+        // Relay
+        public Boolean ActivateOpentrackRelay { get; set; }
+        public int RelayIphoneReceivePort { get; set; }
+        public int RelayArucoReceivePort { get; set; }
+        public int RelaySendPort { get; set; }
+        public String RelaySendIP { get; set; }
 
         // Subclass for border correction
         [XmlElement("BorderCorrection")] 
@@ -78,27 +94,41 @@ namespace Gagagu_VR_Streamer_Server
         /// </summary>
         public ProfileData()
         {
+            // main
             this.Name = "noname";
             this.DataPort = 6666;
-            this.UDPReceiveDataPort = 5252;
-            this.UDPSendDataPort = 4242;
-            this.UDPSendIPAddress = "127.0.0.1";
             this.ProcessName = "";
+
+            // graphics
             this.Simulate3D = false;
-            this.ShowCursor = false;
-            this.CursorCorrection = false; 
             this.BorderCorrection = new BorderCorrectionData();
             this.ShowCrosshair = false;
-            this.WebcamPreview = false;
-            this.CorsorColorName="";
-            this.CursorSize=5;
-            this.CursorCorrectionAdjWidth = 0;
-            this.CursorCorrectionAdjHeight = 0;
             this.UseDirectX = false;
             this.ImageQuality = 50;
             this.CustomWindow = false;
             this.CustomWindowSize = new CustomWindowData();
+
+            // cursor
+            this.ShowCursor = false;
+            this.CursorCorrection = false; 
+            this.CorsorColorName = "";
+            this.CursorSize = 5;
+            this.CursorCorrectionAdjWidth = 0;
+            this.CursorCorrectionAdjHeight = 0;
+
+            // Head Tracking
             this.ActivateHeadTracking = false;
+            this.WebcamPreview = false;
+            this.UDPReceiveDataPort = 5252;
+            this.UDPSendDataPort = 4242;
+            this.UDPSendIPAddress = "127.0.0.1";
+
+            // Relay
+            this.ActivateOpentrackRelay =false;
+            this.RelayIphoneReceivePort = 5252;
+            this.RelayArucoReceivePort = 6262;
+            this.RelaySendPort = 4242;
+            this.RelaySendIP = "127.0.0.1";
         }
     }
 }

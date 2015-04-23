@@ -147,6 +147,7 @@
     <Compile Include="Mainwindow.Designer.cs">
       <DependentUpon>Mainwindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="PositionalTracking\OpentrackRelay.cs" />
     <Compile Include="PositionalTracking\WebcamCapture.cs" />
     <Compile Include="ProfileData.cs" />
     <Compile Include="Program.cs" />

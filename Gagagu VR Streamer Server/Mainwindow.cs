@@ -55,6 +55,7 @@ namespace Gagagu_VR_Streamer_Server
         private CaptureRect cptRect =  new CaptureRect();
         private Video_Device[] WebCams; //List containing all the camera available
         private WebcamCapture  wcCapture= null;
+        private OpentrackRelay relayServer = null;
 
         public Mainwindow()
         {
@@ -267,24 +268,36 @@ namespace Gagagu_VR_Streamer_Server
                     newProfile.WebcamPreview = this.cbWebcamPreview.Checked;
                     
                     if (int.TryParse(tbUDPReceiveDataPort.Text, out port))
-                    {
                         newProfile.UDPReceiveDataPort = port;
-                    }
                     else
-                    {
                         newProfile.UDPReceiveDataPort = 0;
-                    }
 
                     if (int.TryParse(tbUDPSendDataPort.Text, out port))
-                    {
                         newProfile.UDPSendDataPort = port;
-                    }
                     else
-                    {
                         newProfile.UDPSendDataPort = 0;
-                    }
 
+                    // Relay
+                    newProfile.ActivateOpentrackRelay = this.cbRelayActivate.Checked;
 
+                    if (int.TryParse(tbRelayIphoneReceivePort.Text, out port))
+                        newProfile.RelayIphoneReceivePort = port;
+                    else
+                        newProfile.RelayIphoneReceivePort = 0;
+
+                    if (int.TryParse(tbRelayArucoReceivePort.Text, out port))
+                        newProfile.RelayArucoReceivePort = port;
+                    else
+                        newProfile.RelayArucoReceivePort = 0;
+
+                    if (int.TryParse(tbRelaySendPort.Text, out port))
+                        newProfile.RelaySendPort = port;
+                    else
+                        newProfile.RelaySendPort = 0;
+
+                    newProfile.RelaySendIP = this.tbRelaySendIP.Text;
+
+                    // save
                     Profiles.Add(newProfile);
 
                     RefreshProfileData();
@@ -379,6 +392,24 @@ namespace Gagagu_VR_Streamer_Server
                     data.CustomWindowSize.height = (int)this.nCustomWindowHeight.Value;
                     data.ActivateHeadTracking = this.cbHeadTrackingActivate.Checked;
 
+                    // Relay
+                    data.ActivateOpentrackRelay = this.cbRelayActivate.Checked;
+                    if (int.TryParse(tbRelayIphoneReceivePort.Text, out port))
+                        data.RelayIphoneReceivePort = port;
+                    else
+                        data.RelayIphoneReceivePort = 0;
+
+                    if (int.TryParse(tbRelayArucoReceivePort.Text, out port))
+                        data.RelayArucoReceivePort = port;
+                    else
+                        data.RelayArucoReceivePort = 0;
+
+                    if (int.TryParse(tbRelaySendPort.Text, out port))
+                        data.RelaySendPort = port;
+                    else
+                        data.RelaySendPort = 0;
+
+                    data.RelaySendIP = this.tbRelaySendIP.Text;
                 }
             }
             catch {
@@ -493,6 +524,12 @@ namespace Gagagu_VR_Streamer_Server
                 this.tbUDPSendDataPort.Text = "4242";
                 this.tbUDPSenderIpAddress.Text = "127.0.0.1";
                 this.cbWebcamPreview.Checked = false;
+                // Relay
+                this.cbRelayActivate.Checked = false;
+                this.tbRelayIphoneReceivePort.Text = "5252";
+                this.tbRelayArucoReceivePort.Text = "6262";
+                this.tbRelaySendPort.Text = "4242";
+                this.tbRelaySendIP.Text = "127.0.0.1";
 
             }
             catch (Exception ex)
@@ -544,6 +581,12 @@ namespace Gagagu_VR_Streamer_Server
                     this.tbUDPReceiveDataPort.Text = data.UDPReceiveDataPort.ToString();
                     this.tbUDPSendDataPort.Text = data.UDPSendDataPort.ToString();
                     this.tbUDPSenderIpAddress.Text = data.UDPSendIPAddress;
+                    // relay
+                    this.cbRelayActivate.Checked = data.ActivateOpentrackRelay;
+                    this.tbRelayIphoneReceivePort.Text = data.RelayIphoneReceivePort.ToString();
+                    this.tbRelayArucoReceivePort.Text = data.RelayArucoReceivePort.ToString();
+                    this.tbRelaySendPort.Text = data.RelaySendPort.ToString(); ;
+                    this.tbRelaySendIP.Text = data.RelaySendIP;
                 }
             }
             catch (Exception ex)
@@ -676,6 +719,12 @@ namespace Gagagu_VR_Streamer_Server
                         wcCapture.StartCapture();
                     }
 
+                    // relay
+                    if (this.cbRelayActivate.Checked) {
+                        relayServer = new OpentrackRelay(this);
+                        relayServer.Start();
+                    }
+
                     NetworkStream ns = new NetworkStream(handler, true);
                     jgpEncoder = GDIGraphicTools.GetEncoder(ImageFormat.Jpeg);
 
@@ -743,9 +792,14 @@ namespace Gagagu_VR_Streamer_Server
                         catch
                         {
                             blStop = true;
-                            if ((this.cbHeadTrackingActivate.Checked)&&(wcCapture!=null))
+                            if ((this.cbHeadTrackingActivate.Checked) && (wcCapture != null))
                             {
                                 wcCapture.StopCapture();
+                            }
+
+                            if ((this.cbRelayActivate.Checked) && (relayServer != null))
+                            {
+                                relayServer.Stop();
                             }
                         }
                     }
@@ -767,6 +821,11 @@ namespace Gagagu_VR_Streamer_Server
                 if ((this.cbHeadTrackingActivate.Checked) && (wcCapture != null))
                 {
                     wcCapture.StopCapture();
+                }
+
+                if ((this.cbRelayActivate.Checked) && (relayServer != null))
+                {
+                    relayServer.Stop();
                 }
             }
             finally
@@ -829,6 +888,11 @@ namespace Gagagu_VR_Streamer_Server
                 if ((this.cbHeadTrackingActivate.Checked) && (wcCapture != null))
                 {
                     wcCapture.StopCapture();
+                }
+
+                if ((this.cbRelayActivate.Checked) && (relayServer != null))
+                {
+                    relayServer.Stop();
                 }
 
                 if (TCPServer != null)
@@ -1203,6 +1267,8 @@ namespace Gagagu_VR_Streamer_Server
             {
                 if (cbHeadTrackingActivate.Checked)
                 {
+                    cbRelayActivate.Checked = false;
+
                     this.tbUDPReceiveDataPort.Enabled = true;
                     this.tbUDPSenderIpAddress.Enabled = true;
                     this.tbUDPSendDataPort.Enabled = true;
@@ -1335,7 +1401,36 @@ namespace Gagagu_VR_Streamer_Server
                 MessageBox.Show("hScrollRight_ValueChanged::" + ex.Message);
             }
         }
-        #endregion
 
+
+        private void cbRelayActivate_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbRelayActivate.Checked)
+                {
+                    cbHeadTrackingActivate.Checked = false;
+
+                    this.tbRelayIphoneReceivePort.Enabled = true;
+                    this.tbRelayArucoReceivePort.Enabled = true;
+                    this.tbRelaySendIP.Enabled = true;
+                    this.tbRelaySendPort.Enabled = true;
+                }
+                else
+                {
+                    this.tbRelayIphoneReceivePort.Enabled = false;
+                    this.tbRelayArucoReceivePort.Enabled = false;
+                    this.tbRelaySendIP.Enabled = false;
+                    this.tbRelaySendPort.Enabled = false;
+                }
+                this.Profil = FillProfileWithData(null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("cbRelayActivate_CheckedChanged::" + ex.Message);
+            }
+        }
+
+        #endregion
     }
 }
