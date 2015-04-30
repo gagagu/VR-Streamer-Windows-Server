@@ -35,25 +35,17 @@ D:\Programmierung\Github\VR-Streamer-Windows-Server\VR-Streamer-Windows-Server\G
 D:\Programmierung\Github\VR-Streamer-Windows-Server\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.Properties.Resources.resources
 D:\Programmierung\Github\VR-Streamer-Windows-Server\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.wndAskForProfileName.resources
 D:\Programmierung\Github\VR-Streamer-Windows-Server\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.csproj.GenerateResource.Cache
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Gagagu VR Streamer Server.exe.config
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Gagagu VR Streamer Server.exe
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Gagagu VR Streamer Server.pdb
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\DirectShowLib-2005.dll
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.CV.dll
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.CV.UI.dll
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.Util.dll
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\SharpDX.D3DCompiler.dll
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\SharpDX.Direct3D11.dll
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\SharpDX.dll
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\SharpDX.DXGI.dll
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\ZedGraph.dll
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.CV.xml
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.CV.UI.xml
-D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Emgu.Util.xml
 D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.frmAbout.resources
 D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.Mainwindow.resources
 D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.Properties.Resources.resources
 D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu_VR_Streamer_Server.wndAskForProfileName.resources
 D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.csproj.GenerateResource.Cache
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Gagagu VR Streamer Server.exe.config
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Gagagu VR Streamer Server.exe
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\Gagagu VR Streamer Server.pdb
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\SharpDX.D3DCompiler.dll
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\SharpDX.Direct3D11.dll
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\SharpDX.dll
+D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\bin\x86\Debug\SharpDX.DXGI.dll
 D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.exe
 D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\obj\x86\Debug\Gagagu VR Streamer Server.pdb

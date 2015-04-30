@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainwindow));
             this.btStartServer = new System.Windows.Forms.Button();
             this.btStopServer = new System.Windows.Forms.Button();
@@ -98,33 +97,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpMain = new System.Windows.Forms.TabPage();
             this.tbAppearance = new System.Windows.Forms.TabPage();
-            this.tbHeadTracking = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.tbUDPReceiveDataPort = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.cbHeadTrackingActivate = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cbCameraSelection = new System.Windows.Forms.ComboBox();
-            this.tbUDPSenderIpAddress = new System.Windows.Forms.TextBox();
-            this.tbUDPSendDataPort = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.captureBox = new Emgu.CV.UI.ImageBox();
-            this.cbWebcamPreview = new System.Windows.Forms.CheckBox();
-            this.tpRelay = new System.Windows.Forms.TabPage();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cbRelayActivate = new System.Windows.Forms.CheckBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.tbRelaySendIP = new System.Windows.Forms.TextBox();
-            this.tbRelaySendPort = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.tbRelayArucoReceivePort = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.tbRelayIphoneReceivePort = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowWidth)).BeginInit();
@@ -138,16 +110,6 @@
             this.tabControl1.SuspendLayout();
             this.tpMain.SuspendLayout();
             this.tbAppearance.SuspendLayout();
-            this.tbHeadTracking.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.captureBox)).BeginInit();
-            this.tpRelay.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox11.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // btStartServer
@@ -867,8 +829,6 @@
             // 
             this.tabControl1.Controls.Add(this.tpMain);
             this.tabControl1.Controls.Add(this.tbAppearance);
-            this.tabControl1.Controls.Add(this.tbHeadTracking);
-            this.tabControl1.Controls.Add(this.tpRelay);
             this.tabControl1.Location = new System.Drawing.Point(12, 54);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -903,288 +863,6 @@
             this.tbAppearance.TabIndex = 1;
             this.tbAppearance.Text = "Appearance";
             // 
-            // tbHeadTracking
-            // 
-            this.tbHeadTracking.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tbHeadTracking.Controls.Add(this.groupBox7);
-            this.tbHeadTracking.Controls.Add(this.groupBox8);
-            this.tbHeadTracking.Location = new System.Drawing.Point(4, 22);
-            this.tbHeadTracking.Name = "tbHeadTracking";
-            this.tbHeadTracking.Size = new System.Drawing.Size(487, 432);
-            this.tbHeadTracking.TabIndex = 2;
-            this.tbHeadTracking.Text = "Head Tracking";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.tbUDPReceiveDataPort);
-            this.groupBox7.Controls.Add(this.label15);
-            this.groupBox7.Controls.Add(this.cbHeadTrackingActivate);
-            this.groupBox7.Controls.Add(this.label13);
-            this.groupBox7.Controls.Add(this.cbCameraSelection);
-            this.groupBox7.Controls.Add(this.tbUDPSenderIpAddress);
-            this.groupBox7.Controls.Add(this.tbUDPSendDataPort);
-            this.groupBox7.Controls.Add(this.label14);
-            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(6, 3);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(475, 127);
-            this.groupBox7.TabIndex = 43;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Main";
-            // 
-            // tbUDPReceiveDataPort
-            // 
-            this.tbUDPReceiveDataPort.Location = new System.Drawing.Point(129, 42);
-            this.tbUDPReceiveDataPort.Name = "tbUDPReceiveDataPort";
-            this.tbUDPReceiveDataPort.Size = new System.Drawing.Size(102, 20);
-            this.tbUDPReceiveDataPort.TabIndex = 8;
-            this.tbUDPReceiveDataPort.Text = "5252";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(17, 97);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(44, 13);
-            this.label15.TabIndex = 15;
-            this.label15.Text = "Device:";
-            // 
-            // cbHeadTrackingActivate
-            // 
-            this.cbHeadTrackingActivate.AutoSize = true;
-            this.cbHeadTrackingActivate.Checked = true;
-            this.cbHeadTrackingActivate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbHeadTrackingActivate.Location = new System.Drawing.Point(19, 19);
-            this.cbHeadTrackingActivate.Name = "cbHeadTrackingActivate";
-            this.cbHeadTrackingActivate.Size = new System.Drawing.Size(65, 17);
-            this.cbHeadTrackingActivate.TabIndex = 2;
-            this.cbHeadTrackingActivate.Text = "Activate";
-            this.cbHeadTrackingActivate.UseVisualStyleBackColor = true;
-            this.cbHeadTrackingActivate.CheckedChanged += new System.EventHandler(this.cbHeadTrackingActivate_CheckedChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 45);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 13);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "UDP Receive Port:";
-            // 
-            // cbCameraSelection
-            // 
-            this.cbCameraSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCameraSelection.FormattingEnabled = true;
-            this.cbCameraSelection.Location = new System.Drawing.Point(67, 94);
-            this.cbCameraSelection.Name = "cbCameraSelection";
-            this.cbCameraSelection.Size = new System.Drawing.Size(337, 21);
-            this.cbCameraSelection.Sorted = true;
-            this.cbCameraSelection.TabIndex = 14;
-            this.cbCameraSelection.SelectedIndexChanged += new System.EventHandler(this.cbCameraSelection_SelectedIndexChanged);
-            // 
-            // tbUDPSenderIpAddress
-            // 
-            this.tbUDPSenderIpAddress.Location = new System.Drawing.Point(129, 68);
-            this.tbUDPSenderIpAddress.Name = "tbUDPSenderIpAddress";
-            this.tbUDPSenderIpAddress.Size = new System.Drawing.Size(167, 20);
-            this.tbUDPSenderIpAddress.TabIndex = 7;
-            this.tbUDPSenderIpAddress.Text = "192.168.100.14";
-            // 
-            // tbUDPSendDataPort
-            // 
-            this.tbUDPSendDataPort.Location = new System.Drawing.Point(302, 68);
-            this.tbUDPSendDataPort.Name = "tbUDPSendDataPort";
-            this.tbUDPSendDataPort.Size = new System.Drawing.Size(102, 20);
-            this.tbUDPSendDataPort.TabIndex = 9;
-            this.tbUDPSendDataPort.Text = "4242";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 71);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 13);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "UDP Send IP/Port:";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.captureBox);
-            this.groupBox8.Controls.Add(this.cbWebcamPreview);
-            this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(6, 136);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(475, 293);
-            this.groupBox8.TabIndex = 44;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Info";
-            // 
-            // captureBox
-            // 
-            this.captureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.captureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.captureBox.Location = new System.Drawing.Point(19, 42);
-            this.captureBox.Name = "captureBox";
-            this.captureBox.Size = new System.Drawing.Size(450, 235);
-            this.captureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.captureBox.TabIndex = 28;
-            this.captureBox.TabStop = false;
-            // 
-            // cbWebcamPreview
-            // 
-            this.cbWebcamPreview.AutoSize = true;
-            this.cbWebcamPreview.Checked = true;
-            this.cbWebcamPreview.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbWebcamPreview.Location = new System.Drawing.Point(19, 19);
-            this.cbWebcamPreview.Name = "cbWebcamPreview";
-            this.cbWebcamPreview.Size = new System.Drawing.Size(64, 17);
-            this.cbWebcamPreview.TabIndex = 29;
-            this.cbWebcamPreview.Text = "Preview";
-            this.cbWebcamPreview.UseVisualStyleBackColor = true;
-            this.cbWebcamPreview.CheckedChanged += new System.EventHandler(this.cbWebcamPreview_CheckedChanged);
-            // 
-            // tpRelay
-            // 
-            this.tpRelay.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tpRelay.Controls.Add(this.groupBox12);
-            this.tpRelay.Controls.Add(this.groupBox11);
-            this.tpRelay.Controls.Add(this.groupBox10);
-            this.tpRelay.Controls.Add(this.groupBox9);
-            this.tpRelay.Location = new System.Drawing.Point(4, 22);
-            this.tpRelay.Name = "tpRelay";
-            this.tpRelay.Size = new System.Drawing.Size(487, 432);
-            this.tpRelay.TabIndex = 3;
-            this.tpRelay.Text = "Opentrack Relay";
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.pictureBox1);
-            this.groupBox12.Controls.Add(this.cbRelayActivate);
-            this.groupBox12.Location = new System.Drawing.Point(3, 3);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(478, 247);
-            this.groupBox12.TabIndex = 6;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Main";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(32, 42);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(409, 199);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // cbRelayActivate
-            // 
-            this.cbRelayActivate.AutoSize = true;
-            this.cbRelayActivate.Checked = true;
-            this.cbRelayActivate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbRelayActivate.Location = new System.Drawing.Point(14, 19);
-            this.cbRelayActivate.Name = "cbRelayActivate";
-            this.cbRelayActivate.Size = new System.Drawing.Size(65, 17);
-            this.cbRelayActivate.TabIndex = 3;
-            this.cbRelayActivate.Text = "Activate";
-            this.cbRelayActivate.UseVisualStyleBackColor = true;
-            this.cbRelayActivate.CheckedChanged += new System.EventHandler(this.cbRelayActivate_CheckedChanged);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.tbRelaySendIP);
-            this.groupBox11.Controls.Add(this.tbRelaySendPort);
-            this.groupBox11.Controls.Add(this.label21);
-            this.groupBox11.Location = new System.Drawing.Point(3, 374);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(478, 52);
-            this.groupBox11.TabIndex = 5;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Opentrack UDP";
-            // 
-            // tbRelaySendIP
-            // 
-            this.tbRelaySendIP.Location = new System.Drawing.Point(124, 19);
-            this.tbRelaySendIP.Name = "tbRelaySendIP";
-            this.tbRelaySendIP.Size = new System.Drawing.Size(167, 20);
-            this.tbRelaySendIP.TabIndex = 14;
-            this.tbRelaySendIP.Text = "127.0.0.1";
-            // 
-            // tbRelaySendPort
-            // 
-            this.tbRelaySendPort.Location = new System.Drawing.Point(297, 19);
-            this.tbRelaySendPort.Name = "tbRelaySendPort";
-            this.tbRelaySendPort.Size = new System.Drawing.Size(102, 20);
-            this.tbRelaySendPort.TabIndex = 15;
-            this.tbRelaySendPort.Text = "4242";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(11, 22);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(98, 13);
-            this.label21.TabIndex = 13;
-            this.label21.Text = "UDP Send IP/Port:";
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.tbRelayArucoReceivePort);
-            this.groupBox10.Controls.Add(this.label22);
-            this.groupBox10.Location = new System.Drawing.Point(4, 314);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(478, 54);
-            this.groupBox10.TabIndex = 5;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Opentrack Aruco";
-            // 
-            // tbRelayArucoReceivePort
-            // 
-            this.tbRelayArucoReceivePort.Location = new System.Drawing.Point(123, 19);
-            this.tbRelayArucoReceivePort.Name = "tbRelayArucoReceivePort";
-            this.tbRelayArucoReceivePort.Size = new System.Drawing.Size(102, 20);
-            this.tbRelayArucoReceivePort.TabIndex = 14;
-            this.tbRelayArucoReceivePort.Text = "6262";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 22);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(98, 13);
-            this.label22.TabIndex = 13;
-            this.label22.Text = "UDP Receive Port:";
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.tbRelayIphoneReceivePort);
-            this.groupBox9.Controls.Add(this.label20);
-            this.groupBox9.Location = new System.Drawing.Point(3, 256);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(478, 52);
-            this.groupBox9.TabIndex = 4;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "iPhone";
-            // 
-            // tbRelayIphoneReceivePort
-            // 
-            this.tbRelayIphoneReceivePort.Location = new System.Drawing.Point(124, 19);
-            this.tbRelayIphoneReceivePort.Name = "tbRelayIphoneReceivePort";
-            this.tbRelayIphoneReceivePort.Size = new System.Drawing.Size(102, 20);
-            this.tbRelayIphoneReceivePort.TabIndex = 12;
-            this.tbRelayIphoneReceivePort.Text = "5252";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 22);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(98, 13);
-            this.label20.TabIndex = 10;
-            this.label20.Text = "UDP Receive Port:";
-            // 
             // Mainwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1200,7 +878,7 @@
             this.MaximizeBox = false;
             this.Name = "Mainwindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gagagu VR Streamer Server - v1.3.0";
+            this.Text = "Gagagu VR Streamer Server - v1.4.0";
             this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1221,22 +899,6 @@
             this.tpMain.ResumeLayout(false);
             this.tpMain.PerformLayout();
             this.tbAppearance.ResumeLayout(false);
-            this.tbHeadTracking.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.captureBox)).EndInit();
-            this.tpRelay.ResumeLayout(false);
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1303,42 +965,15 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpMain;
         private System.Windows.Forms.TabPage tbAppearance;
-        private System.Windows.Forms.TabPage tbHeadTracking;
-        private System.Windows.Forms.TextBox tbUDPSendDataPort;
-        private System.Windows.Forms.TextBox tbUDPReceiveDataPort;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox tbUDPSenderIpAddress;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.CheckBox cbHeadTrackingActivate;
-        private Emgu.CV.UI.ImageBox captureBox;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox cbCameraSelection;
-        private System.Windows.Forms.CheckBox cbWebcamPreview;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox cbCustomWindow;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.NumericUpDown nCustomWindowHeight;
         private System.Windows.Forms.NumericUpDown nCustomWindowWidth;
         private System.Windows.Forms.NumericUpDown nCustomWindowY;
         private System.Windows.Forms.NumericUpDown nCustomWindowX;
-        private System.Windows.Forms.TabPage tpRelay;
-        private System.Windows.Forms.CheckBox cbRelayActivate;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.TextBox tbRelaySendIP;
-        private System.Windows.Forms.TextBox tbRelaySendPort;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.TextBox tbRelayArucoReceivePort;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TextBox tbRelayIphoneReceivePort;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

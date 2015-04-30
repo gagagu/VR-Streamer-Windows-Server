@@ -29,6 +29,7 @@
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
 	<ItemGroup/>
+	<ItemGroup/>
 	<ItemGroup>
 		<ProjectReference Include="..\Gagagu VR Streamer Server\Gagagu VR Streamer Server.csproj">
 			<Name>Gagagu VR Streamer Server</Name>

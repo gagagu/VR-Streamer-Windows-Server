@@ -35,21 +35,6 @@ namespace Gagagu_VR_Streamer_Server
         public int CursorCorrectionAdjHeight { get; set; }
        
 
-        // Head Tracking
-        public Boolean ActivateHeadTracking { get; set; }
-        public Boolean WebcamPreview { get; set; }
-        public int WebcamIndex { get; set; }
-        public String UDPSendIPAddress { get; set; }
-        public int UDPSendDataPort { get; set; }
-        public int UDPReceiveDataPort { get; set; }
-
-        // Relay
-        public Boolean ActivateOpentrackRelay { get; set; }
-        public int RelayIphoneReceivePort { get; set; }
-        public int RelayArucoReceivePort { get; set; }
-        public int RelaySendPort { get; set; }
-        public String RelaySendIP { get; set; }
-
         // Subclass for border correction
         [XmlElement("BorderCorrection")] 
         public BorderCorrectionData BorderCorrection { get; set; }
@@ -116,19 +101,6 @@ namespace Gagagu_VR_Streamer_Server
             this.CursorCorrectionAdjWidth = 0;
             this.CursorCorrectionAdjHeight = 0;
 
-            // Head Tracking
-            this.ActivateHeadTracking = false;
-            this.WebcamPreview = false;
-            this.UDPReceiveDataPort = 5252;
-            this.UDPSendDataPort = 4242;
-            this.UDPSendIPAddress = "127.0.0.1";
-
-            // Relay
-            this.ActivateOpentrackRelay =false;
-            this.RelayIphoneReceivePort = 5252;
-            this.RelayArucoReceivePort = 6262;
-            this.RelaySendPort = 4242;
-            this.RelaySendIP = "127.0.0.1";
         }
     }
 }

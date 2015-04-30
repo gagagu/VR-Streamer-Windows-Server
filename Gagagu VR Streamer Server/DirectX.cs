@@ -59,8 +59,12 @@ namespace Gagagu_VR_Streamer_Server
                 output = adapter.GetOutput(numOutput);
                 output1 = output.QueryInterface<Output1>();
                 // get screen wize
-                width = ((SharpDX.Rectangle)output.Description.DesktopBounds).Width;
-                height = ((SharpDX.Rectangle)output.Description.DesktopBounds).Height;
+
+                width = ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Right - ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Left;
+                height = ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Bottom - ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Top;
+
+                //width = ((SharpDX.Rectangle)output.Description.DesktopBounds).Width;
+                //height = ((SharpDX.Rectangle)output.Description.DesktopBounds).Height;
 
                 textureDesc = new Texture2DDescription
                 {

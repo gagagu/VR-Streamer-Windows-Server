@@ -16,16 +16,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Reflection;
-// Emgu
-using Emgu.CV;
-using Emgu.CV.CvEnum;
-using Emgu.CV.Structure;
-using Emgu.Util;
-using Emgu.CV.Util;
-// Directshow
-using DirectShowLib;
-// inernal
-using Gagagu_VR_Streamer_Server.PositionalTracking;
 
 namespace Gagagu_VR_Streamer_Server
 {
@@ -53,9 +43,6 @@ namespace Gagagu_VR_Streamer_Server
         private ImageCodecInfo jgpEncoder;
         
         private CaptureRect cptRect =  new CaptureRect();
-        private Video_Device[] WebCams; //List containing all the camera available
-        private WebcamCapture  wcCapture= null;
-        private OpentrackRelay relayServer = null;
 
         public Mainwindow()
         {
@@ -74,8 +61,6 @@ namespace Gagagu_VR_Streamer_Server
                 ShowIPAddresses();
                 // list all possible colors in a dropdown
                 SetCursorColors();
-                // shows the name of all connected cameras in a drop down
-                InitCameras();
                 // list all running processes in a drop down
                 SetProcessList();
                 // load all profiles and put them into a class
@@ -111,73 +96,7 @@ namespace Gagagu_VR_Streamer_Server
             }
         }
 
-        private void InitCameras()
-        {
-            try{
-                DsDevice[] _SystemCamereas = DsDevice.GetDevicesOfCat(FilterCategory.VideoInputDevice);
-                WebCams = new Video_Device[_SystemCamereas.Length];
-                for (int i = 0; i < _SystemCamereas.Length; i++)
-                {
-                    WebCams[i] = new Video_Device(i, _SystemCamereas[i].Name, _SystemCamereas[i].ClassID); //fill web cam array
-                    cbCameraSelection.Items.Add(WebCams[i].Device_Name);
-                }
-                if (cbCameraSelection.Items.Count > 0)
-                {
-                    cbCameraSelection.SelectedIndex = 0; //Set the selected device the default
-                    //List<string> test = GetAllAvailableResolution(_SystemCamereas[0]);
-                    //int x;
-                    //x = 10;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("InitCameras::Error on init cameras. \r\n" + ex.Message);
-            }
-        }
-
-        private List<string> GetAllAvailableResolution(DsDevice vidDev)
-        {
-           try
-           {
-             int hr, bitCount = 0;
-
-             IBaseFilter sourceFilter = null;
-
-             var m_FilterGraph2 = new FilterGraph() as IFilterGraph2;
-             hr = m_FilterGraph2.AddSourceFilterForMoniker(vidDev.Mon, null, vidDev.Name,out sourceFilter);
-             var pRaw2 = DsFindPin.ByCategory(sourceFilter, PinCategory.Capture, 0);
-             var AvailableResolutions = new List<string>();
-
-             VideoInfoHeader v = new VideoInfoHeader();
-             IEnumMediaTypes mediaTypeEnum;
-             hr = pRaw2.EnumMediaTypes(out mediaTypeEnum);
-
-             AMMediaType[] mediaTypes = new AMMediaType[1];
-             IntPtr fetched = IntPtr.Zero;
-             hr = mediaTypeEnum.Next(1, mediaTypes, fetched);
-
-             while (fetched != null && mediaTypes[0] != null)
-             {
-               Marshal.PtrToStructure(mediaTypes[0].formatPtr, v);
-               if (v.BmiHeader.Size != 0 && v.BmiHeader.BitCount != 0)
-               {
-                 if (v.BmiHeader.BitCount > bitCount)
-                 {
-                   AvailableResolutions.Clear();
-                   bitCount = v.BmiHeader.BitCount;
-                 }
-                 AvailableResolutions.Add(v.BmiHeader.Width +"x"+ v.BmiHeader.Height);
-               }
-               hr = mediaTypeEnum.Next(1, mediaTypes, fetched);
-             }
-             return AvailableResolutions;
-           }
-           catch (Exception ex)
-           {
-             MessageBox.Show(ex.Message);
-             return new List<string>();
-           }
-        }
+     
 
         private void SetCursorColors()
         {
@@ -263,40 +182,8 @@ namespace Gagagu_VR_Streamer_Server
                     newProfile.CustomWindowSize.y = (int)this.nCustomWindowY.Value;
                     newProfile.CustomWindowSize.width = (int)this.nCustomWindowWidth.Value;
                     newProfile.CustomWindowSize.height = (int)this.nCustomWindowHeight.Value;
-                    newProfile.ActivateHeadTracking = this.cbHeadTrackingActivate.Checked;
-                    newProfile.UDPSendIPAddress = this.tbUDPSenderIpAddress.Text;
-                    newProfile.WebcamPreview = this.cbWebcamPreview.Checked;
+
                     
-                    if (int.TryParse(tbUDPReceiveDataPort.Text, out port))
-                        newProfile.UDPReceiveDataPort = port;
-                    else
-                        newProfile.UDPReceiveDataPort = 0;
-
-                    if (int.TryParse(tbUDPSendDataPort.Text, out port))
-                        newProfile.UDPSendDataPort = port;
-                    else
-                        newProfile.UDPSendDataPort = 0;
-
-                    // Relay
-                    newProfile.ActivateOpentrackRelay = this.cbRelayActivate.Checked;
-
-                    if (int.TryParse(tbRelayIphoneReceivePort.Text, out port))
-                        newProfile.RelayIphoneReceivePort = port;
-                    else
-                        newProfile.RelayIphoneReceivePort = 0;
-
-                    if (int.TryParse(tbRelayArucoReceivePort.Text, out port))
-                        newProfile.RelayArucoReceivePort = port;
-                    else
-                        newProfile.RelayArucoReceivePort = 0;
-
-                    if (int.TryParse(tbRelaySendPort.Text, out port))
-                        newProfile.RelaySendPort = port;
-                    else
-                        newProfile.RelaySendPort = 0;
-
-                    newProfile.RelaySendIP = this.tbRelaySendIP.Text;
-
                     // save
                     Profiles.Add(newProfile);
 
@@ -349,26 +236,6 @@ namespace Gagagu_VR_Streamer_Server
                         data.DataPort = 0;
                     }
 
-                    if (int.TryParse(this.tbUDPReceiveDataPort.Text, out port))
-                    {
-                        data.UDPReceiveDataPort = port;
-                    }
-                    else
-                    {
-                        data.UDPReceiveDataPort = 0;
-                    }
-
-                    if (int.TryParse(this.tbUDPSendDataPort.Text, out port))
-                    {
-                        data.UDPSendDataPort = port;
-                    }
-                    else
-                    {
-                        data.UDPSendDataPort = 0;
-                    }
-
-                    data.UDPSendIPAddress = this.tbUDPSenderIpAddress.Text;
-                    data.WebcamPreview = this.cbWebcamPreview.Checked;
                     data.ProcessName = this.tbProcess.Text;
                     data.Simulate3D = this.cbSimulate3D.Checked;
                     data.ShowCursor = this.cbShowCursor.Checked;
@@ -382,7 +249,6 @@ namespace Gagagu_VR_Streamer_Server
                     data.CursorSize = this.hScrollCursorSize.Value;
                     data.CursorCorrectionAdjWidth = this.hScrollAdjWidth.Value;
                     data.CursorCorrectionAdjHeight = this.hScrollAdjHeight.Value;
-                    data.WebcamIndex = this.cbCameraSelection.SelectedIndex;
                     data.UseDirectX = this.cbDirectX.Checked;
                     data.ImageQuality = this.hScrollImageQuality.Value;
                     data.CustomWindow = this.cbCustomWindow.Checked;
@@ -390,26 +256,6 @@ namespace Gagagu_VR_Streamer_Server
                     data.CustomWindowSize.y = (int)this.nCustomWindowY.Value;
                     data.CustomWindowSize.width = (int)this.nCustomWindowWidth.Value;
                     data.CustomWindowSize.height = (int)this.nCustomWindowHeight.Value;
-                    data.ActivateHeadTracking = this.cbHeadTrackingActivate.Checked;
-
-                    // Relay
-                    data.ActivateOpentrackRelay = this.cbRelayActivate.Checked;
-                    if (int.TryParse(tbRelayIphoneReceivePort.Text, out port))
-                        data.RelayIphoneReceivePort = port;
-                    else
-                        data.RelayIphoneReceivePort = 0;
-
-                    if (int.TryParse(tbRelayArucoReceivePort.Text, out port))
-                        data.RelayArucoReceivePort = port;
-                    else
-                        data.RelayArucoReceivePort = 0;
-
-                    if (int.TryParse(tbRelaySendPort.Text, out port))
-                        data.RelaySendPort = port;
-                    else
-                        data.RelaySendPort = 0;
-
-                    data.RelaySendIP = this.tbRelaySendIP.Text;
                 }
             }
             catch {
@@ -519,17 +365,6 @@ namespace Gagagu_VR_Streamer_Server
                 this.nCustomWindowY.Value = 0;
                 this.nCustomWindowWidth.Value = 100;
                 this.nCustomWindowHeight.Value = 100;
-                this.cbHeadTrackingActivate.Checked = false;
-                this.tbUDPReceiveDataPort.Text = "5252";
-                this.tbUDPSendDataPort.Text = "4242";
-                this.tbUDPSenderIpAddress.Text = "127.0.0.1";
-                this.cbWebcamPreview.Checked = false;
-                // Relay
-                this.cbRelayActivate.Checked = false;
-                this.tbRelayIphoneReceivePort.Text = "5252";
-                this.tbRelayArucoReceivePort.Text = "6262";
-                this.tbRelaySendPort.Text = "4242";
-                this.tbRelaySendIP.Text = "127.0.0.1";
 
             }
             catch (Exception ex)
@@ -576,17 +411,7 @@ namespace Gagagu_VR_Streamer_Server
                     this.nCustomWindowY.Value = data.CustomWindowSize.y;
                     this.nCustomWindowWidth.Value = data.CustomWindowSize.width;
                     this.nCustomWindowHeight.Value = data.CustomWindowSize.height;
-                    this.cbHeadTrackingActivate.Checked = data.ActivateHeadTracking;
-                    this.cbWebcamPreview.Checked = data.WebcamPreview;
-                    this.tbUDPReceiveDataPort.Text = data.UDPReceiveDataPort.ToString();
-                    this.tbUDPSendDataPort.Text = data.UDPSendDataPort.ToString();
-                    this.tbUDPSenderIpAddress.Text = data.UDPSendIPAddress;
-                    // relay
-                    this.cbRelayActivate.Checked = data.ActivateOpentrackRelay;
-                    this.tbRelayIphoneReceivePort.Text = data.RelayIphoneReceivePort.ToString();
-                    this.tbRelayArucoReceivePort.Text = data.RelayArucoReceivePort.ToString();
-                    this.tbRelaySendPort.Text = data.RelaySendPort.ToString(); ;
-                    this.tbRelaySendIP.Text = data.RelaySendIP;
+
                 }
             }
             catch (Exception ex)
@@ -606,8 +431,6 @@ namespace Gagagu_VR_Streamer_Server
                 this.Profil = FillProfileWithData(null);
                 if (this.Profil != null)
                 {
-                    if ((cbCameraSelection.SelectedIndex < 0) && (cbHeadTrackingActivate.Checked))
-                        MessageBox.Show("No selected webcam. No positional tracking available");
 
                     if (!this.StartServer())
                     {
@@ -648,19 +471,6 @@ namespace Gagagu_VR_Streamer_Server
                     MessageBox.Show("Invalid data port");
                     return false;
                 }
-
-                if ((Profil.UDPReceiveDataPort <= 0) || (Profil.UDPReceiveDataPort >= 65535))
-                {
-                    MessageBox.Show("Invalid UDP receive data port");
-                    return false;
-                }
-
-                if ((Profil.UDPSendDataPort <= 0) || (Profil.UDPSendDataPort >= 65535))
-                {
-                    MessageBox.Show("Invalid UDP send data port");
-                    return false;
-                }
-
 
                 // Image server
                 ms = new MemoryStream();
@@ -710,19 +520,6 @@ namespace Gagagu_VR_Streamer_Server
                             TCPServer = null;
                         }
                         return;
-                    }
-
-                    // Head Tracking
-                    if (this.cbHeadTrackingActivate.Checked)
-                    {
-                        wcCapture = new WebcamCapture(this);
-                        wcCapture.StartCapture();
-                    }
-
-                    // relay
-                    if (this.cbRelayActivate.Checked) {
-                        relayServer = new OpentrackRelay(this);
-                        relayServer.Start();
                     }
 
                     NetworkStream ns = new NetworkStream(handler, true);
@@ -792,15 +589,6 @@ namespace Gagagu_VR_Streamer_Server
                         catch
                         {
                             blStop = true;
-                            if ((this.cbHeadTrackingActivate.Checked) && (wcCapture != null))
-                            {
-                                wcCapture.StopCapture();
-                            }
-
-                            if ((this.cbRelayActivate.Checked) && (relayServer != null))
-                            {
-                                relayServer.Stop();
-                            }
                         }
                     }
 
@@ -818,15 +606,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 MessageBox.Show("Error on starting Server (Callback). \r\n" + ex.Message);
                 blStop = true;
-                if ((this.cbHeadTrackingActivate.Checked) && (wcCapture != null))
-                {
-                    wcCapture.StopCapture();
-                }
 
-                if ((this.cbRelayActivate.Checked) && (relayServer != null))
-                {
-                    relayServer.Stop();
-                }
             }
             finally
             {
@@ -885,15 +665,6 @@ namespace Gagagu_VR_Streamer_Server
             try
             {
                 blStop = true;
-                if ((this.cbHeadTrackingActivate.Checked) && (wcCapture != null))
-                {
-                    wcCapture.StopCapture();
-                }
-
-                if ((this.cbRelayActivate.Checked) && (relayServer != null))
-                {
-                    relayServer.Stop();
-                }
 
                 if (TCPServer != null)
                 {
@@ -918,27 +689,6 @@ namespace Gagagu_VR_Streamer_Server
 
         #endregion
 
-        #region "invoke"
-        private delegate void DisplayImageDelegate(Mat Image);
-        public void DisplayImage(Mat Image)
-        {
-            if (captureBox.InvokeRequired)
-            {
-                try
-                {
-                    DisplayImageDelegate DI = new DisplayImageDelegate(DisplayImage);
-                    this.BeginInvoke(DI, new object[] { Image });
-                }
-                catch
-                {
-                }
-            }
-            else
-            {
-                captureBox.Image = Image;
-            }
-        }
-        #endregion
 
         #region "GDI Capture"
         /// <summary>
@@ -1259,55 +1009,7 @@ namespace Gagagu_VR_Streamer_Server
             }
         }
 
-
-
-        private void cbHeadTrackingActivate_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cbHeadTrackingActivate.Checked)
-                {
-                    cbRelayActivate.Checked = false;
-
-                    this.tbUDPReceiveDataPort.Enabled = true;
-                    this.tbUDPSenderIpAddress.Enabled = true;
-                    this.tbUDPSendDataPort.Enabled = true;
-                    this.cbCameraSelection.Enabled = true;
-                    this.cbWebcamPreview.Enabled = true;
-                }
-                else
-                {
-                    this.tbUDPReceiveDataPort.Enabled = false;
-                    this.tbUDPSenderIpAddress.Enabled = false;
-                    this.tbUDPSendDataPort.Enabled = false;
-                    this.cbCameraSelection.Enabled = false;
-                    this.cbWebcamPreview.Enabled = false;
-                }
-                this.Profil = FillProfileWithData(null);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("cbHeadTrackingActivate_CheckedChanged::" + ex.Message);
-            }
-        }
-
-
-
-        private void cbWebcamPreview_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-
-                this.Profil = FillProfileWithData(null);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("cbWebcamPreview_CheckedChanged::" + ex.Message);
-            }
-        }
-
-        private void cbCameraSelection_SelectedIndexChanged(object sender, EventArgs e)
+       private void cbCameraSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
@@ -1403,33 +1105,6 @@ namespace Gagagu_VR_Streamer_Server
         }
 
 
-        private void cbRelayActivate_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cbRelayActivate.Checked)
-                {
-                    cbHeadTrackingActivate.Checked = false;
-
-                    this.tbRelayIphoneReceivePort.Enabled = true;
-                    this.tbRelayArucoReceivePort.Enabled = true;
-                    this.tbRelaySendIP.Enabled = true;
-                    this.tbRelaySendPort.Enabled = true;
-                }
-                else
-                {
-                    this.tbRelayIphoneReceivePort.Enabled = false;
-                    this.tbRelayArucoReceivePort.Enabled = false;
-                    this.tbRelaySendIP.Enabled = false;
-                    this.tbRelaySendPort.Enabled = false;
-                }
-                this.Profil = FillProfileWithData(null);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("cbRelayActivate_CheckedChanged::" + ex.Message);
-            }
-        }
 
         #endregion
     }
