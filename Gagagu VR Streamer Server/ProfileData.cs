@@ -20,10 +20,9 @@ namespace Gagagu_VR_Streamer_Server
         public String ProcessName { get; set; }
 
         // graphics
-        public Boolean UseDirectX { get; set; }
+        public Boolean UseGDICapture { get; set; }
         public int ImageQuality { get; set; }
         public Boolean CustomWindow { get; set; }
-        public Boolean Simulate3D { get; set; }
         public Boolean ShowCrosshair { get; set; }
 
         // Cursor
@@ -85,10 +84,9 @@ namespace Gagagu_VR_Streamer_Server
             this.ProcessName = "";
 
             // graphics
-            this.Simulate3D = false;
             this.BorderCorrection = new BorderCorrectionData();
             this.ShowCrosshair = false;
-            this.UseDirectX = false;
+            this.UseGDICapture = false;
             this.ImageQuality = 50;
             this.CustomWindow = false;
             this.CustomWindowSize = new CustomWindowData();

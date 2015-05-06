@@ -63,9 +63,8 @@
             this.tbScrollImageQuality = new System.Windows.Forms.TextBox();
             this.hScrollImageQuality = new System.Windows.Forms.HScrollBar();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbDirectX = new System.Windows.Forms.CheckBox();
+            this.cbUseGDI = new System.Windows.Forms.CheckBox();
             this.cbCrosshair = new System.Windows.Forms.CheckBox();
-            this.cbSimulate3D = new System.Windows.Forms.CheckBox();
             this.cbShowCursor = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbProfiles = new System.Windows.Forms.ComboBox();
@@ -453,9 +452,8 @@
             this.groupBox2.Controls.Add(this.tbScrollImageQuality);
             this.groupBox2.Controls.Add(this.hScrollImageQuality);
             this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.cbDirectX);
+            this.groupBox2.Controls.Add(this.cbUseGDI);
             this.groupBox2.Controls.Add(this.cbCrosshair);
-            this.groupBox2.Controls.Add(this.cbSimulate3D);
             this.groupBox2.Location = new System.Drawing.Point(6, 155);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(475, 136);
@@ -465,7 +463,7 @@
             // 
             // tbScrollImageQuality
             // 
-            this.tbScrollImageQuality.Location = new System.Drawing.Point(385, 105);
+            this.tbScrollImageQuality.Location = new System.Drawing.Point(385, 83);
             this.tbScrollImageQuality.Name = "tbScrollImageQuality";
             this.tbScrollImageQuality.ReadOnly = true;
             this.tbScrollImageQuality.Size = new System.Drawing.Size(55, 20);
@@ -475,7 +473,7 @@
             // 
             // hScrollImageQuality
             // 
-            this.hScrollImageQuality.Location = new System.Drawing.Point(103, 105);
+            this.hScrollImageQuality.Location = new System.Drawing.Point(103, 83);
             this.hScrollImageQuality.Maximum = 109;
             this.hScrollImageQuality.Minimum = 1;
             this.hScrollImageQuality.Name = "hScrollImageQuality";
@@ -487,44 +485,33 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 108);
+            this.label12.Location = new System.Drawing.Point(22, 86);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 13);
             this.label12.TabIndex = 47;
             this.label12.Text = "Image Quality:";
             // 
-            // cbDirectX
+            // cbUseGDI
             // 
-            this.cbDirectX.AutoSize = true;
-            this.cbDirectX.Location = new System.Drawing.Point(22, 19);
-            this.cbDirectX.Name = "cbDirectX";
-            this.cbDirectX.Size = new System.Drawing.Size(83, 17);
-            this.cbDirectX.TabIndex = 2;
-            this.cbDirectX.Text = "Use DirectX";
-            this.cbDirectX.UseVisualStyleBackColor = true;
-            this.cbDirectX.CheckedChanged += new System.EventHandler(this.cbDirectX_CheckedChanged);
+            this.cbUseGDI.AutoSize = true;
+            this.cbUseGDI.Location = new System.Drawing.Point(22, 23);
+            this.cbUseGDI.Name = "cbUseGDI";
+            this.cbUseGDI.Size = new System.Drawing.Size(107, 17);
+            this.cbUseGDI.TabIndex = 2;
+            this.cbUseGDI.Text = "Use GDI Capture";
+            this.cbUseGDI.UseVisualStyleBackColor = true;
+            this.cbUseGDI.CheckedChanged += new System.EventHandler(this.cbDirectX_CheckedChanged);
             // 
             // cbCrosshair
             // 
             this.cbCrosshair.AutoSize = true;
-            this.cbCrosshair.Location = new System.Drawing.Point(22, 69);
+            this.cbCrosshair.Location = new System.Drawing.Point(22, 46);
             this.cbCrosshair.Name = "cbCrosshair";
             this.cbCrosshair.Size = new System.Drawing.Size(99, 17);
             this.cbCrosshair.TabIndex = 1;
             this.cbCrosshair.Text = "Show Crosshair";
             this.cbCrosshair.UseVisualStyleBackColor = true;
             this.cbCrosshair.CheckedChanged += new System.EventHandler(this.cbCrosshair_CheckedChanged);
-            // 
-            // cbSimulate3D
-            // 
-            this.cbSimulate3D.AutoSize = true;
-            this.cbSimulate3D.Location = new System.Drawing.Point(22, 42);
-            this.cbSimulate3D.Name = "cbSimulate3D";
-            this.cbSimulate3D.Size = new System.Drawing.Size(83, 17);
-            this.cbSimulate3D.TabIndex = 0;
-            this.cbSimulate3D.Text = "Simulate 3D";
-            this.cbSimulate3D.UseVisualStyleBackColor = true;
-            this.cbSimulate3D.CheckedChanged += new System.EventHandler(this.cbSimulate3D_CheckedChanged);
             // 
             // cbShowCursor
             // 
@@ -545,7 +532,7 @@
             this.groupBox3.Controls.Add(this.btSaveProfile);
             this.groupBox3.Location = new System.Drawing.Point(6, 297);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(475, 77);
+            this.groupBox3.Size = new System.Drawing.Size(475, 95);
             this.groupBox3.TabIndex = 32;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Profiles";
@@ -554,7 +541,7 @@
             // 
             this.cbProfiles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProfiles.FormattingEnabled = true;
-            this.cbProfiles.Location = new System.Drawing.Point(24, 19);
+            this.cbProfiles.Location = new System.Drawing.Point(24, 23);
             this.cbProfiles.Name = "cbProfiles";
             this.cbProfiles.Size = new System.Drawing.Size(426, 21);
             this.cbProfiles.Sorted = true;
@@ -563,7 +550,7 @@
             // 
             // btDeleteProfile
             // 
-            this.btDeleteProfile.Location = new System.Drawing.Point(184, 46);
+            this.btDeleteProfile.Location = new System.Drawing.Point(184, 53);
             this.btDeleteProfile.Name = "btDeleteProfile";
             this.btDeleteProfile.Size = new System.Drawing.Size(75, 23);
             this.btDeleteProfile.TabIndex = 2;
@@ -573,7 +560,7 @@
             // 
             // btNewProfile
             // 
-            this.btNewProfile.Location = new System.Drawing.Point(22, 46);
+            this.btNewProfile.Location = new System.Drawing.Point(22, 53);
             this.btNewProfile.Name = "btNewProfile";
             this.btNewProfile.Size = new System.Drawing.Size(75, 23);
             this.btNewProfile.TabIndex = 1;
@@ -583,7 +570,7 @@
             // 
             // btSaveProfile
             // 
-            this.btSaveProfile.Location = new System.Drawing.Point(103, 46);
+            this.btSaveProfile.Location = new System.Drawing.Point(103, 53);
             this.btSaveProfile.Name = "btSaveProfile";
             this.btSaveProfile.Size = new System.Drawing.Size(75, 23);
             this.btSaveProfile.TabIndex = 0;
@@ -878,7 +865,7 @@
             this.MaximizeBox = false;
             this.Name = "Mainwindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gagagu VR Streamer Server - v1.4.0";
+            this.Text = "Gagagu VR Streamer Server - v1.5.0";
             this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -927,7 +914,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbStatus;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox cbSimulate3D;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cbProfiles;
         private System.Windows.Forms.Button btDeleteProfile;
@@ -957,7 +943,7 @@
         private System.Windows.Forms.HScrollBar hScrollCursorSize;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox cbDirectX;
+        private System.Windows.Forms.CheckBox cbUseGDI;
         private System.Windows.Forms.HScrollBar hScrollImageQuality;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox tbScrollImageQuality;

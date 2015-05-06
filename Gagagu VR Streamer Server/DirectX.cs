@@ -12,6 +12,8 @@ using Device = SharpDX.Direct3D11.Device;
 using MapFlags = SharpDX.Direct3D11.MapFlags;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Runtime.InteropServices;
 
 
 namespace Gagagu_VR_Streamer_Server
@@ -24,26 +26,28 @@ namespace Gagagu_VR_Streamer_Server
         const int numAdapter = 0;
         const int numOutput = 0;
 
-        Factory1 factory = null;
-        Adapter1 adapter = null;
-        Device device = null;
-        Output output = null;
-        Output1 output1 = null;
+        private Factory1 factory = null;
+        private Adapter1 adapter = null;
+        private Device device = null;
+        private Output output = null;
+        private Output1 output1 = null;
 
-        Texture2DDescription textureDesc;
-        Texture2D screenTexture;
-        OutputDuplication duplicatedOutput;
-        System.Drawing.Bitmap bitmap = null;
-        System.Drawing.Rectangle boundsRect;
-        
-        SharpDX.DXGI.Resource screenResource;
-        OutputDuplicateFrameInformation duplicateFrameInformation;
-        DataBox mapSource;
-        BitmapData mapDest;
-        IntPtr sourcePtr;
-        IntPtr destPtr;
-        int width = 0;
-        int height = 0;
+        private Texture2DDescription textureDesc;
+        private Texture2D screenTexture;
+        private OutputDuplication duplicatedOutput;
+        private System.Drawing.Bitmap bitmap = null;
+        //System.Drawing.Rectangle boundsRect;
+
+        private SharpDX.DXGI.Resource screenResource;
+        private OutputDuplicateFrameInformation duplicateFrameInformation;
+        private DataBox mapSource;
+        private BitmapData mapDest;
+        private IntPtr sourcePtr;
+        private IntPtr destPtr;
+        private System.Drawing.Rectangle captureRect;
+        private int offsetX = 0;
+        private int pWidth = 0;
+        private bool isInCapture = false;
 
         /// <summary>
         /// Init some variables one times to spend execution time.
@@ -60,19 +64,13 @@ namespace Gagagu_VR_Streamer_Server
                 output1 = output.QueryInterface<Output1>();
                 // get screen wize
 
-                width = ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Right - ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Left;
-                height = ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Bottom - ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Top;
-
-                //width = ((SharpDX.Rectangle)output.Description.DesktopBounds).Width;
-                //height = ((SharpDX.Rectangle)output.Description.DesktopBounds).Height;
-
                 textureDesc = new Texture2DDescription
                 {
                     CpuAccessFlags = CpuAccessFlags.Read,
                     BindFlags = BindFlags.None,
                     Format = Format.B8G8R8A8_UNorm,
-                    Width = width,
-                    Height = height,
+                    Width = ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Right - ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Left,
+                    Height = ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Bottom - ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Top,
                     OptionFlags = ResourceOptionFlags.None,
                     MipLevels = 1,
                     ArraySize = 1,
@@ -82,6 +80,7 @@ namespace Gagagu_VR_Streamer_Server
 
                 screenTexture = new Texture2D(device, textureDesc);
                 duplicatedOutput = output1.DuplicateOutput(device);
+
            
             }
             catch (Exception ex)
@@ -105,76 +104,40 @@ namespace Gagagu_VR_Streamer_Server
         }
 
         /// <summary>
+        /// Sets the window rect and calc the needed buffert offsets.
+        /// Is called by changes 
+        /// </summary>
+        /// <param name="CaptureRect"></param>
+        public void SetRect(System.Drawing.Rectangle CaptureRect)
+        {
+
+            while(isInCapture){
+                System.Threading.Thread.Sleep(1);
+            }
+            this.captureRect = CaptureRect;
+            
+            //calc buffer offsets
+            offsetX = (captureRect.X * 4);
+            pWidth = (captureRect.Width * 4);
+        }
+
+
+        /// <summary>
         /// Creates a screenshot over directx and returns the specified rect as bitmap
         /// </summary>
         /// <param name="CaptureRect">rect to capture from screen</param>
         /// <returns></returns>
         [STAThread]
-        public System.Drawing.Bitmap capture(System.Drawing.Rectangle CaptureRect)
+        public System.Drawing.Bitmap Capture()
         {
+            isInCapture = true;
             
-            // Checkings
-            if (factory == null)
-                return null;
-
-            if (adapter == null)
-                return null;
-
-            if (device == null)
-                return null;
-
-            if (output == null)
-                return null;
-
-            if (output1 == null)
-                return null;
-
             try
             {
 
-                // Set a min and max rect to prevent errors
-                if (CaptureRect.Height <=50) {
-                     CaptureRect.Height = 50;
-                }
-
-                if (CaptureRect.Y + CaptureRect.Height > height)
-                {
-                    if (CaptureRect.Y > CaptureRect.Height)
-                    {
-                        CaptureRect.Y = height - 50;
-                        CaptureRect.Height = 50;
-                    }
-                    else {
-                        CaptureRect.Y = 0;
-                        CaptureRect.Height = height;
-                    }
-                }
-
-                if (CaptureRect.Width <= 50)
-                {
-                    CaptureRect.Width = 50;
-                }
-
-                if (CaptureRect.X + CaptureRect.Width > width)
-                {
-                    if (CaptureRect.X > CaptureRect.Width)
-                    {
-                        CaptureRect.X = width - 50;
-                        CaptureRect.Width = 50;
-                    }
-                    else
-                    {
-                        CaptureRect.X = 0;
-                        CaptureRect.Width = width;
-                    }
-                }
-
                 // init
                 bool captureDone = false;
-                bitmap = new System.Drawing.Bitmap(CaptureRect.Width, CaptureRect.Height, PixelFormat.Format32bppArgb);
-                boundsRect = new System.Drawing.Rectangle(0, 0, CaptureRect.Width, CaptureRect.Height);
-                // offset in x direction (rect.x)
-                int offsetX = (CaptureRect.X * 4);
+                bitmap = new System.Drawing.Bitmap(captureRect.Width, captureRect.Height, PixelFormat.Format32bppArgb);
 
                 // the capture needs some time
                 for (int i = 0; !captureDone; i++)
@@ -182,30 +145,33 @@ namespace Gagagu_VR_Streamer_Server
                     try
                     {
                         //capture
-                        duplicatedOutput.AcquireNextFrame(1000, out duplicateFrameInformation, out screenResource);
+                        duplicatedOutput.AcquireNextFrame(-1, out duplicateFrameInformation, out screenResource);
                         // only for wait
                         if (i > 0)
                         {
-
                             using (var screenTexture2D = screenResource.QueryInterface<Texture2D>())
                                 device.ImmediateContext.CopyResource(screenTexture2D, screenTexture);
 
                             mapSource = device.ImmediateContext.MapSubresource(screenTexture, 0, MapMode.Read, MapFlags.None);
-                            mapDest = bitmap.LockBits(boundsRect, ImageLockMode.WriteOnly, bitmap.PixelFormat);
+                            mapDest = bitmap.LockBits(new System.Drawing.Rectangle(0, 0, captureRect.Width, captureRect.Height),
+                                                                  ImageLockMode.WriteOnly, bitmap.PixelFormat);
+
                             sourcePtr = mapSource.DataPointer;
                             destPtr = mapDest.Scan0;
 
                             // set x position offset to rect.x
                             int rowPitch = mapSource.RowPitch - offsetX;
                             // set pointer to y position
-                            sourcePtr = IntPtr.Add(sourcePtr, mapSource.RowPitch * CaptureRect.Y);
-                            
-                            for (int y = 0; y < CaptureRect.Height; y++)
+                            sourcePtr = IntPtr.Add(sourcePtr, mapSource.RowPitch * captureRect.Y);
+
+                            for (int y = 0; y < captureRect.Height; y++) // needs to speed up!!
                             {
                                 // set pointer to x position
                                 sourcePtr = IntPtr.Add(sourcePtr, offsetX);
+                                
                                 // copy pixel to bmp
-                                Utilities.CopyMemory(destPtr, sourcePtr, (CaptureRect.Width * 4));
+                                Utilities.CopyMemory(destPtr, sourcePtr, pWidth);
+
                                 // incement pointert to next line
                                 sourcePtr = IntPtr.Add(sourcePtr, rowPitch);
                                 destPtr = IntPtr.Add(destPtr, mapDest.Stride);
@@ -221,25 +187,29 @@ namespace Gagagu_VR_Streamer_Server
                         duplicatedOutput.ReleaseFrame();
 
                     }
-                    catch  //                    catch (SharpDXException e)
+                    catch//(Exception ex)  //                    catch (SharpDXException e)
                     {
                         //if (e.ResultCode.Code != SharpDX.DXGI.ResultCode.WaitTimeout.Result.Code)
                         //{
                         //   // throw e;
                         //}
 
-                        return null;
+                        return new Bitmap(captureRect.Width, captureRect.Height, PixelFormat.Format32bppArgb);
                     }
                 }
 
             }
             catch 
             {
-                  return null;
+                return new Bitmap(captureRect.Width, captureRect.Height, PixelFormat.Format32bppArgb);
             }
 
+            isInCapture = false;
             return bitmap;
         }
+
+
+  
 
 
        

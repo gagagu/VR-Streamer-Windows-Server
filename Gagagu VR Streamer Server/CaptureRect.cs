@@ -95,6 +95,52 @@ namespace Gagagu_VR_Streamer_Server
                 if (CRect.Height <= 0)
                     CRect.Height = 1;
 
+
+                // Set a min and max rect to prevent errors
+                if (CRect.Height <= 50)
+                {
+                    CRect.Height = 50;
+                }
+
+                //if (CRect.Y + CRect.Height > height)
+                //{
+                //    if (CRect.Y > CRect.Height)
+                //    {
+                //        CRect.Y = height - 50;
+                //        CRect.Height = 50;
+                //    }
+                //    else
+                //    {
+                //        CRect.Y = 0;
+                //        CRect.Height = height;
+                //    }
+                //}
+
+                if (CRect.Width <= 50)
+                {
+                    CRect.Width = 50;
+                }
+                
+                if(CRect.X < 1)
+                    CRect.X = 1;
+
+                if (CRect.Y < 1)
+                    CRect.Y = 1;
+
+                //if (CRect.X + CRect.Width > width)
+                //{
+                //    if (CRect.X > CRect.Width)
+                //    {
+                //        CRect.X = width - 50;
+                //        CRect.Width = 50;
+                //    }
+                //    else
+                //    {
+                //        CRect.X = 0;
+                //        CRect.Width = width;
+                //    }
+                //}
+
             }
             catch
             {

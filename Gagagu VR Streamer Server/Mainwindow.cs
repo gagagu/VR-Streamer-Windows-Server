@@ -163,7 +163,6 @@ namespace Gagagu_VR_Streamer_Server
                     }
 
                     newProfile.ProcessName = this.tbProcess.Text;
-                    newProfile.Simulate3D = this.cbSimulate3D.Checked;
                     newProfile.ShowCursor = this.cbShowCursor.Checked;
                     newProfile.CursorCorrection = this.cbCursorCorrection.Checked;
                     newProfile.BorderCorrection.top = this.hScrollTop.Value;
@@ -175,7 +174,7 @@ namespace Gagagu_VR_Streamer_Server
                     newProfile.CursorSize = this.hScrollCursorSize.Value;
                     newProfile.CursorCorrectionAdjWidth = this.hScrollAdjWidth.Value;
                     newProfile.CursorCorrectionAdjHeight = this.hScrollAdjHeight.Value;
-                    newProfile.UseDirectX = this.cbDirectX.Checked;
+                    newProfile.UseGDICapture = this.cbUseGDI.Checked;
                     newProfile.ImageQuality = this.hScrollImageQuality.Value;
                     newProfile.CustomWindow = this.cbCustomWindow.Checked;
                     newProfile.CustomWindowSize.x = (int) this.nCustomWindowX.Value;
@@ -237,7 +236,6 @@ namespace Gagagu_VR_Streamer_Server
                     }
 
                     data.ProcessName = this.tbProcess.Text;
-                    data.Simulate3D = this.cbSimulate3D.Checked;
                     data.ShowCursor = this.cbShowCursor.Checked;
                     data.CursorCorrection = this.cbCursorCorrection.Checked;
                     data.BorderCorrection.top = this.hScrollTop.Value;
@@ -249,7 +247,7 @@ namespace Gagagu_VR_Streamer_Server
                     data.CursorSize = this.hScrollCursorSize.Value;
                     data.CursorCorrectionAdjWidth = this.hScrollAdjWidth.Value;
                     data.CursorCorrectionAdjHeight = this.hScrollAdjHeight.Value;
-                    data.UseDirectX = this.cbDirectX.Checked;
+                    data.UseGDICapture = this.cbUseGDI.Checked;
                     data.ImageQuality = this.hScrollImageQuality.Value;
                     data.CustomWindow = this.cbCustomWindow.Checked;
                     data.CustomWindowSize.x = (int)this.nCustomWindowX.Value;
@@ -346,7 +344,6 @@ namespace Gagagu_VR_Streamer_Server
             try {
                 this.tbServerPort.Text = "6666";
                 this.tbProcess.Text = "";
-                this.cbSimulate3D.Checked = false;
                 this.cbShowCursor.Checked = false;
                 this.cbCursorCorrection.Checked = false;
                 this.hScrollTop.Value = 0;
@@ -358,7 +355,7 @@ namespace Gagagu_VR_Streamer_Server
                 this.hScrollCursorSize.Value = 5;
                 this.hScrollAdjWidth.Value = 0;
                 this.hScrollAdjHeight.Value = 0;
-                this.cbDirectX.Checked = false;
+                this.cbUseGDI.Checked = false;
                 this.hScrollImageQuality.Value = 50;
                 this.cbCustomWindow.Checked = false;
                 this.nCustomWindowX.Value = 0;
@@ -381,7 +378,6 @@ namespace Gagagu_VR_Streamer_Server
                 {
                     this.tbServerPort.Text = data.DataPort.ToString();
                     this.tbProcess.Text = data.ProcessName;
-                    this.cbSimulate3D.Checked = data.Simulate3D;
                     this.cbShowCursor.Checked = data.ShowCursor;
                     this.cbCursorCorrection.Checked = data.CursorCorrection;
                     this.hScrollTop.Value = data.BorderCorrection.top;
@@ -404,7 +400,7 @@ namespace Gagagu_VR_Streamer_Server
                     this.hScrollCursorSize.Value = data.CursorSize;
                     this.hScrollAdjWidth.Value = data.CursorCorrectionAdjWidth;
                     this.hScrollAdjHeight.Value = data.CursorCorrectionAdjHeight;
-                    this.cbDirectX.Checked = data.UseDirectX;
+                    this.cbUseGDI.Checked = data.UseGDICapture;
                     this.hScrollImageQuality.Value = data.ImageQuality;
                     this.cbCustomWindow.Checked = data.CustomWindow;
                     this.nCustomWindowX.Value = data.CustomWindowSize.x;
@@ -524,80 +520,109 @@ namespace Gagagu_VR_Streamer_Server
 
                     NetworkStream ns = new NetworkStream(handler, true);
                     jgpEncoder = GDIGraphicTools.GetEncoder(ImageFormat.Jpeg);
+                    myEncoderParameters.Param[0] = new EncoderParameter(myEncoder, this.hScrollImageQuality.Value);
 
                     cptRect.GetGameWindowRect(this.tbProcess.Text, Profil);
 
-                    if(cbDirectX.Checked)
-                        dx = new DirectX();
-
-                    while ((handler.Connected) && (blStop == false))
+                    // to split it will speed up the loop; keep it simple stupid
+                    if (cbUseGDI.Checked)
                     {
-                        try
+                        // gdi loop
+                        while ((handler.Connected) && (blStop == false))
                         {
-                            ms.SetLength(0);
-
-                            if (cbDirectX.Checked)
+                            try
                             {
-                                bm = dx.capture(cptRect.getRect());
-                             }
-                            else
-                            {
+                                ms.SetLength(0);
                                 bm = CaptureSpecificWindow(cptRect.getRect());
-                            }
+ 
+                                if ((Profil.ShowCrosshair) || (Profil.ShowCursor))
+                                    bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush);
 
-                            if(bm==null)
-                                bm = new Bitmap(cptRect.getRect().Width, cptRect.getRect().Height, PixelFormat.Format32bppArgb);
-
-                            // 3d simulation copies the captured screenshot twice on destination bitmap.
-                            // It creates a Side-by-Side image
-                            if (cbSimulate3D.Checked == true)
-                                bm = GDIGraphicTools.Simulate3D(cptRect.getRect(), bm);
-
-                            if ((Profil.ShowCrosshair)||(Profil.ShowCursor))
-                                bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush);
-
-                            if (bm != null)
-                            {
-                                myEncoderParameters.Param[0] = new EncoderParameter(myEncoder, this.hScrollImageQuality.Value);
                                 bm.Save(ms, jgpEncoder, myEncoderParameters);
                             }
-                        }
-                        catch
-                        {
-                            ms.SetLength(0);
-                        }
-
-                        // send data
-                        try
-                        {
-                            if ((ms != null) && (ms.Length > 0))
+                            catch
                             {
-                                byte[] mybyt = ms.ToArray();
-                                if (mybyt.Length > 0)
+                                ms.SetLength(0);
+                            }
+
+                            // send data
+                            try
+                            {
+                                if ((ms != null) && (ms.Length > 0))
                                 {
-                                    lenght = mybyt.Length;
-                                    lenbyte = BitConverter.GetBytes(lenght);
-                                    ns.Write(lenbyte, 0, lenbyte.Length);
 
-                                    ns.Flush();
+                                    // may be put it on separate method
+                                    byte[] mybyt = ms.ToArray();
+                                    if (mybyt.Length > 0)
+                                    {
+                                        lenght = mybyt.Length;
+                                        lenbyte = BitConverter.GetBytes(lenght);
+                                        ns.Write(lenbyte, 0, lenbyte.Length);
 
-                                    ns.Write(mybyt, 0, mybyt.Length);
-                                    ns.Flush();
+                                        ns.Flush();
+
+                                        ns.Write(mybyt, 0, mybyt.Length);
+                                        ns.Flush();
+                                    }
                                 }
                             }
-                        }
-                        catch
-                        {
-                            blStop = true;
-                        }
+                            catch
+                            {
+                                blStop = true;
+                            }
+                        } // while
                     }
+                    else {
+                        dx = new DirectX();
+                        dx.SetRect(cptRect.getRect());
 
-                    if (cbDirectX.Checked)
-                    {
+                        while ((handler.Connected) && (blStop == false))
+                        {
+                            try
+                            {
+                                ms.SetLength(0);
+                                bm = dx.Capture();
+             
+                                if ((Profil.ShowCrosshair) || (Profil.ShowCursor))
+                                    bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush); // needs to speed up
+
+                                bm.Save(ms, jgpEncoder, myEncoderParameters);
+
+                            }
+                            catch
+                            {
+                                ms.SetLength(0);
+                            }
+
+                            // send data
+                            try
+                            {
+                                if ((ms != null) && (ms.Length > 0))
+                                {
+                                    // may be put it on separate method
+                                    byte[] mybyt = ms.ToArray();
+                                    if (mybyt.Length > 0)
+                                    {
+                                        lenght = mybyt.Length;
+                                        lenbyte = BitConverter.GetBytes(lenght);
+                                        ns.Write(lenbyte, 0, lenbyte.Length);
+
+                                        ns.Flush();
+
+                                        ns.Write(mybyt, 0, mybyt.Length);
+                                        ns.Flush();
+                                    }
+                                }
+                            }
+                            catch
+                            {
+                                blStop = true;
+                            }
+                        } // while
+
                         dx.close();
                         dx = null;
-                    }
-                   
+                    } // gdi or directx
 
                     Invoke((MethodInvoker)delegate { ServerStopped(); });
                 }
@@ -713,7 +738,7 @@ namespace Gagagu_VR_Streamer_Server
             }
             catch
             {
-                return null;
+                return new Bitmap(wRect.Width, wRect.Height, PixelFormat.Format32bppArgb);
             }
         }
         #endregion
@@ -731,7 +756,7 @@ namespace Gagagu_VR_Streamer_Server
                 this.btNewProfile.Enabled = false;
                 this.btDeleteProfile.Enabled = false;
                 this.btStartServer.Enabled = false;
-                this.cbDirectX.Enabled = false;
+                this.cbUseGDI.Enabled = false;
                 this.btStopServer.Enabled = true;
             }
             catch (Exception ex)
@@ -753,7 +778,7 @@ namespace Gagagu_VR_Streamer_Server
                 this.btDeleteProfile.Enabled = true;
                 this.btStartServer.Enabled = true;
                 this.btStopServer.Enabled = false;
-                this.cbDirectX.Enabled = true;
+                this.cbUseGDI.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -891,6 +916,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 this.tbScrollImageQuality.Text = hScrollImageQuality.Value.ToString();
                 this.Profil = FillProfileWithData(null);
+                myEncoderParameters.Param[0] = new EncoderParameter(myEncoder, this.hScrollImageQuality.Value);
             }
             catch (Exception ex)
             {
@@ -901,6 +927,10 @@ namespace Gagagu_VR_Streamer_Server
         private void btReloadWindowPositionAndSize_Click(object sender, EventArgs e)
         {
             cptRect.GetGameWindowRect(this.tbProcess.Text, Profil);
+            if ((!cbUseGDI.Checked)&& (dx != null))
+            {
+                dx.SetRect(cptRect.getRect());
+            }
         }
 
         private void cbCustomWindow_CheckedChanged(object sender, EventArgs e)
@@ -924,6 +954,7 @@ namespace Gagagu_VR_Streamer_Server
                 }
                 this.Profil = FillProfileWithData(null);
                 cptRect.SetCaptureRect(Profil);
+                SetDxRect();
             }
             catch (Exception ex)
             {
@@ -963,6 +994,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 this.Profil = FillProfileWithData(null);
                 cptRect.SetCaptureRect(Profil);
+                SetDxRect();
             }
             catch (Exception ex)
             {
@@ -976,6 +1008,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 this.Profil = FillProfileWithData(null);
                 cptRect.SetCaptureRect(Profil);
+                SetDxRect();
             }
             catch (Exception ex)
             {
@@ -989,6 +1022,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 this.Profil = FillProfileWithData(null);
                 cptRect.SetCaptureRect(Profil);
+                SetDxRect();
             }
             catch (Exception ex)
             {
@@ -1002,6 +1036,7 @@ namespace Gagagu_VR_Streamer_Server
             {
                 this.Profil = FillProfileWithData(null);
                 cptRect.SetCaptureRect(Profil);
+                SetDxRect();
             }
             catch (Exception ex)
             {
@@ -1052,6 +1087,7 @@ namespace Gagagu_VR_Streamer_Server
                 tbScrollTop.Text = hScrollTop.Value.ToString();
                 this.Profil = FillProfileWithData(null);
                 cptRect.SetCaptureRect(Profil);
+                SetDxRect();
             }
             catch (Exception ex)
             {
@@ -1066,6 +1102,7 @@ namespace Gagagu_VR_Streamer_Server
                 tbScrollBottom.Text = hScrollBottom.Value.ToString();
                 this.Profil = FillProfileWithData(null);
                 cptRect.SetCaptureRect(Profil);
+                SetDxRect();
 
             }
             catch (Exception ex)
@@ -1081,6 +1118,7 @@ namespace Gagagu_VR_Streamer_Server
                 tbScrollLeft.Text = hScrollLeft.Value.ToString();
                 this.Profil = FillProfileWithData(null);
                 cptRect.SetCaptureRect(Profil);
+                SetDxRect();
 
             }
             catch (Exception ex)
@@ -1096,6 +1134,7 @@ namespace Gagagu_VR_Streamer_Server
                 tbScrollRight.Text = hScrollRight.Value.ToString();
                 this.Profil = FillProfileWithData(null);
                 cptRect.SetCaptureRect(Profil);
+                SetDxRect();
 
             }
             catch (Exception ex)
@@ -1105,6 +1144,17 @@ namespace Gagagu_VR_Streamer_Server
         }
 
 
+
+        #endregion
+
+        #region "tools"
+        private void SetDxRect()
+        {
+            if ((!cbUseGDI.Checked) && (dx != null))
+            {
+                dx.SetRect(cptRect.getRect());
+            }
+        }
 
         #endregion
     }
