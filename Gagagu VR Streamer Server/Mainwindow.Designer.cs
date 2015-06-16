@@ -865,7 +865,7 @@
             this.MaximizeBox = false;
             this.Name = "Mainwindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gagagu VR Streamer Server - v1.5.0";
+            this.Text = "Gagagu VR Streamer Server - v1.5.1";
             this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

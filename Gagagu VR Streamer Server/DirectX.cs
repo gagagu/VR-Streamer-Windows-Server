@@ -79,9 +79,22 @@ namespace Gagagu_VR_Streamer_Server
                 };
 
                 screenTexture = new Texture2D(device, textureDesc);
-                duplicatedOutput = output1.DuplicateOutput(device);
+                try
+                {
+                    duplicatedOutput = output1.DuplicateOutput(device);
+                }
+                catch (SharpDXException e)
+                {
+                    if (e.ResultCode.Code == SharpDX.DXGI.ResultCode.Unsupported.Result.Code)
+                    {
+                        throw new System.ApplicationException("Your system does not support DirectX 11.2 (normally on windows 7). Please use 'Use GDI Capture' option to prevent this error!"); 
 
-           
+                    }
+                    else {
+                        throw e;
+                    }
+
+                }
             }
             catch (Exception ex)
             {
