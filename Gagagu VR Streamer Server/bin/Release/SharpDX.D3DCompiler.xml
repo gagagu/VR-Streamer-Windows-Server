@@ -2769,24 +2769,6 @@
             </summary>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='SharpDX.D3DCompiler.D3D']/*"/>	
         </member>
-        <member name="M:SharpDX.D3DCompiler.D3D.GetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,SharpDX.Direct3D.Blob@)">
-            <summary>	
-            <p>Retrieves a specific part from a compilation result.</p>	
-            </summary>	
-            <param name="srcDataRef"><dd>  <p>A reference to uncompiled shader data; either ASCII HLSL code or a compiled effect.</p> </dd></param>	
-            <param name="srcDataSize"><dd>  <p>Length of uncompiled shader data that <em>pSrcData</em> points to.</p> </dd></param>	
-            <param name="part"><dd>  <p>A <strong><see cref="T:SharpDX.D3DCompiler.ShaderBytecodePart"/></strong>-typed value that specifies the part of the buffer to retrieve.</p> </dd></param>	
-            <param name="flags"><dd>  <p>Flags that indicate how to retrieve the blob part. Currently, no flags are defined.</p> </dd></param>	
-            <param name="partOut"><dd>  <p>The address of a reference to the <strong>ID3DBlob</strong> interface that is used to retrieve the specified part of the buffer.</p> </dd></param>	
-            <returns><p>Returns one of the Direct3D 11 return codes.</p></returns>	
-            <remarks>	
-            <p><strong><see cref="M:SharpDX.D3DCompiler.D3D.GetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,SharpDX.Direct3D.Blob@)"/></strong> retrieves the part of a blob (arbitrary length data buffer) that contains the type of data that the  <em>Part</em> parameter specifies.</p><p><strong>Windows Phone 8.1:</strong> This API is supported.</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DGetBlobPart']/*"/>	
-            <msdn-id>ff728674</msdn-id>	
-            <unmanaged>HRESULT D3DGetBlobPart([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] D3D_BLOB_PART Part,[In] unsigned int Flags,[Out] ID3D10Blob** ppPart)</unmanaged>	
-            <unmanaged-short>D3DGetBlobPart</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.D3DCompiler.D3D.Compile2(System.IntPtr,SharpDX.PointerSize,System.String,SharpDX.Direct3D.ShaderMacro[],System.IntPtr,System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.D3DCompiler.SecondaryDataFlags,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@,SharpDX.Direct3D.Blob@)">
             <summary>	
             <p>Compiles Microsoft High Level Shader Language (HLSL) code into bytecode for a given target.</p>	
@@ -2813,6 +2795,26 @@
             <msdn-id>hh446869</msdn-id>	
             <unmanaged>HRESULT D3DCompile2([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In, Optional] const char* pSourceName,[In, Buffer, Optional] const D3D_SHADER_MACRO* pDefines,[In, Optional] ID3DInclude* pInclude,[In] const char* pEntrypoint,[In] const char* pTarget,[In] D3DCOMPILE_SHADER_FLAGS Flags1,[In] D3DCOMPILE_EFFECT_FLAGS Flags2,[In] D3DCOMPILE_SECDATA_FLAGS SecondaryDataFlags,[In, Buffer, Optional] const void* pSecondaryData,[In] SIZE_T SecondaryDataSize,[Out] ID3D10Blob** ppCode,[Out, Optional] ID3D10Blob** ppErrorMsgs)</unmanaged>	
             <unmanaged-short>D3DCompile2</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)">
+            <summary>	
+            <p>Sets information in a compilation result.</p>	
+            </summary>	
+            <param name="srcDataRef"><dd>  <p>A reference to compiled shader data.</p> </dd></param>	
+            <param name="srcDataSize"><dd>  <p>The length of the compiled shader data that <em>pSrcData</em> points to.</p> </dd></param>	
+            <param name="part"><dd>  <p>A <strong><see cref="T:SharpDX.D3DCompiler.ShaderBytecodePart"/></strong>-typed value that specifies the part to set. Currently, you can update only private data; that is, <strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> currently only supports the <strong><see cref="F:SharpDX.D3DCompiler.ShaderBytecodePart.PrivateData"/></strong> value.</p> </dd></param>	
+            <param name="flags"><dd>  <p>Flags that indicate how to set the blob part. Currently, no flags are defined; therefore, set to zero.</p> </dd></param>	
+            <param name="partRef"><dd>  <p>A reference to data to set in the compilation result.</p> </dd></param>	
+            <param name="partSize"><dd>  <p>The length of the data that <em>pPart</em> points to.</p> </dd></param>	
+            <param name="newShaderOut"><dd>  <p>A reference to a buffer that receives the <strong>ID3DBlob</strong> interface for the new shader in which the new part data is set.</p> </dd></param>	
+            <returns><p>Returns one of the Direct3D 11 return codes.</p></returns>	
+            <remarks>	
+            <p><strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> modifies data in a compiled shader.  Currently, <strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> can update only the private data in a compiled shader. You can use  <strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> to attach arbitrary uninterpreted data to a compiled shader.</p><p><strong>Note</strong>??The D3dcompiler_44.dll or later version of the file contains the <strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> compiler function.</p><p><strong>Windows Phone 8.1:</strong> This API is supported.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DSetBlobPart']/*"/>	
+            <msdn-id>hh446880</msdn-id>	
+            <unmanaged>HRESULT D3DSetBlobPart([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] D3D_BLOB_PART Part,[In] unsigned int Flags,[In, Buffer] const void* pPart,[In] SIZE_T PartSize,[Out] ID3D10Blob** ppNewShader)</unmanaged>	
+            <unmanaged-short>D3DSetBlobPart</unmanaged-short>	
         </member>
         <member name="M:SharpDX.D3DCompiler.D3D.GetDebugInfo(System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)">
             <summary>	
@@ -2868,6 +2870,24 @@
             <msdn-id>ff728673</msdn-id>	
             <unmanaged>HRESULT D3DDecompressShaders([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] unsigned int uNumShaders,[In] unsigned int uStartIndex,[In, Buffer, Optional] unsigned int* pIndices,[In] unsigned int uFlags,[Out, Buffer] ID3D10Blob** ppShaders,[Out, Optional] unsigned int* pTotalShaders)</unmanaged>	
             <unmanaged-short>D3DDecompressShaders</unmanaged-short>	
+        </member>
+        <member name="M:SharpDX.D3DCompiler.D3D.GetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,SharpDX.Direct3D.Blob@)">
+            <summary>	
+            <p>Retrieves a specific part from a compilation result.</p>	
+            </summary>	
+            <param name="srcDataRef"><dd>  <p>A reference to uncompiled shader data; either ASCII HLSL code or a compiled effect.</p> </dd></param>	
+            <param name="srcDataSize"><dd>  <p>Length of uncompiled shader data that <em>pSrcData</em> points to.</p> </dd></param>	
+            <param name="part"><dd>  <p>A <strong><see cref="T:SharpDX.D3DCompiler.ShaderBytecodePart"/></strong>-typed value that specifies the part of the buffer to retrieve.</p> </dd></param>	
+            <param name="flags"><dd>  <p>Flags that indicate how to retrieve the blob part. Currently, no flags are defined.</p> </dd></param>	
+            <param name="partOut"><dd>  <p>The address of a reference to the <strong>ID3DBlob</strong> interface that is used to retrieve the specified part of the buffer.</p> </dd></param>	
+            <returns><p>Returns one of the Direct3D 11 return codes.</p></returns>	
+            <remarks>	
+            <p><strong><see cref="M:SharpDX.D3DCompiler.D3D.GetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,SharpDX.Direct3D.Blob@)"/></strong> retrieves the part of a blob (arbitrary length data buffer) that contains the type of data that the  <em>Part</em> parameter specifies.</p><p><strong>Windows Phone 8.1:</strong> This API is supported.</p>	
+            </remarks>	
+            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DGetBlobPart']/*"/>	
+            <msdn-id>ff728674</msdn-id>	
+            <unmanaged>HRESULT D3DGetBlobPart([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] D3D_BLOB_PART Part,[In] unsigned int Flags,[Out] ID3D10Blob** ppPart)</unmanaged>	
+            <unmanaged-short>D3DGetBlobPart</unmanaged-short>	
         </member>
         <member name="M:SharpDX.D3DCompiler.D3D.Disassemble(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.DisassemblyFlags,System.String,SharpDX.Direct3D.Blob@)">
             <summary>	
@@ -3014,21 +3034,6 @@
             <unmanaged>HRESULT D3DLoadModule([In] const void* pSrcData,[In] SIZE_T cbSrcDataSize,[Out, Fast] ID3D11Module** ppModule)</unmanaged>	
             <unmanaged-short>D3DLoadModule</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.D3DCompiler.D3D.CreateBlob(SharpDX.PointerSize,SharpDX.Direct3D.Blob@)">
-            <summary>	
-            <p>Creates a buffer.</p>	
-            </summary>	
-            <param name="size"><dd>  <p>Number of bytes in the blob.</p> </dd></param>	
-            <param name="blobOut"><dd>  <p>The address of a reference to the <strong>ID3DBlob</strong> interface that is used to retrieve the buffer.</p> </dd></param>	
-            <returns><p>Returns one of the Direct3D 11 return codes.</p></returns>	
-            <remarks>	
-            <p>The latest D3dcompiler_nn.dll contains the <strong><see cref="M:SharpDX.D3DCompiler.D3D.CreateBlob(SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> compiler function. Therefore, you are no longer required to create and use an arbitrary length data buffer by using the  <strong>D3D10CreateBlob</strong> function that is contained in D3d10.dll.</p><p><strong>Windows Phone 8.1:</strong> This API is supported.</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DCreateBlob']/*"/>	
-            <msdn-id>ff728672</msdn-id>	
-            <unmanaged>HRESULT D3DCreateBlob([In] SIZE_T Size,[Out] ID3D10Blob** ppBlob)</unmanaged>	
-            <unmanaged-short>D3DCreateBlob</unmanaged-short>	
-        </member>
         <member name="M:SharpDX.D3DCompiler.D3D.GetInputSignatureBlob(System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)">
             <summary>	
             <p><strong>Note</strong>??<strong><see cref="M:SharpDX.D3DCompiler.D3D.GetInputSignatureBlob(System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> may be altered or unavailable for releases after Windows?8.1. Instead use <strong><see cref="M:SharpDX.D3DCompiler.D3D.GetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,SharpDX.Direct3D.Blob@)"/></strong> with the <strong><see cref="F:SharpDX.D3DCompiler.ShaderBytecodePart.InputSignatureBlob"/></strong> value. </p><p>Gets the input signature from a compilation result.</p>	
@@ -3120,27 +3125,7 @@
             <unmanaged>HRESULT D3DReflectLibrary([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] const GUID&amp; riid,[Out] void** ppReflector)</unmanaged>	
             <unmanaged-short>D3DReflectLibrary</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)">
-            <summary>	
-            <p>Sets information in a compilation result.</p>	
-            </summary>	
-            <param name="srcDataRef"><dd>  <p>A reference to compiled shader data.</p> </dd></param>	
-            <param name="srcDataSize"><dd>  <p>The length of the compiled shader data that <em>pSrcData</em> points to.</p> </dd></param>	
-            <param name="part"><dd>  <p>A <strong><see cref="T:SharpDX.D3DCompiler.ShaderBytecodePart"/></strong>-typed value that specifies the part to set. Currently, you can update only private data; that is, <strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> currently only supports the <strong><see cref="F:SharpDX.D3DCompiler.ShaderBytecodePart.PrivateData"/></strong> value.</p> </dd></param>	
-            <param name="flags"><dd>  <p>Flags that indicate how to set the blob part. Currently, no flags are defined; therefore, set to zero.</p> </dd></param>	
-            <param name="partRef"><dd>  <p>A reference to data to set in the compilation result.</p> </dd></param>	
-            <param name="partSize"><dd>  <p>The length of the data that <em>pPart</em> points to.</p> </dd></param>	
-            <param name="newShaderOut"><dd>  <p>A reference to a buffer that receives the <strong>ID3DBlob</strong> interface for the new shader in which the new part data is set.</p> </dd></param>	
-            <returns><p>Returns one of the Direct3D 11 return codes.</p></returns>	
-            <remarks>	
-            <p><strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> modifies data in a compiled shader.  Currently, <strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> can update only the private data in a compiled shader. You can use  <strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> to attach arbitrary uninterpreted data to a compiled shader.</p><p><strong>Note</strong>??The D3dcompiler_44.dll or later version of the file contains the <strong><see cref="M:SharpDX.D3DCompiler.D3D.SetBlobPart(System.IntPtr,SharpDX.PointerSize,SharpDX.D3DCompiler.ShaderBytecodePart,System.Int32,System.IntPtr,SharpDX.PointerSize,SharpDX.Direct3D.Blob@)"/></strong> compiler function.</p><p><strong>Windows Phone 8.1:</strong> This API is supported.</p>	
-            </remarks>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DSetBlobPart']/*"/>	
-            <msdn-id>hh446880</msdn-id>	
-            <unmanaged>HRESULT D3DSetBlobPart([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] D3D_BLOB_PART Part,[In] unsigned int Flags,[In, Buffer] const void* pPart,[In] SIZE_T PartSize,[Out] ID3D10Blob** ppNewShader)</unmanaged>	
-            <unmanaged-short>D3DSetBlobPart</unmanaged-short>	
-        </member>
-        <member name="M:SharpDX.D3DCompiler.D3D.WriteBlobToFile(SharpDX.Direct3D.Blob,System.String,SharpDX.Mathematics.Interop.RawBool)">
+        <member name="M:SharpDX.D3DCompiler.D3D.WriteBlobToFile(SharpDX.Direct3D.Blob,System.String,SharpDX.Bool)">
             <summary>	
             <p><strong>Note</strong>??You can use this API to develop your Windows Store apps, but you can't use it in apps that you submit to the Windows Store.</p><p>Writes a memory blob to a file on disk.</p>	
             </summary>	
@@ -3149,7 +3134,7 @@
             <param name="bOverwrite"><dd>  <p>A Boolean value that specifies whether to overwrite information in the <em>pFileName</em> file. TRUE specifies to overwrite information and <see cref="F:SharpDX.Result.False"/> specifies not to overwrite information.</p> </dd></param>	
             <returns><p>Returns one of the Direct3D 11 return codes.</p></returns>	
             <remarks>	
-            <p><strong>Note</strong>??The D3dcompiler_44.dll or later version of the file contains the <strong><see cref="M:SharpDX.D3DCompiler.D3D.WriteBlobToFile(SharpDX.Direct3D.Blob,System.String,SharpDX.Mathematics.Interop.RawBool)"/></strong> compiler function.</p>	
+            <p><strong>Note</strong>??The D3dcompiler_44.dll or later version of the file contains the <strong><see cref="M:SharpDX.D3DCompiler.D3D.WriteBlobToFile(SharpDX.Direct3D.Blob,System.String,SharpDX.Bool)"/></strong> compiler function.</p>	
             </remarks>	
             <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3DWriteBlobToFile']/*"/>	
             <msdn-id>hh446883</msdn-id>	
@@ -3192,12 +3177,6 @@
             <msdn-id>hh446872</msdn-id>	
             <unmanaged>HRESULT D3DCompileFromFile([In] const wchar_t* pFileName,[In, Buffer, Optional] const D3D_SHADER_MACRO* pDefines,[In, Optional] ID3DInclude* pInclude,[In] const char* pEntrypoint,[In] const char* pTarget,[In] D3DCOMPILE_SHADER_FLAGS Flags1,[In] D3DCOMPILE_EFFECT_FLAGS Flags2,[Out] ID3D10Blob** ppCode,[Out, Optional] ID3D10Blob** ppErrorMsgs)</unmanaged>	
             <unmanaged-short>D3DCompileFromFile</unmanaged-short>	
-        </member>
-        <member name="T:SharpDX.D3DCompiler.D3DCommon">
-            <summary>	
-            Functions	
-            </summary>	
-            <!-- No matching elements were found for the following include tag --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='SharpDX.D3DCompiler.D3DCommon']/*"/>	
         </member>
         <member name="T:SharpDX.D3DCompiler.ConstantBuffer">
             <summary>	
@@ -3449,8 +3428,6 @@
             <unmanaged>ID3D11FunctionParameterReflection* ID3D11FunctionReflection::GetFunctionParameter([In] int ParameterIndex)</unmanaged>	
             <unmanaged-short>ID3D11FunctionReflection::GetFunctionParameter</unmanaged-short>	
         </member>
-        <!-- Badly formed XML comment ignored for member "M:SharpDX.D3DCompiler.FunctionReflection.GetResourceBindingDescription(System.Int32)" -->
-        <!-- Badly formed XML comment ignored for member "M:SharpDX.D3DCompiler.FunctionReflection.GetResourceBindingDescription(System.String)" -->
         <member name="P:SharpDX.D3DCompiler.FunctionReflection.Description">
             <summary>	
             <p>Fills the function descriptor structure for the function.</p>	
@@ -3472,11 +3449,6 @@
             <p>Returns all function parameters</p>	
             </summary>	
             <returns><p>All references to <strong><see cref="T:SharpDX.D3DCompiler.FunctionParameterReflection"/></strong> that represents the function parameters.</p></returns>	
-        </member>
-        <member name="P:SharpDX.D3DCompiler.FunctionReflection.ResourceBindings">
-            <summary>
-            Returns all resource bindings attached to this resource
-            </summary>
         </member>
         <member name="T:SharpDX.D3DCompiler.Include">
             <summary>	
@@ -6128,7 +6100,7 @@
             </summary>
             <param name="blob">The BLOB.</param>
         </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,System.String,SharpDX.D3DCompiler.SecondaryDataFlags,SharpDX.DataStream)">
+        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,System.String)">
             <summary>
             Compiles the provided shader or effect source.
             </summary>
@@ -6137,113 +6109,6 @@
             <param name="shaderFlags">Shader compilation options.</param>
             <param name="effectFlags">Effect compilation options.</param>
             <param name="sourceFileName">Name of the source file.</param>
-            <param name="secondaryDataFlags">The secondary data flags.</param>
-            <param name="secondaryData">The secondary data.</param>
-            <returns>
-            The compiled shader bytecode, or <c>null</c> if the method fails.
-            </returns>
-        </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.String,System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,System.String,SharpDX.D3DCompiler.SecondaryDataFlags,SharpDX.DataStream)">
-            <summary>
-            Compiles the provided shader or effect source.
-            </summary>
-            <param name="shaderSource">A string containing the source of the shader or effect to compile.</param>
-            <param name="entryPoint">The name of the shader entry-point function, or <c>null</c> for an effect file.</param>
-            <param name="profile">The shader target or set of shader features to compile against.</param>
-            <param name="shaderFlags">Shader compilation options.</param>
-            <param name="effectFlags">Effect compilation options.</param>
-            <param name="sourceFileName">Name of the source file.</param>
-            <param name="secondaryDataFlags">The secondary data flags.</param>
-            <param name="secondaryData">The secondary data.</param>
-            <returns>
-            The compiled shader bytecode, or <c>null</c> if the method fails.
-            </returns>
-        </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include,System.String,SharpDX.D3DCompiler.SecondaryDataFlags,SharpDX.DataStream)">
-            <summary>
-            Compiles the provided shader or effect source.
-            </summary>
-            <param name="shaderSource">A string containing the source of the shader or effect to compile.</param>
-            <param name="profile">The shader target or set of shader features to compile against.</param>
-            <param name="shaderFlags">Shader compilation options.</param>
-            <param name="effectFlags">Effect compilation options.</param>
-            <param name="defines">A set of macros to define during compilation.</param>
-            <param name="include">An interface for handling include files.</param>
-            <param name="sourceFileName">Name of the source file.</param>
-            <param name="secondaryDataFlags">The secondary data flags.</param>
-            <param name="secondaryData">The secondary data.</param>
-            <returns>
-            The compiled shader bytecode, or <c>null</c> if the method fails.
-            </returns>
-        </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.Byte[],System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include,System.String,SharpDX.D3DCompiler.SecondaryDataFlags,SharpDX.DataStream)">
-            <summary>
-            Compiles the provided shader or effect source.
-            </summary>
-            <param name="shaderSource">An array of bytes containing the raw source of the shader or effect to compile.</param>
-            <param name="profile">The shader target or set of shader features to compile against.</param>
-            <param name="shaderFlags">Shader compilation options.</param>
-            <param name="effectFlags">Effect compilation options.</param>
-            <param name="defines">A set of macros to define during compilation.</param>
-            <param name="include">An interface for handling include files.</param>
-            <param name="sourceFileName">Name of the source file.</param>
-            <param name="secondaryDataFlags">The secondary data flags.</param>
-            <param name="secondaryData">The secondary data.</param>
-            <returns>
-            The compiled shader bytecode, or <c>null</c> if the method fails.
-            </returns>
-        </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.String,System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include,System.String,SharpDX.D3DCompiler.SecondaryDataFlags,SharpDX.DataStream)">
-            <summary>
-            Compiles the provided shader or effect source.
-            </summary>
-            <param name="shaderSource">A string containing the source of the shader or effect to compile.</param>
-            <param name="entryPoint">The name of the shader entry-point function, or <c>null</c> for an effect file.</param>
-            <param name="profile">The shader target or set of shader features to compile against.</param>
-            <param name="shaderFlags">Shader compilation options.</param>
-            <param name="effectFlags">Effect compilation options.</param>
-            <param name="defines">A set of macros to define during compilation.</param>
-            <param name="include">An interface for handling include files.</param>
-            <param name="sourceFileName">Name of the source file.</param>
-            <param name="secondaryDataFlags">The secondary data flags.</param>
-            <param name="secondaryData">The secondary data.</param>
-            <returns>
-            The compiled shader bytecode, or <c>null</c> if the method fails.
-            </returns>
-        </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.Byte[],System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include,System.String,SharpDX.D3DCompiler.SecondaryDataFlags,SharpDX.DataStream)">
-            <summary>
-            Compiles the provided shader or effect source.
-            </summary>
-            <param name="shaderSource">An array of bytes containing the raw source of the shader or effect to compile.</param>
-            <param name="entryPoint">The name of the shader entry-point function, or <c>null</c> for an effect file.</param>
-            <param name="profile">The shader target or set of shader features to compile against.</param>
-            <param name="shaderFlags">Shader compilation options.</param>
-            <param name="effectFlags">Effect compilation options.</param>
-            <param name="defines">A set of macros to define during compilation.</param>
-            <param name="include">An interface for handling include files.</param>
-            <param name="sourceFileName">Name of the source file used for reporting errors. Default is "unknown"</param>
-            <param name="secondaryDataFlags">The secondary data flags.</param>
-            <param name="secondaryData">The secondary data.</param>
-            <returns>
-            The compiled shader bytecode, or <c>null</c> if the method fails.
-            </returns>
-        </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.IntPtr,System.Int32,System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include,System.String,SharpDX.D3DCompiler.SecondaryDataFlags,SharpDX.DataStream)">
-            <summary>
-            Compiles the provided shader or effect source.
-            </summary>
-            <param name="textSource">The shader data.</param>
-            <param name="textSize">Size of the shader.</param>
-            <param name="entryPoint">The name of the shader entry-point function, or <c>null</c> for an effect file.</param>
-            <param name="profile">The shader target or set of shader features to compile against.</param>
-            <param name="shaderFlags">Shader compilation options.</param>
-            <param name="effectFlags">Effect compilation options.</param>
-            <param name="defines">A set of macros to define during compilation.</param>
-            <param name="include">An interface for handling include files.</param>
-            <param name="sourceFileName">Name of the source file used for reporting errors. Default is "unknown"</param>
-            <param name="secondaryDataFlags">The secondary data flags.</param>
-            <param name="secondaryData">The secondary data.</param>
             <returns>
             The compiled shader bytecode, or <c>null</c> if the method fails.
             </returns>
@@ -6253,6 +6118,20 @@
             Compiles the provided shader or effect source.
             </summary>
             <param name="shaderSource">An array of bytes containing the raw source of the shader or effect to compile.</param>
+            <param name="profile">The shader target or set of shader features to compile against.</param>
+            <param name="shaderFlags">Shader compilation options.</param>
+            <param name="effectFlags">Effect compilation options.</param>
+            <param name="sourceFileName">Name of the source file.</param>
+            <returns>
+            The compiled shader bytecode, or <c>null</c> if the method fails.
+            </returns>
+        </member>
+        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.String,System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,System.String)">
+            <summary>
+            Compiles the provided shader or effect source.
+            </summary>
+            <param name="shaderSource">A string containing the source of the shader or effect to compile.</param>
+            <param name="entryPoint">The name of the shader entry-point function, or <c>null</c> for an effect file.</param>
             <param name="profile">The shader target or set of shader features to compile against.</param>
             <param name="shaderFlags">Shader compilation options.</param>
             <param name="effectFlags">Effect compilation options.</param>
@@ -6272,6 +6151,52 @@
             <param name = "effectFlags">Effect compilation options.</param>
             <param name="sourceFileName">Name of the source file.</param>
             <returns>The compiled shader bytecode, or <c>null</c> if the method fails.</returns>
+        </member>
+        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include,System.String)">
+            <summary>
+            Compiles the provided shader or effect source.
+            </summary>
+            <param name="shaderSource">A string containing the source of the shader or effect to compile.</param>
+            <param name="profile">The shader target or set of shader features to compile against.</param>
+            <param name="shaderFlags">Shader compilation options.</param>
+            <param name="effectFlags">Effect compilation options.</param>
+            <param name="defines">A set of macros to define during compilation.</param>
+            <param name="include">An interface for handling include files.</param>
+            <param name="sourceFileName">Name of the source file.</param>
+            <returns>
+            The compiled shader bytecode, or <c>null</c> if the method fails.
+            </returns>
+        </member>
+        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.Byte[],System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include,System.String)">
+            <summary>
+            Compiles the provided shader or effect source.
+            </summary>
+            <param name="shaderSource">An array of bytes containing the raw source of the shader or effect to compile.</param>
+            <param name="profile">The shader target or set of shader features to compile against.</param>
+            <param name="shaderFlags">Shader compilation options.</param>
+            <param name="effectFlags">Effect compilation options.</param>
+            <param name="defines">A set of macros to define during compilation.</param>
+            <param name="include">An interface for handling include files.</param>
+            <param name="sourceFileName">Name of the source file.</param>
+            <returns>
+            The compiled shader bytecode, or <c>null</c> if the method fails.
+            </returns>
+        </member>
+        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.String,System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include,System.String)">
+            <summary>
+            Compiles the provided shader or effect source.
+            </summary>
+            <param name="shaderSource">A string containing the source of the shader or effect to compile.</param>
+            <param name="entryPoint">The name of the shader entry-point function, or <c>null</c> for an effect file.</param>
+            <param name="profile">The shader target or set of shader features to compile against.</param>
+            <param name="shaderFlags">Shader compilation options.</param>
+            <param name="effectFlags">Effect compilation options.</param>
+            <param name="defines">A set of macros to define during compilation.</param>
+            <param name="include">An interface for handling include files.</param>
+            <param name="sourceFileName">Name of the source file.</param>
+            <returns>
+            The compiled shader bytecode, or <c>null</c> if the method fails.
+            </returns>
         </member>
         <member name="M:SharpDX.D3DCompiler.ShaderBytecode.CompileFromFile(System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include)">
             <summary>
@@ -6299,6 +6224,28 @@
             <returns>
             The compiled shader bytecode, or <c>null</c> if the method fails.
             </returns>
+        </member>
+        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compile(System.Byte[],System.String,System.String,SharpDX.D3DCompiler.ShaderFlags,SharpDX.D3DCompiler.EffectFlags,SharpDX.Direct3D.ShaderMacro[],SharpDX.D3DCompiler.Include,System.String)">
+            <summary>
+            Compiles the provided shader or effect source.
+            </summary>
+            <param name="shaderSource">An array of bytes containing the raw source of the shader or effect to compile.</param>
+            <param name="entryPoint">The name of the shader entry-point function, or <c>null</c> for an effect file.</param>
+            <param name="profile">The shader target or set of shader features to compile against.</param>
+            <param name="shaderFlags">Shader compilation options.</param>
+            <param name="effectFlags">Effect compilation options.</param>
+            <param name="defines">A set of macros to define during compilation.</param>
+            <param name="include">An interface for handling include files.</param>
+            <param name="sourceFileName">Name of the source file used for reporting errors. Default is "unknown"</param>
+            <returns>
+            The compiled shader bytecode, or <c>null</c> if the method fails.
+            </returns>
+        </member>
+        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Save(System.String)">
+            <summary>
+            Saves to the specified file name.
+            </summary>
+            <param name="fileName">Name of the file.</param>
         </member>
         <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Compress(SharpDX.D3DCompiler.ShaderBytecode[])">
             <summary>	
@@ -6353,29 +6300,6 @@
             <param name = "comments">Commenting information to embed in the disassembly.</param>
             <returns>The textual source of the shader or effect.</returns>
         </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.DisassembleRegion(SharpDX.D3DCompiler.DisassemblyFlags,System.String,SharpDX.PointerSize,SharpDX.PointerSize,SharpDX.PointerSize@)">
-            <summary>
-              Disassembles a region of a compiled HLSL code back into textual source.
-            </summary>
-            <param name="flags">The flags.</param>
-            <param name="comments">The comments.</param>
-            <param name="startByteOffset">The start byte offset.</param>
-            <param name="numberOfInstructions">The number of instructions.</param>
-            <param name="finishByteOffsetRef">The finish byte offset ref.</param>
-            <returns>The textual source of the shader or effect.</returns>
-            <unmanaged>HRESULT D3DDisassembleRegion([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] unsigned int Flags,[In, Optional] const char* szComments,[In] SIZE_T StartByteOffset,[In] SIZE_T NumInsts,[Out, Optional] SIZE_T* pFinishByteOffset,[Out] ID3D10Blob** ppDisassembly)</unmanaged>	
-        </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.GetTraceInstructionOffsets(System.Boolean,SharpDX.PointerSize,SharpDX.PointerSize,SharpDX.PointerSize@)">
-            <summary>
-            Gets the trace instruction offsets.
-            </summary>
-            <param name="isIncludingNonExecutableCode">if set to <c>true</c> [is including non executable code].</param>
-            <param name="startInstIndex">Start index of the instructions.</param>
-            <param name="numInsts">The number of instructions.</param>
-            <param name="totalInstsRef">The total instructions ref.</param>
-            <returns>An offset</returns>
-            <unmanaged>HRESULT D3DGetTraceInstructionOffsets([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] unsigned int Flags,[In] SIZE_T StartInstIndex,[In] SIZE_T NumInsts,[Out, Buffer, Optional] SIZE_T* pOffsets,[Out, Optional] SIZE_T* pTotalInsts)</unmanaged>
-        </member>
         <member name="M:SharpDX.D3DCompiler.ShaderBytecode.GetPart(SharpDX.D3DCompiler.ShaderBytecodePart)">
             <summary>	
             Retrieves a specific part from a compilation result.	
@@ -6386,15 +6310,6 @@
             <param name="part">A <see cref="T:SharpDX.D3DCompiler.ShaderBytecodePart"/>-typed value that specifies the part of the buffer to retrieve. </param>
             <returns>Returns the extracted part. </returns>
             <unmanaged>HRESULT D3DGetBlobPart([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] D3D_BLOB_PART Part,[In] int Flags,[Out] ID3DBlob** ppPart)</unmanaged>
-        </member>
-        <member name="M:SharpDX.D3DCompiler.ShaderBytecode.SetPart(SharpDX.D3DCompiler.ShaderBytecodePart,SharpDX.DataStream)">
-            <summary>
-            Sets information in a compilation result.
-            </summary>
-            <param name="part">The part.</param>
-            <param name="partData">The part data.</param>
-            <returns>The new shader in which the new part data is set.</returns>
-            <unmanaged>HRESULT D3DSetBlobPart([In, Buffer] const void* pSrcData,[In] SIZE_T SrcDataSize,[In] D3D_BLOB_PART Part,[In] unsigned int Flags,[In, Buffer] const void* pPart,[In] SIZE_T PartSize,[Out] ID3D10Blob** ppNewShader)</unmanaged>
         </member>
         <member name="M:SharpDX.D3DCompiler.ShaderBytecode.Load(System.IO.Stream)">
             <summary>

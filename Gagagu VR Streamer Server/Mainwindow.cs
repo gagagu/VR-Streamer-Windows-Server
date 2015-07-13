@@ -44,6 +44,8 @@ namespace Gagagu_VR_Streamer_Server
         
         private CaptureRect cptRect =  new CaptureRect();
 
+        //private String ShaderFilename = Path.Combine(Path.Combine(Application.StartupPath,"shader"),"Shader2.ps");
+
         public Mainwindow()
         {
             InitializeComponent();
@@ -573,55 +575,68 @@ namespace Gagagu_VR_Streamer_Server
                         } // while
                     }
                     else {
-                        dx = new DirectX();
-                        dx.SetRect(cptRect.getRect());
-
-                        while ((handler.Connected) && (blStop == false))
-                        {
-                            try
+                         Thread STAThread = new Thread(() =>
                             {
-                                ms.SetLength(0);
-                                bm = dx.Capture();
-             
-                                if ((Profil.ShowCrosshair) || (Profil.ShowCursor))
-                                    bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush); // needs to speed up
+                                dx = new DirectX();
+                                EffectShader LensCorrection = new EffectShader(1, Path.Combine(Path.Combine(Application.StartupPath, "shader"), "Shader.ps"));
 
-                                bm.Save(ms, jgpEncoder, myEncoderParameters);
+                                dx.SetRect(cptRect.getRect());
 
-                            }
-                            catch
-                            {
-                                ms.SetLength(0);
-                            }
-
-                            // send data
-                            try
-                            {
-                                if ((ms != null) && (ms.Length > 0))
+                                while ((handler.Connected) && (blStop == false))
                                 {
-                                    // may be put it on separate method
-                                    byte[] mybyt = ms.ToArray();
-                                    if (mybyt.Length > 0)
+                                    try
                                     {
-                                        lenght = mybyt.Length;
-                                        lenbyte = BitConverter.GetBytes(lenght);
-                                        ns.Write(lenbyte, 0, lenbyte.Length);
+                                        ms.SetLength(0);
+                                        bm = dx.Capture();
+                                           
+                                        if ((Profil.ShowCrosshair) || (Profil.ShowCursor))
+                                            bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush); // needs to speed up
 
-                                        ns.Flush();
+                                        bm = LensCorrection.ApplyShader(bm);
+                         
+                                        bm.Save(ms, jgpEncoder, myEncoderParameters);
 
-                                        ns.Write(mybyt, 0, mybyt.Length);
-                                        ns.Flush();
                                     }
-                                }
-                            }
-                            catch
-                            {
-                                blStop = true;
-                            }
-                        } // while
+                                    catch(Exception ex)
+                                    {
+                                        ms.SetLength(0);
+                                    }
 
-                        dx.close();
-                        dx = null;
+                                    // send data
+                                    try
+                                    {
+                                        if ((ms != null) && (ms.Length > 0))
+                                        {
+                                            // may be put it on separate method
+                                            byte[] mybyt = ms.ToArray();
+                                            if (mybyt.Length > 0)
+                                            {
+                                                lenght = mybyt.Length;
+                                                lenbyte = BitConverter.GetBytes(lenght);
+                                                ns.Write(lenbyte, 0, lenbyte.Length);
+
+                                                ns.Flush();
+
+                                                ns.Write(mybyt, 0, mybyt.Length);
+                                                ns.Flush();
+                                            }
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        blStop = true;
+                                    }
+                                } // while
+
+                                dx.close();
+                                dx = null;
+                                LensCorrection = null;
+                        });
+                        STAThread.SetApartmentState(ApartmentState.STA);
+                        STAThread.Start();
+                        STAThread.Join();
+
+                        STAThread = null;
                     } // gdi or directx
 
                     Invoke((MethodInvoker)delegate { ServerStopped(); });

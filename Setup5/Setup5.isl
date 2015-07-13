@@ -342,6 +342,7 @@
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe</td><td>{D3AE1DA1-59CE-4B44-BC60-F3B0C5C08FF0}</td><td>INSTALLDIR</td><td>2</td><td/><td>gagagu_vr_streamer_server.pr</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td>{172361C8-5CAA-4CC1-8C30-E125E1F9BFDA}</td><td>INSTALLDIR</td><td>2</td><td/><td>gagagu_vr_streamer_server.pr</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe2</td><td>{5AE24188-50D2-4663-B550-CACD2254323D}</td><td>INSTALLDIR</td><td>2</td><td/><td>gagagu_vr_streamer_server.pr</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{64A24178-B3E0-49A3-953E-D61E1036B34E}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
@@ -1866,6 +1867,7 @@
 		<col key="yes" def="s72">Component_</col>
 		<row><td>AlwaysInstall</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe</td></row>
 		<row><td>AlwaysInstall</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td></row>
+		<row><td>AlwaysInstall</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
 	</table>
 
@@ -1881,7 +1883,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>gagagu_vr_streamer_server.pr</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td>Gagagu VR Streamer Server.Primäre Ausgabe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Gagagu VR Streamer Server&gt;|Built</td><td>3</td><td/></row>
+		<row><td>gagagu_vr_streamer_server.pr</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe2</td><td>Gagagu VR Streamer Server.Primäre Ausgabe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Gagagu VR Streamer Server&gt;|Built</td><td>3</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2027,6 +2029,7 @@
 		<col def="S0">Miscellaneous</col>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe</td><td/><td/><td>_7EECD760_2C15_40A2_9782_E254535180A5_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td/><td/><td>_5E01B974_265A_49CD_9F3A_84EA809A4BD0_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe2</td><td/><td/><td>_8A9F18EF_6190_4718_AC7D_936AAE3C8A8E_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_07D99983_CFD6_4A99_A4D7_FA00E6D4A0CA_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
@@ -2645,7 +2648,7 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>Gagagu</td><td>0</td><td/><td>-2094829874</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>Gagagu</td><td>0</td><td/><td>-1834800280</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-786177685</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-786177685</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION40CLIENT</td><td>1033</td><td>Microsoft .NET Framework 4.0 Client Package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-786232469</td></row>
@@ -3755,8 +3758,8 @@
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-786177685</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-786177685</td></row>
 		<row><td>ID_STRING1</td><td>1033</td><td/><td>0</td><td/><td>-786177685</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>http://www.Gagagu.com</td><td>0</td><td/><td>-2094829874</td></row>
-		<row><td>ID_STRING3</td><td>1033</td><td>Gagagu</td><td>0</td><td/><td>-2094829874</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>http://www.Gagagu.com</td><td>0</td><td/><td>-1834800280</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>Gagagu</td><td>0</td><td/><td>-1834800280</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-786228757</td></row>
 		<row><td>ID_STRING5</td><td>1033</td><td>VR Streamer Server</td><td>0</td><td/><td>295945455</td></row>
 		<row><td>ID_STRING6</td><td>1033</td><td>Launch |Built</td><td>0</td><td/><td>-232551888</td></row>
@@ -4401,7 +4404,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
 		<row><td>ProductCode</td><td>{9EA5FC8D-E891-4702-9416-0480650EF36F}</td><td/></row>
 		<row><td>ProductName</td><td>Gagagu VR Streamer Server</td><td/></row>
-		<row><td>ProductVersion</td><td>1.5.1</td><td/></row>
+		<row><td>ProductVersion</td><td>1.6.0</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>

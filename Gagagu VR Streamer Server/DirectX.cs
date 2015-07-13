@@ -8,12 +8,14 @@ using System.Drawing.Imaging;
 using SharpDX;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;
+
 using Device = SharpDX.Direct3D11.Device;
 using MapFlags = SharpDX.Direct3D11.MapFlags;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 
 namespace Gagagu_VR_Streamer_Server
@@ -31,6 +33,7 @@ namespace Gagagu_VR_Streamer_Server
         private Device device = null;
         private Output output = null;
         private Output1 output1 = null;
+        
 
         private Texture2DDescription textureDesc;
         private Texture2D screenTexture;
@@ -40,6 +43,7 @@ namespace Gagagu_VR_Streamer_Server
 
         private SharpDX.DXGI.Resource screenResource;
         private OutputDuplicateFrameInformation duplicateFrameInformation;
+
         private DataBox mapSource;
         private BitmapData mapDest;
         private IntPtr sourcePtr;
@@ -49,6 +53,7 @@ namespace Gagagu_VR_Streamer_Server
         private int pWidth = 0;
         private bool isInCapture = false;
 
+
         /// <summary>
         /// Init some variables one times to spend execution time.
         /// </summary>
@@ -57,6 +62,7 @@ namespace Gagagu_VR_Streamer_Server
 
             try
             {
+
                 factory = new Factory1();
                 adapter = factory.GetAdapter1(numAdapter);
                 device = new Device(adapter);
@@ -71,6 +77,7 @@ namespace Gagagu_VR_Streamer_Server
                     Format = Format.B8G8R8A8_UNorm,
                     Width = ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Right - ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Left,
                     Height = ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Bottom - ((SharpDX.Mathematics.Interop.RawRectangle)output.Description.DesktopBounds).Top,
+
                     OptionFlags = ResourceOptionFlags.None,
                     MipLevels = 1,
                     ArraySize = 1,
@@ -79,22 +86,9 @@ namespace Gagagu_VR_Streamer_Server
                 };
 
                 screenTexture = new Texture2D(device, textureDesc);
-                try
-                {
-                    duplicatedOutput = output1.DuplicateOutput(device);
-                }
-                catch (SharpDXException e)
-                {
-                    if (e.ResultCode.Code == SharpDX.DXGI.ResultCode.Unsupported.Result.Code)
-                    {
-                        throw new System.ApplicationException("Your system does not support DirectX 11.2 (normally on windows 7). Please use 'Use GDI Capture' option to prevent this error!"); 
+                duplicatedOutput = output1.DuplicateOutput(device);
 
-                    }
-                    else {
-                        throw e;
-                    }
-
-                }
+           
             }
             catch (Exception ex)
             {
@@ -157,6 +151,8 @@ namespace Gagagu_VR_Streamer_Server
                 {
                     try
                     {
+
+
                         //capture
                         duplicatedOutput.AcquireNextFrame(-1, out duplicateFrameInformation, out screenResource);
                         // only for wait
@@ -166,6 +162,7 @@ namespace Gagagu_VR_Streamer_Server
                                 device.ImmediateContext.CopyResource(screenTexture2D, screenTexture);
 
                             mapSource = device.ImmediateContext.MapSubresource(screenTexture, 0, MapMode.Read, MapFlags.None);
+
                             mapDest = bitmap.LockBits(new System.Drawing.Rectangle(0, 0, captureRect.Width, captureRect.Height),
                                                                   ImageLockMode.WriteOnly, bitmap.PixelFormat);
 
@@ -181,7 +178,7 @@ namespace Gagagu_VR_Streamer_Server
                             {
                                 // set pointer to x position
                                 sourcePtr = IntPtr.Add(sourcePtr, offsetX);
-                                
+
                                 // copy pixel to bmp
                                 Utilities.CopyMemory(destPtr, sourcePtr, pWidth);
 
@@ -189,6 +186,8 @@ namespace Gagagu_VR_Streamer_Server
                                 sourcePtr = IntPtr.Add(sourcePtr, rowPitch);
                                 destPtr = IntPtr.Add(destPtr, mapDest.Stride);
                             }
+
+
 
                             bitmap.UnlockBits(mapDest);
                             device.ImmediateContext.UnmapSubresource(screenTexture, 0);
@@ -198,6 +197,18 @@ namespace Gagagu_VR_Streamer_Server
 
                         screenResource.Dispose();
                         duplicatedOutput.ReleaseFrame();
+
+                        //Thread STAThread = new Thread(() =>
+                        //{
+                            //EffectShader x = new EffectShader(captureRect.Width, captureRect.Height, 1, ShaderFilename);
+                            //bitmap = x.ApplyShader(bitmap);
+                            //x = null;
+                        //});
+                        //STAThread.SetApartmentState(ApartmentState.STA);
+                        //STAThread.Start();
+                        //STAThread.Join();
+
+                        //STAThread = null;
 
                     }
                     catch//(Exception ex)  //                    catch (SharpDXException e)
@@ -220,8 +231,6 @@ namespace Gagagu_VR_Streamer_Server
             isInCapture = false;
             return bitmap;
         }
-
-
   
 
 

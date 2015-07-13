@@ -96,6 +96,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpMain = new System.Windows.Forms.TabPage();
             this.tbAppearance = new System.Windows.Forms.TabPage();
+            this.cbUseShader = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowWidth)).BeginInit();
@@ -449,6 +450,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbUseShader);
             this.groupBox2.Controls.Add(this.tbScrollImageQuality);
             this.groupBox2.Controls.Add(this.hScrollImageQuality);
             this.groupBox2.Controls.Add(this.label12);
@@ -463,7 +465,7 @@
             // 
             // tbScrollImageQuality
             // 
-            this.tbScrollImageQuality.Location = new System.Drawing.Point(385, 83);
+            this.tbScrollImageQuality.Location = new System.Drawing.Point(385, 101);
             this.tbScrollImageQuality.Name = "tbScrollImageQuality";
             this.tbScrollImageQuality.ReadOnly = true;
             this.tbScrollImageQuality.Size = new System.Drawing.Size(55, 20);
@@ -473,7 +475,7 @@
             // 
             // hScrollImageQuality
             // 
-            this.hScrollImageQuality.Location = new System.Drawing.Point(103, 83);
+            this.hScrollImageQuality.Location = new System.Drawing.Point(103, 101);
             this.hScrollImageQuality.Maximum = 109;
             this.hScrollImageQuality.Minimum = 1;
             this.hScrollImageQuality.Name = "hScrollImageQuality";
@@ -485,7 +487,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 86);
+            this.label12.Location = new System.Drawing.Point(22, 104);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 13);
             this.label12.TabIndex = 47;
@@ -505,7 +507,7 @@
             // cbCrosshair
             // 
             this.cbCrosshair.AutoSize = true;
-            this.cbCrosshair.Location = new System.Drawing.Point(22, 46);
+            this.cbCrosshair.Location = new System.Drawing.Point(22, 69);
             this.cbCrosshair.Name = "cbCrosshair";
             this.cbCrosshair.Size = new System.Drawing.Size(99, 17);
             this.cbCrosshair.TabIndex = 1;
@@ -850,12 +852,22 @@
             this.tbAppearance.TabIndex = 1;
             this.tbAppearance.Text = "Appearance";
             // 
+            // cbUseShader
+            // 
+            this.cbUseShader.AutoSize = true;
+            this.cbUseShader.Location = new System.Drawing.Point(22, 46);
+            this.cbUseShader.Name = "cbUseShader";
+            this.cbUseShader.Size = new System.Drawing.Size(248, 17);
+            this.cbUseShader.TabIndex = 50;
+            this.cbUseShader.Text = "Use Lens Correction Shader [test; only DirectX]";
+            this.cbUseShader.UseVisualStyleBackColor = true;
+            // 
             // Mainwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(513, 525);
+            this.ClientSize = new System.Drawing.Size(517, 522);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lbIPAddress);
             this.Controls.Add(this.btStopServer);
@@ -865,7 +877,7 @@
             this.MaximizeBox = false;
             this.Name = "Mainwindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gagagu VR Streamer Server - v1.5.1";
+            this.Text = "Gagagu VR Streamer Server - v1.6.0";
             this.Load += new System.EventHandler(this.Mainwindow_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -960,6 +972,7 @@
         private System.Windows.Forms.NumericUpDown nCustomWindowWidth;
         private System.Windows.Forms.NumericUpDown nCustomWindowY;
         private System.Windows.Forms.NumericUpDown nCustomWindowX;
+        private System.Windows.Forms.CheckBox cbUseShader;
     }
 }
 
