@@ -138,4 +138,6 @@ D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.6\Gagagu
 D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.6\Gagagu VR Streamer Server\obj\Debug\Gagagu VR Streamer Server.csproj.GenerateResource.Cache
 D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.6\Gagagu VR Streamer Server\bin\Debug\shader\Shader.ps
 D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.6\Gagagu VR Streamer Server\bin\Debug\shader\Shader2.ps
-D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.6\Gagagu VR Streamer Server\obj\Debug\Gagagu VR Streamer Server.csprojResolveAssemblyReference.cache
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.6\Gagagu VR Streamer Server\bin\Debug\shader\Shader.fx
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.6\Gagagu VR Streamer Server\bin\Debug\shader\Shader2.fx
+D:\Programmierung\privat\Gagagu VR Streamer\Gagagu VR Streamer Server\1.6\Gagagu VR Streamer Server\bin\Debug\shader\compile_shader.cmd

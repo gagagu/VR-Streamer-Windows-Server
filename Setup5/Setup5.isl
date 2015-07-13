@@ -344,6 +344,7 @@
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td>{172361C8-5CAA-4CC1-8C30-E125E1F9BFDA}</td><td>INSTALLDIR</td><td>2</td><td/><td>gagagu_vr_streamer_server.pr</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe2</td><td>{5AE24188-50D2-4663-B550-CACD2254323D}</td><td>INSTALLDIR</td><td>2</td><td/><td>gagagu_vr_streamer_server.pr</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{64A24178-B3E0-49A3-953E-D61E1036B34E}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td>{898B24E4-C482-44B7-8E8D-1F797828967E}</td><td>SHADER</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1160,6 +1161,7 @@
 		<row><td>ProgramFilesFolder</td><td>TARGETDIR</td><td>.:PROGRA~1|program files</td><td/><td>0</td><td/></row>
 		<row><td>ProgramMenuFolder</td><td>TARGETDIR</td><td>.:Programs</td><td/><td>3</td><td/></row>
 		<row><td>RecentFolder</td><td>TARGETDIR</td><td>.:Recent</td><td/><td>0</td><td/></row>
+		<row><td>SHADER</td><td>INSTALLDIR</td><td>shader</td><td/><td>0</td><td/></row>
 		<row><td>SendToFolder</td><td>TARGETDIR</td><td>.:SendTo</td><td/><td>3</td><td/></row>
 		<row><td>StartMenuFolder</td><td>TARGETDIR</td><td>.:STARTM~1|Start Menu</td><td/><td>3</td><td/></row>
 		<row><td>StartupFolder</td><td>TARGETDIR</td><td>.:StartUp</td><td/><td>3</td><td/></row>
@@ -1869,6 +1871,7 @@
 		<row><td>AlwaysInstall</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td></row>
 		<row><td>AlwaysInstall</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT1</td></row>
 	</table>
 
 	<table name="File">
@@ -1883,7 +1886,12 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
+		<row><td>compile_shader.cmd</td><td>ISX_DEFAULTCOMPONENT1</td><td>COMPIL~1.CMD|compile_shader.cmd</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\shader\compile_shader.cmd</td><td>1</td><td/></row>
 		<row><td>gagagu_vr_streamer_server.pr</td><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe2</td><td>Gagagu VR Streamer Server.Primäre Ausgabe</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Gagagu VR Streamer Server&gt;|Built</td><td>3</td><td/></row>
+		<row><td>shader.fx</td><td>ISX_DEFAULTCOMPONENT1</td><td>Shader.fx</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\shader\Shader.fx</td><td>1</td><td/></row>
+		<row><td>shader.ps</td><td>ISX_DEFAULTCOMPONENT1</td><td>Shader.ps</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\shader\Shader.ps</td><td>1</td><td/></row>
+		<row><td>shader2.fx</td><td>ISX_DEFAULTCOMPONENT1</td><td>Shader2.fx</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\shader\Shader2.fx</td><td>1</td><td/></row>
+		<row><td>shader2.ps</td><td>ISX_DEFAULTCOMPONENT1</td><td>Shader2.ps</td><td>0</td><td/><td/><td/><td>1</td><td>D:\privat\GitHub\VR-Streamer-Windows-Server\Gagagu VR Streamer Server\shader\Shader2.ps</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2031,6 +2039,7 @@
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe1</td><td/><td/><td>_5E01B974_265A_49CD_9F3A_84EA809A4BD0_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Gagagu_VR_Streamer_Server.Prim_re_Ausgabe2</td><td/><td/><td>_8A9F18EF_6190_4718_AC7D_936AAE3C8A8E_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td/><td/><td>_07D99983_CFD6_4A99_A4D7_FA00E6D4A0CA_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT1</td><td/><td/><td>_800C2D52_7991_4202_91FA_E10B728E7C87_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
