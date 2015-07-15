@@ -34,6 +34,10 @@ namespace Gagagu_VR_Streamer_Server
         public int CursorCorrectionAdjHeight { get; set; }
        
 
+        // Shader
+        public String ShaderName { get; set; }
+        public Boolean UseShader { get; set; }
+
         // Subclass for border correction
         [XmlElement("BorderCorrection")] 
         public BorderCorrectionData BorderCorrection { get; set; }
@@ -99,6 +103,9 @@ namespace Gagagu_VR_Streamer_Server
             this.CursorCorrectionAdjWidth = 0;
             this.CursorCorrectionAdjHeight = 0;
 
+            // SHader
+            this.ShaderName = "";
+            this.UseShader = false;
         }
     }
 }

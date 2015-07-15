@@ -60,6 +60,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbStatus = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbUseShader = new System.Windows.Forms.CheckBox();
             this.tbScrollImageQuality = new System.Windows.Forms.TextBox();
             this.hScrollImageQuality = new System.Windows.Forms.HScrollBar();
             this.label12 = new System.Windows.Forms.Label();
@@ -96,7 +97,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpMain = new System.Windows.Forms.TabPage();
             this.tbAppearance = new System.Windows.Forms.TabPage();
-            this.cbUseShader = new System.Windows.Forms.CheckBox();
+            this.cbShader = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowWidth)).BeginInit();
@@ -450,6 +451,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbShader);
             this.groupBox2.Controls.Add(this.cbUseShader);
             this.groupBox2.Controls.Add(this.tbScrollImageQuality);
             this.groupBox2.Controls.Add(this.hScrollImageQuality);
@@ -462,6 +464,17 @@
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Extras";
+            // 
+            // cbUseShader
+            // 
+            this.cbUseShader.AutoSize = true;
+            this.cbUseShader.Location = new System.Drawing.Point(22, 46);
+            this.cbUseShader.Name = "cbUseShader";
+            this.cbUseShader.Size = new System.Drawing.Size(227, 17);
+            this.cbUseShader.TabIndex = 50;
+            this.cbUseShader.Text = "Use Lens Correction Shader (experimental)";
+            this.cbUseShader.UseVisualStyleBackColor = true;
+            this.cbUseShader.CheckedChanged += new System.EventHandler(this.cbUseShader_CheckedChanged);
             // 
             // tbScrollImageQuality
             // 
@@ -852,15 +865,16 @@
             this.tbAppearance.TabIndex = 1;
             this.tbAppearance.Text = "Appearance";
             // 
-            // cbUseShader
+            // cbShader
             // 
-            this.cbUseShader.AutoSize = true;
-            this.cbUseShader.Location = new System.Drawing.Point(22, 46);
-            this.cbUseShader.Name = "cbUseShader";
-            this.cbUseShader.Size = new System.Drawing.Size(248, 17);
-            this.cbUseShader.TabIndex = 50;
-            this.cbUseShader.Text = "Use Lens Correction Shader [test; only DirectX]";
-            this.cbUseShader.UseVisualStyleBackColor = true;
+            this.cbShader.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbShader.Enabled = false;
+            this.cbShader.FormattingEnabled = true;
+            this.cbShader.Location = new System.Drawing.Point(255, 46);
+            this.cbShader.Name = "cbShader";
+            this.cbShader.Size = new System.Drawing.Size(185, 21);
+            this.cbShader.Sorted = true;
+            this.cbShader.TabIndex = 51;
             // 
             // Mainwindow
             // 
@@ -973,6 +987,7 @@
         private System.Windows.Forms.NumericUpDown nCustomWindowY;
         private System.Windows.Forms.NumericUpDown nCustomWindowX;
         private System.Windows.Forms.CheckBox cbUseShader;
+        private System.Windows.Forms.ComboBox cbShader;
     }
 }
 
