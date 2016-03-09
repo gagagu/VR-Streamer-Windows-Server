@@ -56,7 +56,7 @@ namespace Gagagu_VR_Streamer_Server
 
                 if (Profil.ShowCrosshair)
                 {
-                    GDIGraphicTools.DrawCrosshair(g, wRect.Width, wRect.Height);
+                    GDIGraphicTools.DrawCrosshair(g, wRect.Width, wRect.Height, Profil.ShowCrosshair3D);
                 }
 
                 if (Profil.ShowCursor)
@@ -71,7 +71,8 @@ namespace Gagagu_VR_Streamer_Server
                                                 Profil.CursorCorrectionAdjWidth,
                                                 Profil.CursorCorrectionAdjHeight,
                                                 myBrush,
-                                                Profil.CursorSize);
+                                                Profil.CursorSize,
+                                                Profil.ShowCursor3D);
                     
                 } // cursor
 
@@ -114,7 +115,7 @@ namespace Gagagu_VR_Streamer_Server
         /// <param name="g">graphics object</param>
         /// <param name="width">size width</param>
         /// <param name="height">size height</param>
-        public static void DrawCrosshair(Graphics g, int width, int height)
+        public static void DrawCrosshair(Graphics g, int width, int height, bool draw3D)
         {
             try
             {
@@ -126,31 +127,51 @@ namespace Gagagu_VR_Streamer_Server
 
                 // calculate middle
                 int middley = height / 2;
-                int middlex = width / 4;
+                int middlex = 0;
 
-                // set points for left side
-                pointsl1[0].X = middlex;
-                pointsl1[0].Y = middley - 10;
-                pointsl1[1].X = middlex;
-                pointsl1[1].Y = middley + 10;
-                pointsl2[0].X = middlex - 10;
-                pointsl2[0].Y = middley;
-                pointsl2[1].X = middlex + 10;
-                pointsl2[1].Y = middley;
-                // set points for right side
-                pointsr1[0].X = middlex * 3;
-                pointsr1[0].Y = middley - 10;
-                pointsr1[1].X = middlex * 3;
-                pointsr1[1].Y = middley + 10;
-                pointsr2[0].X = middlex * 3 - 10;
-                pointsr2[0].Y = middley;
-                pointsr2[1].X = middlex * 3 + 10;
-                pointsr2[1].Y = middley;
-                // draw lines
-                g.DrawLines(myPen, pointsl1);
-                g.DrawLines(myPen, pointsl2);
-                g.DrawLines(myPen, pointsr1);
-                g.DrawLines(myPen, pointsr2);
+                // draw one or two crosshairs, depending on configuration
+                if (draw3D)
+                {
+                     middlex = width / 4;
+
+                    // set points for left side
+                    pointsl1[0].X = middlex;
+                    pointsl1[0].Y = middley - 10;
+                    pointsl1[1].X = middlex;
+                    pointsl1[1].Y = middley + 10;
+                    pointsl2[0].X = middlex - 10;
+                    pointsl2[0].Y = middley;
+                    pointsl2[1].X = middlex + 10;
+                    pointsl2[1].Y = middley;
+                    // set points for right side
+                    pointsr1[0].X = middlex * 3;
+                    pointsr1[0].Y = middley - 10;
+                    pointsr1[1].X = middlex * 3;
+                    pointsr1[1].Y = middley + 10;
+                    pointsr2[0].X = middlex * 3 - 10;
+                    pointsr2[0].Y = middley;
+                    pointsr2[1].X = middlex * 3 + 10;
+                    pointsr2[1].Y = middley;
+                    // draw lines
+                    g.DrawLines(myPen, pointsl1);
+                    g.DrawLines(myPen, pointsl2);
+                    g.DrawLines(myPen, pointsr1);
+                    g.DrawLines(myPen, pointsr2);
+                }
+                else {
+                    middlex = width / 2;
+                    pointsl1[0].X = middlex;
+                    pointsl1[0].Y = middley - 10;
+                    pointsl1[1].X = middlex;
+                    pointsl1[1].Y = middley + 10;
+                    pointsl2[0].X = middlex - 10;
+                    pointsl2[0].Y = middley;
+                    pointsl2[1].X = middlex + 10;
+                    pointsl2[1].Y = middley;
+
+                    g.DrawLines(myPen, pointsl1);
+                    g.DrawLines(myPen, pointsl2);
+                }
             }
             catch
             {
@@ -181,7 +202,8 @@ namespace Gagagu_VR_Streamer_Server
                                 int hScrollAdjWidthValue, 
                                 int hScrollAdjHeightValue, 
                                 SolidBrush myBrush, 
-                                float size)
+                                float size, 
+                                bool draw3D)
         {
             try
             {
@@ -227,7 +249,10 @@ namespace Gagagu_VR_Streamer_Server
 
                     // draw dots
                     gcu.FillEllipse(myBrush, iconX, iconY, size, size);
-                    gcu.FillEllipse(myBrush, iconX + (width / 2), iconY, size, size);
+                    if (draw3D)
+                    {
+                        gcu.FillEllipse(myBrush, iconX + (width / 2), iconY, size, size);
+                    }
 
                 }
   

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProfileData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ProfileData>
+    <Name>notepad</Name>
+    <DataPort>6666</DataPort>
+    <ProcessName>notepad++</ProcessName>
+    <UseGDICapture>false</UseGDICapture>
+    <ImageQuality>50</ImageQuality>
+    <CustomWindow>false</CustomWindow>
+    <ShowCrosshair>false</ShowCrosshair>
+    <ShowCrosshair3D>false</ShowCrosshair3D>
+    <ShowCursor>false</ShowCursor>
+    <ShowCursor3D>false</ShowCursor3D>
+    <CursorCorrection>false</CursorCorrection>
+    <CorsorColorName>Color [White]</CorsorColorName>
+    <CursorSize>5</CursorSize>
+    <CursorCorrectionAdjWidth>0</CursorCorrectionAdjWidth>
+    <CursorCorrectionAdjHeight>0</CursorCorrectionAdjHeight>
+    <BorderCorrection>
+      <top>30</top>
+      <bottom>8</bottom>
+      <left>8</left>
+      <right>8</right>
+    </BorderCorrection>
+    <CustomWindowSize>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>100</height>
+    </CustomWindowSize>
+  </ProfileData>
+</ArrayOfProfileData>

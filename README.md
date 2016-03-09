@@ -9,7 +9,7 @@ to your iphone. At the same time tracking data can be tranfered from iphone via 
 head tracking application (like Opentack with my special gvrs plugin https://github.com/gagagu/ftnoir_tracker_gvrs). Read for more informations on the official site.
 
 ## Compilation & Build
-- the project is made with Visual Studio 2012
+- the project is made with Visual Studio 2015
 - SharpDX ist needed https://github.com/sharpdx/SharpDX
 
 ## Installation

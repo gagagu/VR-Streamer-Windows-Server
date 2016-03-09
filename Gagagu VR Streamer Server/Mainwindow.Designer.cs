@@ -60,7 +60,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbStatus = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbUseShader = new System.Windows.Forms.CheckBox();
+            this.cbCrosshair3D = new System.Windows.Forms.CheckBox();
             this.tbScrollImageQuality = new System.Windows.Forms.TextBox();
             this.hScrollImageQuality = new System.Windows.Forms.HScrollBar();
             this.label12 = new System.Windows.Forms.Label();
@@ -97,7 +97,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpMain = new System.Windows.Forms.TabPage();
             this.tbAppearance = new System.Windows.Forms.TabPage();
-            this.cbShader = new System.Windows.Forms.ComboBox();
+            this.cbShowCursor3D = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowHeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nCustomWindowWidth)).BeginInit();
@@ -451,8 +451,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbShader);
-            this.groupBox2.Controls.Add(this.cbUseShader);
+            this.groupBox2.Controls.Add(this.cbCrosshair3D);
             this.groupBox2.Controls.Add(this.tbScrollImageQuality);
             this.groupBox2.Controls.Add(this.hScrollImageQuality);
             this.groupBox2.Controls.Add(this.label12);
@@ -465,20 +464,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Extras";
             // 
-            // cbUseShader
+            // cbCrosshair3D
             // 
-            this.cbUseShader.AutoSize = true;
-            this.cbUseShader.Location = new System.Drawing.Point(22, 46);
-            this.cbUseShader.Name = "cbUseShader";
-            this.cbUseShader.Size = new System.Drawing.Size(227, 17);
-            this.cbUseShader.TabIndex = 50;
-            this.cbUseShader.Text = "Use Lens Correction Shader (experimental)";
-            this.cbUseShader.UseVisualStyleBackColor = true;
-            this.cbUseShader.CheckedChanged += new System.EventHandler(this.cbUseShader_CheckedChanged);
+            this.cbCrosshair3D.AutoSize = true;
+            this.cbCrosshair3D.Enabled = false;
+            this.cbCrosshair3D.Location = new System.Drawing.Point(142, 46);
+            this.cbCrosshair3D.Name = "cbCrosshair3D";
+            this.cbCrosshair3D.Size = new System.Drawing.Size(111, 17);
+            this.cbCrosshair3D.TabIndex = 50;
+            this.cbCrosshair3D.Text = "Double Crosshairs";
+            this.cbCrosshair3D.UseVisualStyleBackColor = true;
+            this.cbCrosshair3D.CheckedChanged += new System.EventHandler(this.cbCrosshair3D_CheckedChanged);
             // 
             // tbScrollImageQuality
             // 
-            this.tbScrollImageQuality.Location = new System.Drawing.Point(385, 101);
+            this.tbScrollImageQuality.Location = new System.Drawing.Point(385, 83);
             this.tbScrollImageQuality.Name = "tbScrollImageQuality";
             this.tbScrollImageQuality.ReadOnly = true;
             this.tbScrollImageQuality.Size = new System.Drawing.Size(55, 20);
@@ -488,7 +488,7 @@
             // 
             // hScrollImageQuality
             // 
-            this.hScrollImageQuality.Location = new System.Drawing.Point(103, 101);
+            this.hScrollImageQuality.Location = new System.Drawing.Point(103, 83);
             this.hScrollImageQuality.Maximum = 109;
             this.hScrollImageQuality.Minimum = 1;
             this.hScrollImageQuality.Name = "hScrollImageQuality";
@@ -500,7 +500,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(22, 104);
+            this.label12.Location = new System.Drawing.Point(22, 86);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(74, 13);
             this.label12.TabIndex = 47;
@@ -511,16 +511,16 @@
             this.cbUseGDI.AutoSize = true;
             this.cbUseGDI.Location = new System.Drawing.Point(22, 23);
             this.cbUseGDI.Name = "cbUseGDI";
-            this.cbUseGDI.Size = new System.Drawing.Size(107, 17);
+            this.cbUseGDI.Size = new System.Drawing.Size(117, 17);
             this.cbUseGDI.TabIndex = 2;
-            this.cbUseGDI.Text = "Use GDI Capture";
+            this.cbUseGDI.Text = "Windows 7 or older";
             this.cbUseGDI.UseVisualStyleBackColor = true;
             this.cbUseGDI.CheckedChanged += new System.EventHandler(this.cbDirectX_CheckedChanged);
             // 
             // cbCrosshair
             // 
             this.cbCrosshair.AutoSize = true;
-            this.cbCrosshair.Location = new System.Drawing.Point(22, 69);
+            this.cbCrosshair.Location = new System.Drawing.Point(22, 46);
             this.cbCrosshair.Name = "cbCrosshair";
             this.cbCrosshair.Size = new System.Drawing.Size(99, 17);
             this.cbCrosshair.TabIndex = 1;
@@ -699,6 +699,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.cbShowCursor3D);
             this.groupBox6.Controls.Add(this.tbScrollCursorSize);
             this.groupBox6.Controls.Add(this.hScrollCursorSize);
             this.groupBox6.Controls.Add(this.label11);
@@ -865,23 +866,24 @@
             this.tbAppearance.TabIndex = 1;
             this.tbAppearance.Text = "Appearance";
             // 
-            // cbShader
+            // cbShowCursor3D
             // 
-            this.cbShader.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbShader.Enabled = false;
-            this.cbShader.FormattingEnabled = true;
-            this.cbShader.Location = new System.Drawing.Point(255, 46);
-            this.cbShader.Name = "cbShader";
-            this.cbShader.Size = new System.Drawing.Size(185, 21);
-            this.cbShader.Sorted = true;
-            this.cbShader.TabIndex = 51;
+            this.cbShowCursor3D.AutoSize = true;
+            this.cbShowCursor3D.Enabled = false;
+            this.cbShowCursor3D.Location = new System.Drawing.Point(182, 98);
+            this.cbShowCursor3D.Name = "cbShowCursor3D";
+            this.cbShowCursor3D.Size = new System.Drawing.Size(98, 17);
+            this.cbShowCursor3D.TabIndex = 51;
+            this.cbShowCursor3D.Text = "Double Cursors";
+            this.cbShowCursor3D.UseVisualStyleBackColor = true;
+            this.cbShowCursor3D.CheckedChanged += new System.EventHandler(this.cbShowCursor3D_CheckedChanged);
             // 
             // Mainwindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(517, 522);
+            this.ClientSize = new System.Drawing.Size(513, 525);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lbIPAddress);
             this.Controls.Add(this.btStopServer);
@@ -986,8 +988,8 @@
         private System.Windows.Forms.NumericUpDown nCustomWindowWidth;
         private System.Windows.Forms.NumericUpDown nCustomWindowY;
         private System.Windows.Forms.NumericUpDown nCustomWindowX;
-        private System.Windows.Forms.CheckBox cbUseShader;
-        private System.Windows.Forms.ComboBox cbShader;
+        private System.Windows.Forms.CheckBox cbCrosshair3D;
+        private System.Windows.Forms.CheckBox cbShowCursor3D;
     }
 }
 

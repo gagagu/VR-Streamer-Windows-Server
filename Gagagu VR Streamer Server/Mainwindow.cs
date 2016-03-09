@@ -37,15 +37,12 @@ namespace Gagagu_VR_Streamer_Server
         private long lenght = 0;
         private byte[] lenbyte = null;
         private SolidBrush myBrush = new SolidBrush(Color.White);
-        private DirectX dx = null;
-        private EffectShader LensCorrection = null;
+        private DirectX dx=null;
         private EncoderParameters myEncoderParameters = new EncoderParameters(1);
         private System.Drawing.Imaging.Encoder myEncoder = System.Drawing.Imaging.Encoder.Quality;
         private ImageCodecInfo jgpEncoder;
         
         private CaptureRect cptRect =  new CaptureRect();
-
-        //private String ShaderFilename = Path.Combine(Path.Combine(Application.StartupPath,"shader"),"Shader2.ps");
 
         public Mainwindow()
         {
@@ -64,8 +61,6 @@ namespace Gagagu_VR_Streamer_Server
                 ShowIPAddresses();
                 // list all possible colors in a dropdown
                 SetCursorColors();
-                // list all shader files in shader directory
-                ShowShaderFiles();
                 // list all running processes in a drop down
                 SetProcessList();
                 // load all profiles and put them into a class
@@ -83,29 +78,6 @@ namespace Gagagu_VR_Streamer_Server
         }
 
         #region "Init"
-
-        private void ShowShaderFiles() {
-            try {
-                cbShader.Items.Clear();
-
-                string shaderpath = Path.Combine(Application.StartupPath, "shader");
-                DirectoryInfo dirInfo = new DirectoryInfo(shaderpath);
-                if (dirInfo == null)
-                    return;
-
-                FileInfo[] fInfo = dirInfo.GetFiles("*.ps");
-                foreach (FileInfo file in fInfo)
-                {
-                    cbShader.Items.Add(file.Name);
-                }
-
-                if (cbShader.Items.Count > 0)
-                    cbShader.SelectedIndex = 0;
-            }
-            catch (Exception ex) {
-                MessageBox.Show("ShowShaderFiles::Error on showing shader files. \r\n" + ex.Message);
-            }
-        }
 
         private void ShowIPAddresses() {
             try{
@@ -192,12 +164,14 @@ namespace Gagagu_VR_Streamer_Server
 
                     newProfile.ProcessName = this.tbProcess.Text;
                     newProfile.ShowCursor = this.cbShowCursor.Checked;
+                    newProfile.ShowCursor3D = this.cbShowCursor3D.Checked;
                     newProfile.CursorCorrection = this.cbCursorCorrection.Checked;
                     newProfile.BorderCorrection.top = this.hScrollTop.Value;
                     newProfile.BorderCorrection.bottom = this.hScrollBottom.Value;
                     newProfile.BorderCorrection.left = this.hScrollLeft.Value;
                     newProfile.BorderCorrection.right = this.hScrollRight.Value;
                     newProfile.ShowCrosshair = this.cbCrosshair.Checked;
+                    newProfile.ShowCrosshair3D = this.cbCrosshair3D.Checked;
                     newProfile.CorsorColorName = this.cbCursorColors.SelectedItem.ToString();
                     newProfile.CursorSize = this.hScrollCursorSize.Value;
                     newProfile.CursorCorrectionAdjWidth = this.hScrollAdjWidth.Value;
@@ -209,8 +183,7 @@ namespace Gagagu_VR_Streamer_Server
                     newProfile.CustomWindowSize.y = (int)this.nCustomWindowY.Value;
                     newProfile.CustomWindowSize.width = (int)this.nCustomWindowWidth.Value;
                     newProfile.CustomWindowSize.height = (int)this.nCustomWindowHeight.Value;
-                    newProfile.UseShader = this.cbUseShader.Checked;
-                    newProfile.ShaderName = this.cbShader.SelectedItem.ToString();
+
                     
                     // save
                     Profiles.Add(newProfile);
@@ -266,12 +239,14 @@ namespace Gagagu_VR_Streamer_Server
 
                     data.ProcessName = this.tbProcess.Text;
                     data.ShowCursor = this.cbShowCursor.Checked;
+                    data.ShowCursor3D = this.cbShowCursor3D.Checked;
                     data.CursorCorrection = this.cbCursorCorrection.Checked;
                     data.BorderCorrection.top = this.hScrollTop.Value;
                     data.BorderCorrection.bottom = this.hScrollBottom.Value;
                     data.BorderCorrection.left = this.hScrollLeft.Value;
                     data.BorderCorrection.right = this.hScrollRight.Value;
                     data.ShowCrosshair = this.cbCrosshair.Checked;
+                    data.ShowCrosshair3D = this.cbCrosshair3D.Checked;
                     data.CorsorColorName = this.cbCursorColors.SelectedItem.ToString();
                     data.CursorSize = this.hScrollCursorSize.Value;
                     data.CursorCorrectionAdjWidth = this.hScrollAdjWidth.Value;
@@ -283,9 +258,6 @@ namespace Gagagu_VR_Streamer_Server
                     data.CustomWindowSize.y = (int)this.nCustomWindowY.Value;
                     data.CustomWindowSize.width = (int)this.nCustomWindowWidth.Value;
                     data.CustomWindowSize.height = (int)this.nCustomWindowHeight.Value;
-
-                    data.UseShader = this.cbUseShader.Checked;
-                    data.ShaderName = this.cbShader.SelectedItem.ToString();
                 }
             }
             catch {
@@ -378,6 +350,7 @@ namespace Gagagu_VR_Streamer_Server
                 this.tbProcess.Text = "";
                 this.cbShowCursor.Checked = false;
                 this.cbCursorCorrection.Checked = false;
+                this.cbShowCursor3D.Checked = false;
                 this.hScrollTop.Value = 0;
                 this.hScrollBottom.Value = 0;
                 this.hScrollLeft.Value = 0;
@@ -394,7 +367,7 @@ namespace Gagagu_VR_Streamer_Server
                 this.nCustomWindowY.Value = 0;
                 this.nCustomWindowWidth.Value = 100;
                 this.nCustomWindowHeight.Value = 100;
-                this.cbUseShader.Checked = false;
+
             }
             catch (Exception ex)
             {
@@ -411,12 +384,14 @@ namespace Gagagu_VR_Streamer_Server
                     this.tbServerPort.Text = data.DataPort.ToString();
                     this.tbProcess.Text = data.ProcessName;
                     this.cbShowCursor.Checked = data.ShowCursor;
+                    this.cbShowCursor3D.Checked = data.ShowCursor3D;
                     this.cbCursorCorrection.Checked = data.CursorCorrection;
                     this.hScrollTop.Value = data.BorderCorrection.top;
                     this.hScrollBottom.Value = data.BorderCorrection.bottom;
                     this.hScrollLeft.Value = data.BorderCorrection.left;
                     this.hScrollRight.Value = data.BorderCorrection.right;
                     this.cbCrosshair.Checked = data.ShowCrosshair;
+                    this.cbCrosshair3D.Checked = data.ShowCrosshair3D;
 
                     foreach (Color cl in cbCursorColors.Items)
                     {
@@ -439,16 +414,6 @@ namespace Gagagu_VR_Streamer_Server
                     this.nCustomWindowY.Value = data.CustomWindowSize.y;
                     this.nCustomWindowWidth.Value = data.CustomWindowSize.width;
                     this.nCustomWindowHeight.Value = data.CustomWindowSize.height;
-
-                    this.cbUseShader.Checked = data.UseShader;
-                    foreach (string sh in cbShader.Items)
-                    {
-                        if (sh == data.ShaderName)
-                        {
-                            this.cbShader.SelectedItem = sh;
-                            break;
-                        }
-                    }
 
                 }
             }
@@ -539,200 +504,188 @@ namespace Gagagu_VR_Streamer_Server
             Socket listener = null;
             Socket handler = null;
 
-            String ShaderFileName = "";
-
-            if ((cbUseShader.Checked) && (cbShader.Items.Count>0))
-                ShaderFileName = Path.Combine(Path.Combine(Application.StartupPath, "shader"), Profil.ShaderName);
-
-
-            Thread STAThread = new Thread(() =>
+            try
             {
-                try
+                if (this.Profil != null) 
                 {
-                    if (this.Profil != null) 
-                    {                   
-                        listener = (Socket)ar.AsyncState;
 
-                        try
-                        {
-                            handler = listener.EndAccept(ar);
-                        }
-                        catch {
-                            if (TCPServer != null)
-                            {
-                                TCPServer.Close();
-                                TCPServer = null;
-                            }
-                            return;
-                        }
+                   
+                    listener = (Socket)ar.AsyncState;
 
-                        NetworkStream ns = new NetworkStream(handler, true);
-                        jgpEncoder = GDIGraphicTools.GetEncoder(ImageFormat.Jpeg);
-                        myEncoderParameters.Param[0] = new EncoderParameter(myEncoder, this.hScrollImageQuality.Value);
-                        cptRect.GetGameWindowRect(this.tbProcess.Text, Profil);
-                    
-                        if ((cbUseShader.Checked) && (cbShader.Items.Count>0))
-                            LensCorrection = new EffectShader(1, ShaderFileName);   
-
-                        // to split it will speed up the loop; keep it simple stupid
-                        if (cbUseGDI.Checked)
-                        {
-                            // gdi loop
-                            while ((handler.Connected) && (blStop == false))
-                            {
-                                try
-                                {
-                                    ms.SetLength(0);
-                                    bm = CaptureSpecificWindow(cptRect.getRect());
- 
-                                    if ((Profil.ShowCrosshair) || (Profil.ShowCursor))
-                                        bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush);
-                                
-                                    if ((cbUseShader.Checked) && (LensCorrection!=null))
-                                        bm = LensCorrection.ApplyShader(bm);
-
-                                    bm.Save(ms, jgpEncoder, myEncoderParameters);
-                                }
-                                catch
-                                {
-                                    ms.SetLength(0);
-                                }
-
-                                // send data
-                                try
-                                {
-                                    if ((ms != null) && (ms.Length > 0))
-                                    {
-
-                                        // may be put it on separate method
-                                        byte[] mybyt = ms.ToArray();
-                                        if (mybyt.Length > 0)
-                                        {
-                                            lenght = mybyt.Length;
-                                            lenbyte = BitConverter.GetBytes(lenght);
-                                            ns.Write(lenbyte, 0, lenbyte.Length);
-
-                                            ns.Flush();
-
-                                            ns.Write(mybyt, 0, mybyt.Length);
-                                            ns.Flush();
-                                        }
-                                    }
-                                }
-                                catch
-                                {
-                                    blStop = true;
-                                }
-                            } // while
-                        } else {
-
-                                    dx = new DirectX();
-                                    dx.SetRect(cptRect.getRect());
-
-                                    while ((handler.Connected) && (blStop == false))
-                                    {
-                                        try
-                                        {
-                                            ms.SetLength(0);
-                                            bm = dx.Capture();
-                                           
-                                            if ((Profil.ShowCrosshair) || (Profil.ShowCursor))
-                                                bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush); // needs to speed up
-
-                                            if ((cbUseShader.Checked) && (LensCorrection != null))
-                                                bm = LensCorrection.ApplyShader(bm);
-                         
-                                            bm.Save(ms, jgpEncoder, myEncoderParameters);
-
-                                        }
-                                        catch(Exception ex)
-                                        {
-                                            ms.SetLength(0);
-                                        }
-
-                                        // send data
-                                        try
-                                        {
-                                            if ((ms != null) && (ms.Length > 0))
-                                            {
-                                                // may be put it on separate method
-                                                byte[] mybyt = ms.ToArray();
-                                                if (mybyt.Length > 0)
-                                                {
-                                                    lenght = mybyt.Length;
-                                                    lenbyte = BitConverter.GetBytes(lenght);
-                                                    ns.Write(lenbyte, 0, lenbyte.Length);
-
-                                                    ns.Flush();
-
-                                                    ns.Write(mybyt, 0, mybyt.Length);
-                                                    ns.Flush();
-                                                }
-                                            }
-                                        }
-                                        catch
-                                        {
-                                            blStop = true;
-                                        }
-                                    } // while
-
-                                    dx.close();
-                                    dx = null;
-                                    LensCorrection = null;
-
-                        } // gdi or directx
-
-                        Invoke((MethodInvoker)delegate { ServerStopped(); });
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error on starting Server (Callback). \r\n" + ex.Message);
-                    blStop = true;
-
-                }
-                finally
-                {
-                
-                    if (ms != null)
+                    try
                     {
-                        try
-                        {
-                            ms.Close();
-                            ms = null;
-                        }
-                        catch { }
+                        handler = listener.EndAccept(ar);
                     }
-
-                    if ((handler != null) && (handler.Connected))
-                    {
-                        try
-                        {
-                            handler.Shutdown(SocketShutdown.Both);
-                            handler.Disconnect(false);
-                        }
-                        catch { }
-                    }
-
-                    if (TCPServer != null)
-                    {
-                        try
+                    catch {
+                        if (TCPServer != null)
                         {
                             TCPServer.Close();
                             TCPServer = null;
                         }
-                        catch { }
+                        return;
                     }
 
+                    NetworkStream ns = new NetworkStream(handler, true);
+                    jgpEncoder = GDIGraphicTools.GetEncoder(ImageFormat.Jpeg);
+                    myEncoderParameters.Param[0] = new EncoderParameter(myEncoder, this.hScrollImageQuality.Value);
 
+                    cptRect.GetGameWindowRect(this.tbProcess.Text, Profil);
+
+                    // to split it will speed up the loop; keep it simple stupid
+                    if (cbUseGDI.Checked)
+                    {
+                        // gdi loop
+                        while ((handler.Connected) && (blStop == false))
+                        {
+                            try
+                            {
+                                ms.SetLength(0);
+                                bm = CaptureSpecificWindow(cptRect.getRect());
+ 
+                                if ((Profil.ShowCrosshair) || (Profil.ShowCursor))
+                                    bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush);
+
+                                bm.Save(ms, jgpEncoder, myEncoderParameters);
+                            }
+                            catch
+                            {
+                                ms.SetLength(0);
+                            }
+
+                            // send data
+                            try
+                            {
+                                if ((ms != null) && (ms.Length > 0))
+                                {
+
+                                    // may be put it on separate method
+                                    byte[] mybyt = ms.ToArray();
+                                    if (mybyt.Length > 0)
+                                    {
+                                        lenght = mybyt.Length;
+                                        lenbyte = BitConverter.GetBytes(lenght);
+                                        ns.Write(lenbyte, 0, lenbyte.Length);
+
+                                        ns.Flush();
+
+                                        ns.Write(mybyt, 0, mybyt.Length);
+                                        ns.Flush();
+                                    }
+                                }
+                            }
+                            catch
+                            {
+                                blStop = true;
+                            }
+                        } // while
+                    }
+                    else {
+                        dx = new DirectX();
+                        dx.SetRect(cptRect.getRect());
+
+                        while ((handler.Connected) && (blStop == false))
+                        {
+                            try
+                            {
+                                ms.SetLength(0);
+                                bm = dx.Capture();
+             
+                                if ((Profil.ShowCrosshair) || (Profil.ShowCursor))
+                                    bm = GDIGraphicTools.DrawExtras(bm, cptRect.getRect(), Profil, Cursor.Position, myBrush); // needs to speed up
+
+                                bm.Save(ms, jgpEncoder, myEncoderParameters);
+
+                            }
+                            catch
+                            {
+                                ms.SetLength(0);
+                            }
+
+                            // send data
+                            try
+                            {
+                                if ((ms != null) && (ms.Length > 0))
+                                {
+                                    // may be put it on separate method
+                                    byte[] mybyt = ms.ToArray();
+                                    if (mybyt.Length > 0)
+                                    {
+                                        //float coefficient = (float)hScrollCoefficient.Value / (float)100.0f; // -0.81f;
+                                        //bool Fake3D = cbFake3d.Checked;
+                                        //float pid = 10;
+
+                                        //byte[] x = BitConverter.GetBytes(Fake3D);
+
+                                        //ns.Write(BitConverter.GetBytes(coefficient), 0, 4);
+                                        //ns.Write(BitConverter.GetBytes(Fake3D), 0, 1);
+                                        //ns.Write(BitConverter.GetBytes(pid), 0, 4);
+
+                                        lenght = mybyt.Length;
+                                        lenbyte = BitConverter.GetBytes(lenght);
+                                        ns.Write(lenbyte, 0, lenbyte.Length);
+
+                                        ns.Flush();
+
+                                        ns.Write(mybyt, 0, mybyt.Length);
+                                        ns.Flush();
+                                    }
+                                }
+                            }
+                            catch
+                            {
+                                blStop = true;
+                            }
+                        } // while
+
+                        dx.close();
+                        dx = null;
+                    } // gdi or directx
+
+                    Invoke((MethodInvoker)delegate { ServerStopped(); });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error on starting Server (Callback). \r\n" + ex.Message);
+                blStop = true;
+
+            }
+            finally
+            {
+                
+                if (ms != null)
+                {
+                    try
+                    {
+                        ms.Close();
+                        ms = null;
+                    }
+                    catch { }
                 }
 
-            });
-            STAThread.SetApartmentState(ApartmentState.STA); // is needed for shader
-            STAThread.Start();
-            STAThread.Join();
+                if ((handler != null) && (handler.Connected))
+                {
+                    try
+                    {
+                        handler.Shutdown(SocketShutdown.Both);
+                        handler.Disconnect(false);
+                    }
+                    catch { }
+                }
 
-            STAThread = null;
+                if (TCPServer != null)
+                {
+                    try
+                    {
+                        TCPServer.Close();
+                        TCPServer = null;
+                    }
+                    catch { }
+                }
+
+
+            }
+
         } // acceptCallback
 
 
@@ -778,6 +731,7 @@ namespace Gagagu_VR_Streamer_Server
 
         #endregion
 
+
         #region "GDI Capture"
         /// <summary>
         /// Capture screen over gdi
@@ -821,8 +775,8 @@ namespace Gagagu_VR_Streamer_Server
                 this.btStartServer.Enabled = false;
                 this.cbUseGDI.Enabled = false;
                 this.btStopServer.Enabled = true;
-                this.cbShader.Enabled = false;
-                this.cbUseShader.Enabled = false;
+                this.btStartServer.BackColor = Color.Green;
+               
             }
             catch (Exception ex)
             {
@@ -844,9 +798,7 @@ namespace Gagagu_VR_Streamer_Server
                 this.btStartServer.Enabled = true;
                 this.btStopServer.Enabled = false;
                 this.cbUseGDI.Enabled = true;
-                this.cbShader.Enabled = true;
-                this.cbUseShader.Enabled = true;
-
+                this.btStartServer.BackColor = SystemColors.ControlLight;
             }
             catch (Exception ex)
             {
@@ -886,6 +838,7 @@ namespace Gagagu_VR_Streamer_Server
                 if (cbShowCursor.Checked)
                 {
                     cbCursorCorrection.Enabled = true;
+                    cbShowCursor3D.Enabled = true;
                     cbCursorColors.Enabled = true;
                     hScrollAdjHeight.Enabled = true;
                     hScrollAdjWidth.Enabled = true;
@@ -895,6 +848,8 @@ namespace Gagagu_VR_Streamer_Server
                 {
                     cbCursorCorrection.Checked = false;
                     cbCursorCorrection.Enabled = false;
+                    cbShowCursor3D.Checked = false;
+                    cbShowCursor3D.Enabled = false;
                     cbCursorColors.Enabled = false;
                     hScrollAdjHeight.Enabled = false;
                     hScrollAdjWidth.Enabled = false;
@@ -1035,6 +990,16 @@ namespace Gagagu_VR_Streamer_Server
             try
             {
                 this.Profil = FillProfileWithData(null);
+                if (cbCrosshair.Checked)
+                {
+                    cbCrosshair3D.Enabled = true;
+                }
+                else
+                {
+                    cbCrosshair3D.Checked = false;
+                    cbCrosshair3D.Enabled = false;
+                }
+
             }
             catch (Exception ex)
             {
@@ -1211,25 +1176,7 @@ namespace Gagagu_VR_Streamer_Server
             }
         }
 
-        private void cbUseShader_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (this.cbUseShader.Checked)
-                {
-                    this.cbShader.Enabled = true;
-                }
-                else
-                {
-                    this.cbShader.Enabled = false;
-                }
-                this.Profil = FillProfileWithData(null);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("cbUseShader_CheckedChanged::" + ex.Message);
-            }
-        }
+
 
         #endregion
 
@@ -1242,8 +1189,32 @@ namespace Gagagu_VR_Streamer_Server
             }
         }
 
+
         #endregion
 
+        private void cbCrosshair3D_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Profil = FillProfileWithData(null);
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("cbCrosshair3D_CheckedChanged::" + ex.Message);
+            }
+        }
+
+        private void cbShowCursor3D_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Profil = FillProfileWithData(null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("cbShowCursor3D_CheckedChanged::" + ex.Message);
+            }
+        }
     }
 }

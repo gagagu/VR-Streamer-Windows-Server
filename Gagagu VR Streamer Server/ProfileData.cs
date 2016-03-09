@@ -24,19 +24,18 @@ namespace Gagagu_VR_Streamer_Server
         public int ImageQuality { get; set; }
         public Boolean CustomWindow { get; set; }
         public Boolean ShowCrosshair { get; set; }
+        public Boolean ShowCrosshair3D { get; set; }
 
         // Cursor
+
         public Boolean ShowCursor { get; set; }
+        public Boolean ShowCursor3D { get; set; }
         public Boolean CursorCorrection { get; set; }
         public String CorsorColorName { get; set; }
         public int CursorSize { get; set; }
         public int CursorCorrectionAdjWidth { get; set; }
         public int CursorCorrectionAdjHeight { get; set; }
        
-
-        // Shader
-        public String ShaderName { get; set; }
-        public Boolean UseShader { get; set; }
 
         // Subclass for border correction
         [XmlElement("BorderCorrection")] 
@@ -90,6 +89,7 @@ namespace Gagagu_VR_Streamer_Server
             // graphics
             this.BorderCorrection = new BorderCorrectionData();
             this.ShowCrosshair = false;
+            this.ShowCrosshair3D = false;
             this.UseGDICapture = false;
             this.ImageQuality = 50;
             this.CustomWindow = false;
@@ -97,15 +97,13 @@ namespace Gagagu_VR_Streamer_Server
 
             // cursor
             this.ShowCursor = false;
+            this.ShowCursor3D = false;
             this.CursorCorrection = false; 
             this.CorsorColorName = "";
             this.CursorSize = 5;
             this.CursorCorrectionAdjWidth = 0;
             this.CursorCorrectionAdjHeight = 0;
 
-            // SHader
-            this.ShaderName = "";
-            this.UseShader = false;
         }
     }
 }

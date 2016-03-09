@@ -15,7 +15,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
-using System.Threading;
 
 
 namespace Gagagu_VR_Streamer_Server
@@ -53,7 +52,6 @@ namespace Gagagu_VR_Streamer_Server
         private int pWidth = 0;
         private bool isInCapture = false;
 
-
         /// <summary>
         /// Init some variables one times to spend execution time.
         /// </summary>
@@ -62,7 +60,6 @@ namespace Gagagu_VR_Streamer_Server
 
             try
             {
-
                 factory = new Factory1();
                 adapter = factory.GetAdapter1(numAdapter);
                 device = new Device(adapter);
@@ -162,7 +159,6 @@ namespace Gagagu_VR_Streamer_Server
                                 device.ImmediateContext.CopyResource(screenTexture2D, screenTexture);
 
                             mapSource = device.ImmediateContext.MapSubresource(screenTexture, 0, MapMode.Read, MapFlags.None);
-
                             mapDest = bitmap.LockBits(new System.Drawing.Rectangle(0, 0, captureRect.Width, captureRect.Height),
                                                                   ImageLockMode.WriteOnly, bitmap.PixelFormat);
 
@@ -178,7 +174,7 @@ namespace Gagagu_VR_Streamer_Server
                             {
                                 // set pointer to x position
                                 sourcePtr = IntPtr.Add(sourcePtr, offsetX);
-
+                                
                                 // copy pixel to bmp
                                 Utilities.CopyMemory(destPtr, sourcePtr, pWidth);
 
@@ -198,17 +194,7 @@ namespace Gagagu_VR_Streamer_Server
                         screenResource.Dispose();
                         duplicatedOutput.ReleaseFrame();
 
-                        //Thread STAThread = new Thread(() =>
-                        //{
-                            //EffectShader x = new EffectShader(captureRect.Width, captureRect.Height, 1, ShaderFilename);
-                            //bitmap = x.ApplyShader(bitmap);
-                            //x = null;
-                        //});
-                        //STAThread.SetApartmentState(ApartmentState.STA);
-                        //STAThread.Start();
-                        //STAThread.Join();
 
-                        //STAThread = null;
 
                     }
                     catch//(Exception ex)  //                    catch (SharpDXException e)
