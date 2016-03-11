@@ -12,7 +12,7 @@ head tracking application (like Opentack with my special gvrs plugin https://git
 - the project is made with Visual Studio 2015
 - SharpDX ist needed https://github.com/sharpdx/SharpDX
 
-## Installation
+## Tutorial
 
 [![Tutorial](http://img.youtube.com/vi/-m5gF1zoQ90/0.jpg)](http://www.youtube.com/watch?v=-m5gF1zoQ90 "Tutorial")
 
