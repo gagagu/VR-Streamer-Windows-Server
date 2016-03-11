@@ -15,7 +15,7 @@ head tracking application (like Opentack with my special gvrs plugin https://git
 ## Installation
 - **setup**: Use the setup.exe for installation
 
-See the wiki page for more information.
+[![Tutorial](http://img.youtube.com/vi/-m5gF1zoQ90/0.jpg)](http://www.youtube.com/watch?v=-m5gF1zoQ90 "Tutorial")
 
 ## Licensing
  
