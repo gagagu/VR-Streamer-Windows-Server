@@ -13,7 +13,6 @@ head tracking application (like Opentack with my special gvrs plugin https://git
 - SharpDX ist needed https://github.com/sharpdx/SharpDX
 
 ## Installation
-- **setup**: Use the setup.exe for installation
 
 [![Tutorial](http://img.youtube.com/vi/-m5gF1zoQ90/0.jpg)](http://www.youtube.com/watch?v=-m5gF1zoQ90 "Tutorial")
 
